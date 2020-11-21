@@ -27,7 +27,7 @@
           {% include srcset-img.html class="me" img=author.picture alt=author.name %}
         {% endif %}
       </div>
-      {{ site.description | truncatewords:50 | markdownify | text-align: center | scssify }}
+      {{ site.description | truncatewords:50 | markdownify }}
       {% assign author = site.data.authors.first[1] %}
       {% if author.social %}
         <div class="sidebar-social">
