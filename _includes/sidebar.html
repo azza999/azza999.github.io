@@ -22,12 +22,12 @@
       </nav>
     <br/>
     <br/>
-      <div class="sidebar-box">
+      <div class="sidebar-box" >
         {% if author.picture %}
           {% include srcset-img.html class="me" img=author.picture alt=author.name %}
         {% endif %}
       </div>
-      {{ site.description | truncatewords:50 | markdownify }}
+      {{ site.description | truncatewords:50 | markdownify | text-align: center | scssify }}
       {% assign author = site.data.authors.first[1] %}
       {% if author.social %}
         <div class="sidebar-social">
