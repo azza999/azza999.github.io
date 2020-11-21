@@ -18,7 +18,9 @@ tagline:             행복을 찾아 떠난 개발자
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  행복을 찾아 떠난 개발자.
+  We Are Young
+  내게 주어진 기회를 놓치지 않도록.
+
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
