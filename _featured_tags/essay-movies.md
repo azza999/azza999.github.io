@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Jekyll
-slug: jekyll
-category: devlog
+title: Movies
+slug: movies
+category: essay
 menu: false
 order: 3
 ---

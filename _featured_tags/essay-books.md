@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Food
-slug: food
-category: review
+title: Books
+slug: books
+category: essay
 menu: false
 order: 2
 ---
