@@ -19,8 +19,6 @@ hard_wrap: true
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jFlEOIBQTpI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
-<br>
-<br>
 
 # 한국인이 행복하지 않은 이유
 ___
@@ -35,7 +33,7 @@ ___
 ___
 
 
-교수님 소개 https://cms2.ks.ac.kr/media/sub.do?mCode=MN0018&mode=view&idx=PS0002
+<a href="https://cms2.ks.ac.kr/media/sub.do?mCode=MN0018&mode=view&idx=PS0002">교수님 소개</a>
 
 김선진 교수님의 책인 『재미의 본질』을 읽어보지는 않았지만, 책의 제목만 봐도 김선진 교수님이 얼마나 '재미'를 추구하는지 알 수 있을 것 같다.
 <br>
