@@ -103,7 +103,7 @@
   {% include styles/inline.scss %}
   {% endcapture %}
   {{ include_to_scssify | scssify }}
-  * { word-break: keep-all; }
+  * { word-break: keep-all !important; }
 </style>
 
 {% capture style_url %}{% link assets/css/hydejack.css %}?v=6.4.0{% endcapture %}
