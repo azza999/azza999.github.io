@@ -1,6 +1,6 @@
 ---
 layout:		post
-title:		"[세바시 강연] 131번 - 원하는 대로 살고 싶다면 '박스'를 탈출하라"
+title:		"[세바시 강연] 원하는 대로 살고 싶다면 '박스'를 탈출하라"
 subtitle:	"'되고'싶은 것과 '하고' 싶은 것."
 categories:	essay
 tags:		life
