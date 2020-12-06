@@ -18,8 +18,9 @@ hard_wrap: true
 <br>
 
 # 생각할 시간이 없다.
-
-<p style="opacity: 0.5; text-align: center;">잃어버린 혼자만의 시간</p>
+<br>
+<br>
+<p style="opacity: 0.5; ">잃어버린 혼자만의 시간</p>
 <br>
 <br>
 
