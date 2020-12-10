@@ -127,14 +127,13 @@ compress_html:
 sass:
   style:             compressed
 
-comments:
-  provider               : "disqus" # 블로그 댓글 기능 false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
-  disqus:
-    shortname            : "azza999" # 블로그 댓글 기능 https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+
+disqus_shortname            : "azza999" # 블로그 댓글 기능 https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+
 # Defaults
 defaults:
   # _posts
-  - scope:
+    scope:
       path: ""
       type: posts
     values:
