@@ -4,7 +4,7 @@ title:		"[세바시 강연] 원하는 대로 살고 싶다면 '박스'를 탈출
 subtitle:	"'되고'싶은 것과 '하고' 싶은 것."
 categories:	essay
 tags:		life
-hard_wrap: true
+hard_wrap:	true
 comments:	true
 
 ---
