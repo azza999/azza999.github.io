@@ -48,9 +48,6 @@ google_fonts:        Lato
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:    UA-92346434-1
 
-# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    azza999
-
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2020. by azza999'
 
@@ -129,3 +126,21 @@ compress_html:
 
 sass:
   style:             compressed
+
+comments:
+  provider               : "disqus" # 블로그 댓글 기능 false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  disqus:
+    shortname            : "azza999" # 블로그 댓글 기능 https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
