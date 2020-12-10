@@ -127,19 +127,4 @@ compress_html:
 sass:
   style:             compressed
 
-
-disqus_shortname            : "azza999" # 블로그 댓글 기능 https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-
-# Defaults
-defaults:
-  # _posts
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+disqus_shortname:    azza999
