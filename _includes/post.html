@@ -22,7 +22,6 @@
   {% endunless %}
   {% endfor %}
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   {% unless include.excerpt %}
   <div class="markdown-body">
 
@@ -70,9 +69,6 @@
     <br />
     <br />
   </div>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
   {% else %}
   {{ post.excerpt }}
   <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a>

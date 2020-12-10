@@ -4,6 +4,7 @@ title:		"[세바시 강연] 한국인이 행복하지 않은 이유"
 subtitle:	"더 많은 행복을 추구하는 한국인"
 categories:	about-happy
 tags:		about-happy
+comments:	true
 hard_wrap: true
 
 ---

@@ -5,6 +5,7 @@ subtitle:	"내 페이지의 가독성은 왜 이모양일까...?"
 categories:	dev
 tags:		web
 hard_wrap: true
+comments:	true
 
 ---
 

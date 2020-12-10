@@ -5,6 +5,7 @@ subtitle:	"'되고'싶은 것과 '하고' 싶은 것."
 categories:	essay
 tags:		life
 hard_wrap: true
+comments:	true
 
 ---
 

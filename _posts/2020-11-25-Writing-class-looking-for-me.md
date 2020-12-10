@@ -4,6 +4,7 @@ title:		"[작가 권민창] 나를 찾는 글쓰기 클래스"
 subtitle:	"너무도 닮고싶은 선배님"
 categories:	essay
 tags:		books
+comments:	true
 hard_wrap: true
 
 ---

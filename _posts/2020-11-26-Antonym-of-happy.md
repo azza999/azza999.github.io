@@ -5,6 +5,7 @@ subtitle:	"행복은 떠오르는 것이 아니라 찾는 것이다"
 categories:	about-happy
 tags:		about-happy
 hard_wrap: true
+comments:	true
 
 ---
 

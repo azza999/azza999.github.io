@@ -5,6 +5,7 @@ subtitle:	"잃어버린 혼자만의 시간"
 categories:	essay
 tags:		life
 hard_wrap: true
+comments:	true
 
 ---
 
