@@ -99,12 +99,14 @@
 
 <script>
 console.log('reset disqus');
-DISQUS.reset({
-  reload: true,
-  config: function () {  
-    this.page.title = '{{ page.title }}';
-    this.page.identifier = "{{ page.id }}";  
-    this.page.url = "{{ page.url | absolute_url }}";
-  }
-});
+setTimeout(function() {
+  DISQUS.reset({
+    reload: true,
+    config: function () {  
+      this.page.title = '{{ page.title }}';
+      this.page.identifier = "{{ page.id }}";  
+      this.page.url = "{{ page.url | absolute_url }}";
+    }
+  });
+},100)
 </script>
