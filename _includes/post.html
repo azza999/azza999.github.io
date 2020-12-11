@@ -98,14 +98,12 @@
 {% endunless %}
 
 <script>
-  if (window.DISQUS != undefined) {
-    DISQUS.reset({
-      reload: true,
-      config: function () {  
-        this.page.title = '{{ page.title }}';
-        this.page.identifier = "{{ page.id }}";  
-        this.page.url = "{{ page.url | absolute_url }}";
-      }
-    });
-  }
+  DISQUS.reset({
+    reload: true,
+    config: function () {  
+      this.page.title = '{{ page.title }}';
+      this.page.identifier = "{{ page.id }}";  
+      this.page.url = "{{ page.url | absolute_url }}";
+    }
+  });
 </script>
