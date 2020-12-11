@@ -38,4 +38,4 @@ window.disqus_reload = function(w, d) {
   }
 }
 
-disqus_reload(window, document);
+; window.disqus_reload(window, document);
