@@ -1,5 +1,3 @@
-// Compress via uglify:
-// uglifyjs load-disqus.js -c -m > load-disqus.min.js
 window.disqus_reload = function(w, d) {
   var disqus_config = function () {
     this.page.title = '{{ page.title }}';
