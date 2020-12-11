@@ -30,7 +30,6 @@ window.disqus_reload = function(w, d) {
 
     loadJSDeferred('//{{ site.disqus_shortname }}.disqus.com/embed.js');
 
-    // add event listener
     if (w.addEventListener) w.addEventListener('scroll', loadDQ, { passive: true });
     else if (w.attachEvent) w.attachEvent('onscroll', loadDQ);
     else w.onscroll = loadDQ;
