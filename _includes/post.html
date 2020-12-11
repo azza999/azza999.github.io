@@ -96,3 +96,16 @@
 </div>
 <br />
 {% endunless %}
+
+<script>
+  if (typeof DISQUS != undefined) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {  
+        this.page.title = '{{ page.title }}';
+        this.page.identifier = "{{ page.id }}";  
+        this.page.url = "{{ page.url | absolute_url }}";
+      }
+    });
+  }
+</script>
