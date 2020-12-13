@@ -14,8 +14,8 @@ window.disqus_reload = function(w, d) {
     var scrollTop = w.pageYOffset || d.body.scrollTop;
     if ( w.DISQUS &&
         !w._disqusThis &&
-        !w._disqusFirst &&
-        scrollTop + w.innerHeight >= w._disqusThreadOffsetTop) {
+        !w._disqusFirst
+        /*&& scrollTop + w.innerHeight >= w._disqusThreadOffsetTop*/) {
 
       w._disqusThis = true;
       w.DISQUS.reset({

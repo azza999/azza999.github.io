@@ -99,7 +99,7 @@
 
 <script>
 console.log('reset disqus');
-setTimeout(function() {
+/*setTimeout(function() {*/
   DISQUS.reset({
     reload: true,
     config: function () {  
@@ -108,5 +108,5 @@ setTimeout(function() {
       this.page.url = "{{ page.url | absolute_url }}";
     }
   });
-},100)
+/*},100)*/
 </script>
