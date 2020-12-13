@@ -98,7 +98,7 @@ collections:
 gems:
   - jekyll-feed
   - jekyll-sitemap
-  # - jekyll-paginate
+  - jekyll-paginate
   - jekyll-redirect-from
 
 exclude:

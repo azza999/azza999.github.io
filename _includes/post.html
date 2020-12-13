@@ -100,13 +100,6 @@
 <script>
 console.log('reset disqus');
 /*setTimeout(function() {*/
-  DISQUS.reset({
-    reload: true,
-    config: function () {  
-      this.page.title = '{{ page.title }}';
-      this.page.identifier = "{{ page.id }}";  
-      this.page.url = "{{ page.url | absolute_url }}";
-    }
-  });
+DISQUS.reset({});
 /*},100)*/
 </script>
