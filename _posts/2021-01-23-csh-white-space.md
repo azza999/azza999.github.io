@@ -2,8 +2,8 @@
 layout:		post
 title:		"[LINUX/UNIX] 에러 메세지 리다이렉트 문제"
 subtitle:	"에러 스킵이 이상한데?"
-categories:	dev
-tags:		os
+categories:	os
+tags:		redirect find permission
 comments:	true
 hard_wrap: true
 
