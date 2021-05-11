@@ -25,9 +25,9 @@ hard_wrap: true
 
 참고로 다음과 같은 문자열 지정 방식도 모두 가능하다)
 
-> print('abc' 'def')			# abcdef
-> print('abc' "def")			# abcdef
-> print('abc' """def""")		# abcdef
-> print('abc' """def
-> 
-> """)							# abcdef
+> print('abc' 'def')			# abcdef  
+> print('abc' "def")			# abcdef  
+> print('abc' """def""")		# abcdef  
+> print('abc' """def  
+>   
+> """)							# abcdef  
