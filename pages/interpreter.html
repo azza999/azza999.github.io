@@ -8,7 +8,7 @@
 <body>
 <h3>짱짱 쎈 액션빔 디버거</h3>
 <div id="area" style="position: relative;">
-<textarea id="code" cols="100" rows="30" placeholder="input your code!" style="background: transparent;">
+<textarea id="code" cols="100" rows="30" placeholder="input your code!" style="line-height: 15px;background: transparent;">
 >''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''L@v
 v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 >'''''''''''''''''''''''''''''L@v
@@ -88,7 +88,7 @@ const controller = {
 		this.$hlter = document.createElement('div')
 		this.$area = document.getElementById('area')
 		this.$hlter.style.width = "7px"
-		this.$hlter.style.height = "12px"
+		this.$hlter.style.height = "15px"
 		this.$hlter.style.position = "absolute"
 		this.$hlter.style.backgroundColor = "red"
 		this.$hlter.style.display = "none"
@@ -141,9 +141,9 @@ const controller = {
 				this.isrunning = true
 			}
 
-			const interval = setInterval(_=>{
+			this.interval = setInterval(_=>{
 				if (this.keepgoing == 0)
-					clearInterval(interval)
+					clearInterval(this.interval)
 				this.step()
 			},this.$interval.value)
 		}
@@ -334,8 +334,8 @@ const controller = {
 		this.$var2.innerText = this.v18
 		this.$heap.innerText = this.ptr.join(',')
 		this.$hlter.style.display = "block"
-		this.$hlter.style.left = 3 + this.x*7.2 +"px"
-		this.$hlter.style.top = 3 + this.y*10 + this.y*4.5 +"px"
+		this.$hlter.style.left = 3 + this.x*7 +"px"
+		this.$hlter.style.top = 3 + this.y*10 + this.y*5 - 1 +"px"
 	}
 }
 
