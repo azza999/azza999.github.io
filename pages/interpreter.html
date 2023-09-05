@@ -163,7 +163,7 @@ const controller = {
 	},
 	reset : function () {
 		obj = this.parse()
-		this.input = this.$in.value
+		this.input = this.$in.value.split('')
 		this.$out.value = ""
 		this.code = obj.code
 		this.width = obj.width
@@ -177,7 +177,6 @@ const controller = {
 		this.codecount = 0;
 		this.output_file = []
 		this.ptr = []
-		this.isrunning = false
 	},
 	execute : function (){
 		while ( this.keepgoing == 1 )
@@ -287,7 +286,7 @@ const controller = {
 
 			// 쉬운 것들
 			case 'r':                                 // r : input_file의 내용을 읽어서 c에 저장
-				this.c = this.input.shift();
+				this.c = this.input.shift().charCodeAt();
 				if ( this.c == -1 )
 					this.c = 0;
 				break;
