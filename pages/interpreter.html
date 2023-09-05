@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>짱짱 쎈 액션빔 디버거</title>
+</head>
+<body>
+<h3>짱짱 쎈 액션빔 디버거</h3>
+<div id="area" style="position: relative;">
+<textarea id="code" cols="100" rows="30" placeholder="input your code!" style="background: transparent;">
+>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''L@v
+v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>'''''''''''''''''''''''''''''L@v
+v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>'''''''L@v
+v<<<<<<<<<<
+>L@v
+v<<<
+>'''L@v
+v<<<<<<
+>```````````````````````````````````````````````````````````````````````````````L@v
+v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''L@v
+v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>'''L@v
+v<<<<<<
+>````L@v
+v<<<<<<<
+>''''''''''''L@v
+v<<<<<<<<<<<<<<<
+>````````````````````````````````````````````````````````````````````````````L@v
+v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+H
+</textarea>
+<div style="display: inline-block;">
+	<p>position : <span id="x">0</span> , <span id="y">0</span></p>
+	<p>code : <span id="char"></span></p>
+	<p>variable : <span id="var1">0</span> , <span id="var2">0</span></p>
+	<p>heap : <span id="heap"></span></p>
+</div>
+</div>
+<br>
+<div>
+	<button id="exec">실행</button>
+	<button id="step">한 단계 실행</button>
+	<button id="step10">10 단계 실행</button>
+	<button id="auto">자동실행</button>
+	<button id="reset">초기화</button>
+	<table>
+		<tr>
+			<td>input_file :</td>
+			<td>output_file :</td>
+			<td>자동실행 간격</td>
+		</tr>
+		<tr>
+			<td><textarea id="in" cols="30" rows="10" placeholder="only printable characters"></textarea></td>
+			<td><textarea id="out" cols="30" rows="10" placeholder="output"></textarea></td>
+			<td style="vertical-align: text-top;"><input type="number" placeholder="millisecond" value="20" id="interval"></td>
+		</tr>
+	</table>
+</div>
+
+<script>
+
+
+
+
+
+
+const controller = {
+	init : function () {
+		this.$code = document.getElementById('code')
+		this.$in = document.getElementById('in')
+		this.$out = document.getElementById('out')
+		this.$x = document.getElementById('x')
+		this.$y = document.getElementById('y')
+		this.$c = document.getElementById('char')
+		this.$var1 = document.getElementById('var1')
+		this.$var2 = document.getElementById('var2')
+		this.$heap = document.getElementById('heap')
+		this.$exec = document.getElementById('exec')
+		this.$step = document.getElementById('step')
+		this.$step10 = document.getElementById('step10')
+		this.$auto = document.getElementById('auto')
+		this.$reset = document.getElementById('reset')
+		this.$interval = document.getElementById('interval')
+		this.$hlter = document.createElement('div')
+		this.$area = document.getElementById('area')
+		this.$hlter.style.width = "7px"
+		this.$hlter.style.height = "12px"
+		this.$hlter.style.position = "absolute"
+		this.$hlter.style.backgroundColor = "red"
+		this.$hlter.style.display = "none"
+		this.$hlter.style.zIndex = "-1"
+		this.$area.appendChild(this.$hlter)
+		this.isrunning = false
+
+		this.obj = null
+		this.code = null
+		this.width = null
+		this.height = null
+		this.input = null
+		this.keepgoing = 0;
+		this.direction = 0;
+		this.x = 0;
+		this.y = 0;
+		this.c = 0;
+		this.v18 = 0;
+		this.codecount = 0;
+		this.output_file = []
+		this.ptr = []
+
+
+		this.initEvent()
+	},
+	initEvent : function () {
+		this.$exec.onclick = e=>{
+			this.reset()
+			this.execute()
+		}
+		this.$step.onclick = e=>{
+			if (this.isrunning === false) {
+				this.reset()
+				this.isrunning = true
+			}
+			this.step()
+		}
+		this.$step10.onclick = e=>{
+			if (this.isrunning === false) {
+				this.reset()
+				this.isrunning = true
+			}
+			for (let i = 0; i < 10; i++) {
+				this.step()
+			}
+		}
+		this.$auto.onclick = e=>{
+			if (this.isrunning === false) {
+				this.reset()
+				this.isrunning = true
+			}
+
+			const interval = setInterval(_=>{
+				if (this.keepgoing == 0)
+					clearInterval(interval)
+				this.step()
+			},this.$interval.value)
+		}
+		this.$reset.onclick = e=>{
+			this.reset()
+		}
+	},
+	parse : function () {
+		code = this.$code.value.split('\n')
+		code = code.map(_=>_.split(''))
+		width = code.reduce((a,b)=>Math.max(a.length === undefined ? a : a.length,b.length))
+		return {code:code, width:width, height:code.length}
+	},
+	reset : function () {
+		obj = this.parse()
+		this.input = this.$in.value
+		this.$out.value = ""
+		this.code = obj.code
+		this.width = obj.width
+		this.height = obj.height
+		this.keepgoing = 1;
+		this.direction = 0;
+		this.x = 0;
+		this.y = 0;
+		this.c = 0;
+		this.v18 = 0;
+		this.codecount = 0;
+		this.output_file = []
+		this.ptr = []
+		this.isrunning = false
+	},
+	execute : function (){
+		while ( this.keepgoing == 1 )
+		{
+			this.step()
+		}
+	},
+	step : function () {
+		switch ( this.code[this.y][this.x] )
+		{
+			// 고정 방향 전환 ================================
+			case 'v':
+				this.direction = 2;
+				break;
+			case '^':
+				this.direction = 3;
+				break;
+			case '<':
+				this.direction = 1;
+				break;
+			case '>':
+				this.direction = 0;
+				break;
+			// 값 조절 ================================================================
+			case '\'':
+				this.v18++;
+				break;
+			case '`':
+				--this.v18;
+				break;
+			case '+':
+				this.c = (this.c + 1) % 256;
+				break;
+			case '-':
+				this.c = (this.c - 1) % 256;
+				break;
+
+			// this.v18 값에 따라 방향 전환 ================================
+			case '(':
+				if ( this.v18 )
+					this.direction = 0;
+				break;
+			case ')':
+				if ( this.v18 )
+					this.direction = 1;
+				break;
+
+			// c 값에 따라 방향 전환 ================================
+			case '!':                                 // c가 0이 아니면 튕김
+				this.direction ^= this.c != 0;
+				break;
+			case '?':                                 // C가 0이면 튕김
+				this.direction ^= this.c == 0;
+				break;
+
+			// c != this.v18이면 방향 전환
+			case 'u':                                 // c==this.v18이면 위로감
+				if ( this.c != this.v18 )
+					this.direction = 3;
+				break;
+			case 'n':                                 // c==18이면 아래로 감
+				if ( this.c != this.v18 )
+					this.direction = 2;
+				break;
+
+
+			// 변수 조작
+			case 'P':                                 // ptr[this.v18]에다 c를 기록
+				if ( this.v18 <= 0xFFF )
+					this.ptr[this.v18] = this.c;
+				break;
+			case 'p':
+				if ( this.v18 <= 0xFFF )
+					this.c = this.ptr[this.v18];
+				break;
+			case 'g':                                 // 읽은 내용을 this.v18에 옮김
+				if ( this.c <= 0xFFF )
+					this.v18 = this.ptr[this.c];
+				break;
+			case 's':                                 // this.ptr[c]를 변수 저장 공간으로 활용 가능...?
+				if ( this.c <= 0xFFF )
+					this.ptr[this.c] = this.v18;
+				break;
+
+			// 반드시 방향 전환 (쓸 일 없지 않을까 싶음)
+			case '/':                                 // \ 모양으로 튕김
+				this.direction ^= 3;
+				break;
+			case '\\':                                // / 모양으로 튕김
+				this.direction ^= 2;
+				break;
+			// 튕기기 (쓸 일 없음)
+			case '|':                                 // 수평방향일 때 좌우반전
+				if ( this.direction == 1 || this.direction == 0 )
+					this.direction ^= 1;
+				break;
+			case '_':                                 // direcction이 수직 방향일 때 좌우반전
+				if ( this.direction == 2 || this.direction == 3 )
+					this.direction ^= 1;
+				break;
+
+			// 쉬운 것들
+			case 'r':                                 // r : input_file의 내용을 읽어서 c에 저장
+				this.c = this.input.shift();
+				if ( this.c == -1 )
+					this.c = 0;
+				break;
+			case ':':                                 // : 누르면 c를 숫자로 기록
+				this.$out.value += (this.c)
+				break;
+			case '@':                                 // @ : C를 기록(문자로)
+				this.$out.value += (String.fromCharCode(this.c))
+				break;
+			case 'H':                                 // H 입력하면 끝남
+				this.keepgoing = 0;
+				break;
+			case 'L':                                 // C에다 this.v18 값을 기록. this.v18을 적절한 숫자로 맞추고 C에 쓰면 됨
+				this.c = this.v18;
+				break;
+			case 'S':                                 // this.V18에다 C값을 기록
+				this.v18 = this.c;
+				break;
+			default:
+				break;
+		}
+		switch (this.direction) {
+			case 0:
+				this.x++
+				break
+			case 1:
+				this.x--
+				break
+			case 2:
+				this.y++
+				break
+			case 3:
+				this.y--
+				break
+		}
+		if ( this.keepgoing == 1 && (this.x < 0 || this.x >= this.width || this.y < 0 || this.y >= this.height) ) {
+			alert('out of range!')
+			this.keepgoing = 0
+			return
+		}
+			
+		if ( ++this.codecount > 0x10000 ) {
+			alert('infinite loop?')
+			this.keepgoing = 0
+			return
+		}
+		this.render()
+	},
+	render : function () {
+		this.$x.innerText = this.x
+		this.$y.innerText = this.y
+		this.$c.innerText = this.code[this.y][this.x]
+		this.$var1.innerText = this.c
+		this.$var2.innerText = this.v18
+		this.$heap.innerText = this.ptr.join(',')
+		this.$hlter.style.display = "block"
+		this.$hlter.style.left = 3 + this.x*7.2 +"px"
+		this.$hlter.style.top = 3 + this.y*10 + this.y*4.5 +"px"
+	}
+}
+
+window.onload = e=> {
+	controller.init()
+}
+
+
+</script>
+</body>
+</html>
