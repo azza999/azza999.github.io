@@ -34,7 +34,7 @@ v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 H
 </textarea>
 <div style="display: inline-block;">
-	<p>position : <span id="x">0</span> , <span id="y">0</span></p>
+	<p>position : <span id="y">0</span> , <span id="x">0</span></p>
 	<p>code : <span id="char"></span></p>
 	<p>variable : <span id="var1">0</span> , <span id="var2">0</span></p>
 	<p>heap : <span id="heap"></span></p>
@@ -136,19 +136,23 @@ const controller = {
 			}
 		}
 		this.$auto.onclick = e=>{
+			clearInterval(this.interval)
 			if (this.isrunning === false) {
 				this.reset()
 				this.isrunning = true
 			}
 
 			this.interval = setInterval(_=>{
-				if (this.keepgoing == 0)
+				if (this.keepgoing == 0) {
 					clearInterval(this.interval)
+					this.isrunning = false
+				}
 				this.step()
 			},this.$interval.value)
 		}
 		this.$reset.onclick = e=>{
 			this.reset()
+			clearInterval(this.interval)
 		}
 	},
 	parse : function () {
@@ -185,6 +189,7 @@ const controller = {
 		if ( this.keepgoing == 1 && (this.x < 0 || this.x >= this.width || this.y < 0 || this.y >= this.height) ) {
 			alert('out of range!')
 			this.keepgoing = 0
+			this.isrunning = false
 			return
 		}
 		switch ( this.code[this.y][this.x] )
@@ -322,6 +327,7 @@ const controller = {
 		if ( ++this.codecount > 0x10000 ) {
 			alert('infinite loop?')
 			this.keepgoing = 0
+			this.isrunning = false
 			return
 		}
 		this.render()
