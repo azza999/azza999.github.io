@@ -1,4 +1,146 @@
----
-layout: blog
-title: Home
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediaMTX Loopback CORS/LNA Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; }
+    input { width: 100%; box-sizing: border-box; padding: 8px; }
+    button { margin: 8px 8px 8px 0; padding: 8px 12px; }
+    pre { white-space: pre-wrap; background: #f4f4f4; padding: 12px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>MediaMTX Loopback CORS/LNA Test</h1>
+  <p>This page performs only bounded runtime configuration reads and a temporary logLevel change, then restores the original value.</p>
+
+  <label>
+    API base
+    <input id="base" value="http://localhost:19997/v3">
+  </label>
+
+  <div>
+    <button id="read">Read config</button>
+    <button id="run">Run bounded mutation test</button>
+  </div>
+
+  <pre id="out"></pre>
+
+<script>
+const out = document.getElementById("out");
+const baseInput = document.getElementById("base");
+
+function write(v) {
+  out.textContent += (typeof v === "string" ? v : JSON.stringify(v, null, 2)) + "\n";
+}
+
+async function req(path, options = {}) {
+  const base = baseInput.value.replace(/\/+$/, "");
+  const url = base + path;
+  const opts = {
+    mode: "cors",
+    credentials: "omit",
+    cache: "no-store",
+    ...options,
+  };
+
+  write(`--> ${opts.method || "GET"} ${url}`);
+  try {
+    const r = await fetch(url, opts);
+    const text = await r.text();
+    let body = text;
+    try { body = JSON.parse(text); } catch (_) {}
+    const result = {
+      ok: r.ok,
+      status: r.status,
+      allowOrigin: r.headers.get("access-control-allow-origin"),
+      body
+    };
+    write(result);
+    return result;
+  } catch (e) {
+    const result = { fetchRejected: true, name: e.name, message: e.message };
+    write(result);
+    throw e;
+  }
+}
+
+async function getGlobal() {
+  const r = await req("/config/global/get");
+  if (!r.ok) throw new Error(`GET failed: HTTP ${r.status}`);
+  return r.body;
+}
+
+async function patchLogLevel(level) {
+  const r = await req("/config/global/patch", {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ logLevel: level }),
+  });
+  if (!r.ok) throw new Error(`PATCH failed: HTTP ${r.status}`);
+  return r;
+}
+
+document.getElementById("read").onclick = async () => {
+  out.textContent = "";
+  write({
+    pageOrigin: location.origin,
+    isSecureContext: window.isSecureContext,
+    userAgent: navigator.userAgent,
+  });
+  try {
+    await getGlobal();
+  } catch (e) {
+    write(`RESULT: blocked/failed: ${e.message}`);
+  }
+};
+
+document.getElementById("run").onclick = async () => {
+  out.textContent = "";
+  write({
+    pageOrigin: location.origin,
+    isSecureContext: window.isSecureContext,
+    userAgent: navigator.userAgent,
+  });
+
+  let original;
+  try {
+    const before = await getGlobal();
+    original = before.logLevel;
+    const temporary = original === "debug" ? "info" : "debug";
+
+    write(`Original logLevel: ${original}`);
+    write(`Temporary logLevel: ${temporary}`);
+
+    await patchLogLevel(temporary);
+    const after = await getGlobal();
+
+    if (after.logLevel !== temporary) {
+      throw new Error(`readback mismatch: expected ${temporary}, got ${after.logLevel}`);
+    }
+
+    await patchLogLevel(original);
+    const restored = await getGlobal();
+
+    if (restored.logLevel !== original) {
+      throw new Error(`restore mismatch: expected ${original}, got ${restored.logLevel}`);
+    }
+
+    write("RESULT: SUCCESS — cross-origin credential-free read/PATCH/readback/restore completed.");
+  } catch (e) {
+    write(`RESULT: blocked/failed: ${e.message}`);
+
+    if (original !== undefined) {
+      try {
+        await patchLogLevel(original);
+        write("Cleanup: original logLevel restoration attempted successfully.");
+      } catch (restoreErr) {
+        write(`Cleanup warning: restore failed: ${restoreErr.message}`);
+      }
+    }
+  }
+};
+</script>
+</body>
+</html>
