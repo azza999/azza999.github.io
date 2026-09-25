@@ -10,7 +10,7 @@ export function splitLines(text, columns, keepSpaces=true) {
   return lines;
 }
 export function paginate(state) {
-  const cell=170/state.columns, repeat=state.mode==='both'?3:2;
+  const cell=170/state.columns, repeat=state.mode==='trace-only'?1:state.mode==='both'?3:2;
   const groups=Math.floor(220/(cell*repeat));
   const lines=state.mode==='empty'?[[]]:splitLines(state.content,state.columns,state.spaces);
   const pages=[];
@@ -41,7 +41,7 @@ export function drawing(page,state,index,total,family) {
     const value=page.lines[group]?.[c];
     if(value && state.mode!=='empty' && (kind===0 || kind===1 && state.mode!=='blank')) {
       const channel=Math.round(255-(255-48)*state.opacity/100).toString(16).padStart(2,'0');
-      text(value,x+cell/2,y+cell*.54,cell*state.size/100,family,kind===0?'#30352f':`#${channel}${channel}${channel}`,cell*.9);
+      text(value,x+cell/2,y+cell*.54,cell*state.size/100,family,kind===0 && state.mode!=='trace-only'?'#30352f':`#${channel}${channel}${channel}`,cell*.9);
     }
   }
   for(let c=0;c<=state.columns;c++) line(20+c*cell,top,20+c*cell,top+rows*cell,state.color,.2);

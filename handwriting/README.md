@@ -13,3 +13,5 @@ TXT: UTF-8, 최대 100KB 및 12,000자. 글꼴: TTF/OTF/WOFF/WOFF2, 최대 2MB. 
 참고 양식: https://drive.google.com/drive/folders/1rvz3ofRQvOiztMUFl-o5Fnl6IynFWFOX
 참고 이미지: https://edgio.clien.net/F01/9795949/1e625e2bc488b4.jpg?scale=width:740
 참고 자료의 원본 파일은 재배포하지 않습니다.
+
+줄 구성에서 **따라쓰기만**을 선택하면 진한 원문 줄 없이 입력한 글이 옅은 글씨로 한 번씩 이어집니다. 따라쓰기 진하기 설정은 미리보기·인쇄·PDF에 동일하게 적용됩니다.
