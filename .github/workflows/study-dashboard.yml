@@ -37,7 +37,7 @@ jobs:
           source: ./
           destination: ./_site
       - name: Preserve standalone dashboard files
-        run: cp -r study _site/
+        run: sudo cp -r study/. _site/study/
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
