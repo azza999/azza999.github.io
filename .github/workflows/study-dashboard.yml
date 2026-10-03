@@ -1,12 +1,11 @@
 name: Publish study dashboard
 on:
-  workflow_run:
-    workflows: [pages build and deployment]
-    types: [completed]
+  push:
     branches: [master]
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -14,7 +13,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -27,6 +25,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Wait for existing Pages deployment
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python _study/scripts/wait_pages.py
       - run: python _study/scripts/build.py
       - uses: actions/configure-pages@v5
       - uses: actions/jekyll-build-pages@v1
