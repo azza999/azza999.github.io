@@ -3,6 +3,7 @@ id: unique-topic-id
 title: 주제 이름
 category: 디지털 시큐리티
 score: 0
+max_score: 100
 ---
 ## 핵심 개념
 내가 이해한 내용을 적습니다.

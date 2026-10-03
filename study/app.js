@@ -1,5 +1,8 @@
 const $=id=>document.getElementById(id);
 const labels=['아직 공부 안 함','개념 이해 완료','간단한 설명 가능','1교시형 답안 설명 가능','2교시+형 답안 빈칸 완성','스스로 답안 구조·내용 완성'];
+const bands=['0점','1–19점','20–39점','40–59점','60–79점','80–99점','100점'];
+const bandIndex=s=>s===0?0:s===100?6:Math.floor(s/20)+1;
+const stage=t=>t.score===t.max_score?'목표 범위 완성':t.score>0&&t.score<20?'학습 시작':labels[Math.floor(t.score/20)];
 const dateOf=d=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
 const number=n=>n.toLocaleString('ko-KR');const delta=n=>(n>0?'+':'')+number(n);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -14,11 +17,11 @@ function chart(history){
 }
 async function init(){
  try{const response=await fetch('data.json');if(!response.ok)throw Error('data');const d=await response.json();const today=dateOf(new Date());const monday=new Date(today+'T00:00:00Z');monday.setUTCDate(monday.getUTCDate()-((monday.getUTCDay()+6)%7));const week=monday.toISOString().slice(0,10);
- $('total').textContent=number(d.topics.reduce((s,t)=>s+t.score,0));$('today').textContent=delta(d.events.filter(e=>e.date===today).reduce((s,e)=>s+e.delta,0));$('week').textContent=delta(d.events.filter(e=>e.date>=week&&e.date<=today).reduce((s,e)=>s+e.delta,0));$('count').textContent=d.topics.filter(t=>t.score>=20).length+'개';chart(d.history);
- $('levels').innerHTML=labels.map((label,i)=>{const n=d.topics.filter(t=>t.score===i*20).length;return `<div class="level"><b>${i*20}점</b><div><small>${label}</small><div class="track"><div class="fill" style="width:${n/Math.max(1,d.topics.length)*100}%"></div></div></div><span>${n}개</span></div>`;}).join('');
+ $('total').textContent=number(d.topics.reduce((s,t)=>s+t.score,0));$('today').textContent=delta(d.events.filter(e=>e.date===today).reduce((s,e)=>s+e.delta,0));$('week').textContent=delta(d.events.filter(e=>e.date>=week&&e.date<=today).reduce((s,e)=>s+e.delta,0));$('count').textContent=d.topics.filter(t=>t.score>0).length+'개';chart(d.history);
+ $('levels').innerHTML=bands.map((label,i)=>{const n=d.topics.filter(t=>bandIndex(t.score)===i).length;return `<div class="level"><b>${label}</b><div><div class="track"><div class="fill" style="width:${n/Math.max(1,d.topics.length)*100}%"></div></div></div><span>${n}개</span></div>`;}).join('');
  $('events').innerHTML=d.events.length?[...d.events].reverse().slice(0,8).map(e=>`<div class="event"><div>${esc(e.title)}<small>${e.date} · ${e.before} → ${e.after}점</small></div><b class="delta ${e.delta<0?'negative':''}">${delta(e.delta)}</b></div>`).join(''):'<p class="empty">점수를 변경하고 커밋하면 이곳에 기록됩니다.</p>';
- $('topic-count').textContent=d.topics.length+'개 등록';$('topics').innerHTML=d.topics.length?d.topics.map((t,i)=>`<div class="topic"><button data-index="${i}">${esc(t.title)}<small>${esc(t.category)} · ${labels[t.score/20]}</small></button><b>${t.score}점</b></div>`).join(''):'<p class="empty">topic-template.md를 복사해 _study/topics 폴더에 첫 주제를 추가하세요.</p>';
- $('topics').addEventListener('click',e=>{const b=e.target.closest('[data-index]');if(!b)return;const t=d.topics[Number(b.dataset.index)];$('detail-title').textContent=t.title;$('detail-meta').textContent=t.category+' / '+t.score+'점';$('detail-body').innerHTML=t.html;$('detail').showModal();});
+ $('topic-count').textContent=d.topics.length+'개 등록';$('topics').innerHTML=d.topics.length?d.topics.map((t,i)=>`<div class="topic"><button data-index="${i}">${esc(t.title)}<small>${esc(t.category)} · ${stage(t)}</small></button><b>${t.score} / ${t.max_score}점</b></div>`).join(''):'<p class="empty">topic-template.md를 복사해 _study/topics 폴더에 첫 주제를 추가하세요.</p>';
+ $('topics').addEventListener('click',e=>{const b=e.target.closest('[data-index]');if(!b)return;const t=d.topics[Number(b.dataset.index)];$('detail-title').textContent=t.title;$('detail-meta').textContent=t.category+' · '+t.score+' / '+t.max_score+'점 · '+stage(t);$('detail-body').innerHTML=t.html;$('detail').showModal();});
  }catch(e){$('error').textContent='기록을 불러오지 못했습니다. 배포가 완료됐는지 확인하고 새로고침해 주세요.';}
 }
 $('close').onclick=()=>$('detail').close();init();

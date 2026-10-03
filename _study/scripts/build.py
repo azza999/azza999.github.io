@@ -6,7 +6,6 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = Path(subprocess.check_output(['git','-C',str(ROOT),'rev-parse','--show-toplevel']).decode().strip())
 PREFIX = ROOT.relative_to(REPO).as_posix()
 TOPICS = (PREFIX + '/topics') if PREFIX != '.' else 'topics'
-LEVELS = {0,20,40,60,80,100}
 def git(*args):
     return subprocess.check_output(['git','-C',str(REPO),*args]).decode('utf-8')
 def parse(text, path):
@@ -19,9 +18,11 @@ def parse(text, path):
         key, value = line.split(':',1)
         meta[key.strip()] = value.strip().strip('"\'')
     score = int(meta.get('score',0))
-    if score not in LEVELS: raise ValueError(f'{path}: score는 0,20,40,60,80,100 중 하나입니다')
+    max_score = int(meta.get('max_score',100))
+    if not 1 <= max_score <= 100 or not 0 <= score <= max_score:
+        raise ValueError(f'{path}: max_score는 1~100, score는 0~max_score 범위의 정수여야 합니다')
     if not meta.get('id') or not meta.get('title'): raise ValueError(f'{path}: id와 title이 필요합니다')
-    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,body=body,path=path)
+    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,body=body,path=path)
 def snapshot(rev=None):
     paths = git('ls-tree','--full-tree','-r','--name-only',rev,'--',TOPICS).splitlines() if rev else [str(p.relative_to(ROOT)) for p in sorted((ROOT/'topics').rglob('*.md'))]
     topics=[]
