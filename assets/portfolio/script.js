@@ -37,7 +37,7 @@ profile.projects.forEach(project => {
     block.append(h4, p); copy.append(block);
   }
   if (!project.description?.trim()) content.append(copy);
-  if (safeUrl(project.url)) content.append(link('관련 기록', safeUrl(project.url)));
+  if (safeUrl(project.url)) content.append(link(project.category === 'essay' ? '기술 분석 원문' : '관련 기록', safeUrl(project.url)));
   article.append(heading, content); document.querySelector(destinations[category] || destinations.personal).append(article);
 });
 if (safeUrl(profile.blog)) document.querySelector('#blog-link').append(link('인문학 블로그에서 생각의 기록 읽기', safeUrl(profile.blog)));
