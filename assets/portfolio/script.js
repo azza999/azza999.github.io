@@ -9,7 +9,7 @@ if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) { const a = document.creat
 const destinations = { personal: '#personal-projects', work: '#work-projects', essay: '#essay-projects' };
 const labels = { problem: '문제와 배경', approach: '접근과 해결 과정', contribution: '발휘한 역량', learning: '배운 점' };
 profile.projects.forEach(project => {
-  const article = document.createElement('article'); article.className = 'entry project-entry';
+  const article = document.createElement('article'); article.className = 'entry project-entry' + (project.description ? ' project-entry--summary' : '');
   const heading = document.createElement('div'); heading.className = 'entry-heading';
   const title = document.createElement('h3'); title.textContent = project.title;
   const category = project.category || 'personal';
@@ -27,6 +27,8 @@ profile.projects.forEach(project => {
     } catch {}
   }
   if (project.summary?.trim()) { const p = document.createElement('p'); p.className = 'project-summary'; p.textContent = project.summary; content.append(p); }
+  if (project.description?.trim()) { const p = document.createElement('p'); p.className = 'project-description'; p.textContent = project.description; content.append(p); }
+  if (project.result?.trim()) { const p = document.createElement('p'); p.className = 'project-result'; p.textContent = project.result; content.append(p); }
   const copy = document.createElement('div'); copy.className = 'project-copy';
   for (const [key, label] of Object.entries(labels)) {
     const block = document.createElement('div'); const h4 = document.createElement('h4'); h4.textContent = label;
@@ -34,7 +36,7 @@ profile.projects.forEach(project => {
     if (!p.textContent.trim()) { p.className = 'blank'; p.setAttribute('aria-label', label + ' 내용 미작성'); }
     block.append(h4, p); copy.append(block);
   }
-  content.append(copy);
+  if (!project.description?.trim()) content.append(copy);
   if (safeUrl(project.url)) content.append(link('관련 기록', safeUrl(project.url)));
   article.append(heading, content); document.querySelector(destinations[category] || destinations.personal).append(article);
 });
