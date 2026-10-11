@@ -13,7 +13,7 @@ profile.projects.forEach(project => {
   const heading = document.createElement('div'); heading.className = 'entry-heading';
   const title = document.createElement('h3'); title.textContent = project.title;
   const category = project.category || 'personal';
-  const meta = document.createElement('span'); meta.className = 'meta'; meta.textContent = {personal:'개인 프로젝트',work:'업무 프로젝트',essay:'기술 탐구'}[category] || '프로젝트';
+  const meta = document.createElement('span'); meta.className = 'meta'; meta.textContent = {personal:'개인 프로젝트',work:'업무 프로젝트',essay:'Troubleshooting'}[category] || '프로젝트';
   heading.append(title, meta);
   const content = document.createElement('div'); content.className = 'entry-content';
   if (project.image?.trim()) {
