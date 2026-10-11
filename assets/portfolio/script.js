@@ -5,6 +5,7 @@ if (profile.name?.trim()) { document.title = profile.name + ' | 보안 엔지니
 const contacts = document.querySelector('#contact-links');
 if (safeUrl(profile.techBlog)) contacts.append(link('기술 블로그', safeUrl(profile.techBlog)));
 if (safeUrl(profile.blog)) contacts.append(link('인문학 블로그', safeUrl(profile.blog)));
+contacts.append(link('Dreamhack Profile', 'https://dreamhack.io/users/40154'));
 if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) { const a = document.createElement('a'); a.textContent = profile.email; a.href = 'mailto:' + profile.email; contacts.append(a); }
 const destinations = { personal: '#personal-projects', work: '#work-projects', essay: '#essay-projects' };
 const labels = { problem: '문제와 배경', approach: '접근과 해결 과정', contribution: '발휘한 역량', learning: '배운 점' };
