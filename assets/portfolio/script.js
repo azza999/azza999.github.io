@@ -1,6 +1,11 @@
 const profile = window.portfolio;
 const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null; } catch { return null; } };
-function link(label, url) { const a = document.createElement('a'); a.textContent = label + ' ↗'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
+function icon(name) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'ui-icon'); svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
+  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use'); use.setAttribute('href', '#icon-' + name); svg.append(use); return svg;
+}
+function link(label, url) { const a = document.createElement('a'); a.append(icon(label === 'GitHub' ? 'code' : 'book'), document.createTextNode(label + ' ↗')); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
 if (profile.name.trim()) { document.title = profile.name + ' | 배움의 기록'; document.querySelector('.small-note').textContent = profile.name + ' · 기술과 사람 사이, 계속 배우는 중'; }
 const labels = { problem: '문제와 배경', approach: '접근과 해결 과정', contribution: '발휘한 역량', learning: '배운 점' };
 profile.projects.forEach((project, index) => {
@@ -10,7 +15,15 @@ profile.projects.forEach((project, index) => {
   const title = document.createElement('h3'); title.textContent = project.title;
   const kind = document.createElement('span'); kind.className = 'project-kind'; kind.textContent = project.kind;
   const plus = document.createElement('span'); plus.className = 'plus'; plus.textContent = '+'; plus.setAttribute('aria-hidden', 'true');
-  summary.append(number, title, kind, plus); details.append(summary);
+  const thumbnail = document.createElement('span'); thumbnail.className = 'project-thumbnail';
+  const placeholder = () => { thumbnail.classList.add('is-placeholder'); const label = document.createElement('span'); label.textContent = 'IMAGE / ' + String(index + 1).padStart(2, '0'); thumbnail.replaceChildren(icon('image'), label); };
+  let imageUrl;
+  try { if (project.image?.trim()) { const parsed = new URL(project.image, document.baseURI); if (['http:', 'https:'].includes(parsed.protocol)) imageUrl = parsed.href; } } catch {}
+  if (imageUrl) {
+    const img = document.createElement('img'); img.src = imageUrl; img.alt = project.imageAlt || project.title + ' 프로젝트 이미지'; img.loading = 'lazy'; img.decoding = 'async'; img.addEventListener('error', placeholder, { once: true }); thumbnail.append(img);
+  } else placeholder();
+  const projectInfo = document.createElement('div'); projectInfo.className = 'project-info'; projectInfo.append(title, kind);
+  summary.append(number, thumbnail, projectInfo, plus); details.append(summary);
   const body = document.createElement('div'); body.className = 'project-body';
   if (project.summary.trim()) { const p = document.createElement('p'); p.textContent = project.summary; body.append(p); }
   for (const [key, label] of Object.entries(labels)) { const block = document.createElement('div'); const heading = document.createElement('h4'); heading.textContent = label; const text = document.createElement('p'); text.className = project[key].trim() ? 'project-text' : 'empty-line'; text.textContent = project[key]; if (!project[key].trim()) text.setAttribute('aria-label', label + ' 내용 미작성'); block.append(heading, text); body.append(block); }

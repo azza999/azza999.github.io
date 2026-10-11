@@ -5,10 +5,12 @@ window.portfolio = {
   github: 'https://github.com/azza999', // GitHub 프로필의 전체 https:// 주소
   email: '',
   techBlog: 'https://velog.io/@azzadh999/posts',
+  // image: 저장소의 이미지 경로 (예: assets/portfolio/images/autobounty.webp)
+  // imageAlt: 이미지가 전달하는 내용을 설명하는 문장
   projects: [
-    { title: 'Autobounty', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '' },
-    { title: 'CodexTF', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '' },
-    { title: 'MCRC 성능개량사업', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '' },
-    { title: '이중화에 관한 고찰', kind: 'TECHNICAL ESSAY', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '' }
+    { title: 'Autobounty', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: 'CodexTF', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: 'MCRC 성능개량사업', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: '이중화에 관한 고찰', kind: 'TECHNICAL ESSAY', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' }
   ]
 };
