@@ -2,7 +2,7 @@
 window.portfolio = {
   name: '김도현', // 예: 김도현 (비워두면 이름을 표시하지 않습니다)
   blog: 'https://blog.naver.com/azza999/', // 네이버 블로그의 전체 https:// 주소
-  github: 'https://github.com/azza999', // GitHub 프로필의 전체 https:// 주소
+  github: '', // GitHub 프로필의 전체 https:// 주소
   email: '',
   techBlog: 'https://velog.io/@azzadh999/posts',
   // image: 저장소의 이미지 경로 (예: assets/portfolio/images/autobounty.webp)

@@ -3,7 +3,6 @@ const safeUrl = value => { try { const url = new URL(value); return ['https:', '
 function link(label, url) { const a = document.createElement('a'); a.textContent = label + ' ↗'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
 if (profile.name?.trim()) { document.title = profile.name + ' | 보안 엔지니어'; document.querySelector('#profile-name').textContent = profile.name; }
 const contacts = document.querySelector('#contact-links');
-if (safeUrl(profile.github)) contacts.append(link('GitHub', safeUrl(profile.github)));
 if (safeUrl(profile.techBlog)) contacts.append(link('기술 블로그', safeUrl(profile.techBlog)));
 if (safeUrl(profile.blog)) contacts.append(link('인문학 블로그', safeUrl(profile.blog)));
 if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) { const a = document.createElement('a'); a.textContent = profile.email; a.href = 'mailto:' + profile.email; contacts.append(a); }
