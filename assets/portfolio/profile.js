@@ -1,7 +1,7 @@
 // 이 파일을 수정하면 페이지에 반영됩니다. 주소를 넣기 전에는 링크가 표시되지 않습니다.
 window.portfolio = {
   name: '김도현', // 예: 김도현 (비워두면 이름을 표시하지 않습니다)
-  blog: '', // 네이버 블로그의 전체 https:// 주소
+  blog: 'https://blog.naver.com/azza999/', // 네이버 블로그의 전체 https:// 주소
   github: 'https://github.com/azza999', // GitHub 프로필의 전체 https:// 주소
   email: '',
   techBlog: 'https://velog.io/@azzadh999/posts',

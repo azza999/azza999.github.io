@@ -5,7 +5,7 @@ if (profile.name?.trim()) { document.title = profile.name + ' | 보안 엔지니
 const contacts = document.querySelector('#contact-links');
 if (safeUrl(profile.github)) contacts.append(link('GitHub', safeUrl(profile.github)));
 if (safeUrl(profile.techBlog)) contacts.append(link('기술 블로그', safeUrl(profile.techBlog)));
-if (safeUrl(profile.blog)) contacts.append(link('네이버 블로그', safeUrl(profile.blog)));
+if (safeUrl(profile.blog)) contacts.append(link('인문학 블로그', safeUrl(profile.blog)));
 if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) { const a = document.createElement('a'); a.textContent = profile.email; a.href = 'mailto:' + profile.email; contacts.append(a); }
 const destinations = { personal: '#personal-projects', work: '#work-projects', essay: '#essay-projects' };
 const labels = { problem: '문제와 배경', approach: '접근과 해결 과정', contribution: '발휘한 역량', learning: '배운 점' };
@@ -39,4 +39,4 @@ profile.projects.forEach(project => {
   if (safeUrl(project.url)) content.append(link('관련 기록', safeUrl(project.url)));
   article.append(heading, content); document.querySelector(destinations[category] || destinations.personal).append(article);
 });
-if (safeUrl(profile.blog)) document.querySelector('#blog-link').append(link('네이버 블로그에서 생각의 기록 읽기', safeUrl(profile.blog)));
+if (safeUrl(profile.blog)) document.querySelector('#blog-link').append(link('인문학 블로그에서 생각의 기록 읽기', safeUrl(profile.blog)));
