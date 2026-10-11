@@ -8,9 +8,9 @@ window.portfolio = {
   // image: 저장소의 이미지 경로 (예: assets/portfolio/images/autobounty.webp)
   // imageAlt: 이미지가 전달하는 내용을 설명하는 문장
   projects: [
-    { title: 'Autobounty', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
-    { title: 'CodexTF', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
-    { title: 'MCRC 성능개량사업', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
-    { title: '이중화에 관한 고찰', kind: 'TECHNICAL ESSAY', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' }
+    { title: 'Autobounty', category: 'personal', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: 'CodexTF', category: 'personal', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: 'MCRC 성능개량사업', category: 'work', kind: 'PROJECT', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' },
+    { title: '이중화에 관한 고찰', category: 'essay', kind: 'TECHNICAL ESSAY', summary: '', problem: '', approach: '', contribution: '', learning: '', url: '', image: '', imageAlt: '' }
   ]
 };
