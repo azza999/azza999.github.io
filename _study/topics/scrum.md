@@ -4,6 +4,7 @@ title: Scrum (스크럼)
 category: 소프트웨어 공학
 score: 60
 max_score: 60
+reviews: [{"date":"2026-10-26","score":15}]
 ---
 ## 핵심 개념
 - Scrum: 복잡한 제품 개발에서 짧은 주기의 Sprint를 반복하며 점검과 적응을 통해 가치를 전달하는 경량 애자일 프레임워크.
