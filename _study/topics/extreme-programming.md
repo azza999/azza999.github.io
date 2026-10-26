@@ -4,6 +4,7 @@ title: XP (Extreme Programming)
 category: 소프트웨어 공학
 score: 60
 max_score: 100
+reviews: [{"date":"2026-10-26","score":15}]
 ---
 ## 핵심 개념
 - XP(Extreme Programming): 고객 요구 변화에 신속하게 대응하기 위해 짧은 개발 주기, 긴밀한 피드백과 엔지니어링 실천을 강조하는 애자일 개발 방법론.
