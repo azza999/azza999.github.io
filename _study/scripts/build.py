@@ -22,7 +22,12 @@ def parse(text, path):
     if not 1 <= max_score <= 100 or not 0 <= score <= max_score:
         raise ValueError(f'{path}: max_score는 1~100, score는 0~max_score 범위의 정수여야 합니다')
     if not meta.get('id') or not meta.get('title'): raise ValueError(f'{path}: id와 title이 필요합니다')
-    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,body=body,path=path)
+    reviews = json.loads(meta.get('reviews','[]'))
+    if not isinstance(reviews,list): raise ValueError(f'{path}: reviews는 배열이어야 합니다')
+    for i,review in enumerate(reviews,1):
+        if not isinstance(review,dict) or not re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}',str(review.get('date',''))) or type(review.get('score')) is not int or not 0 <= review['score'] <= 100:
+            raise ValueError(f'{path}: {i}차 복습은 date(YYYY-MM-DD), score(0~100)가 필요합니다')
+    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,reviews=reviews,body=body,path=path)
 def snapshot(rev=None):
     paths = git('ls-tree','--full-tree','-r','--name-only',rev,'--',TOPICS).splitlines() if rev else [str(p.relative_to(ROOT)) for p in sorted((ROOT/'topics').rglob('*.md'))]
     topics=[]
