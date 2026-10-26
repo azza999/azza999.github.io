@@ -25,7 +25,7 @@ def parse(text, path):
     reviews = json.loads(meta.get('reviews','[]'))
     if not isinstance(reviews,list): raise ValueError(f'{path}: reviews는 배열이어야 합니다')
     for i,review in enumerate(reviews,1):
-        if not isinstance(review,dict) or not re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}',str(review.get('date',''))) or type(review.get('score')) is not int or not 0 <= review['score'] <= 100:
+        if not isinstance(review,dict) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',str(review.get('date',''))) or type(review.get('score')) is not int or not 0 <= review['score'] <= 100:
             raise ValueError(f'{path}: {i}차 복습은 date(YYYY-MM-DD), score(0~100)가 필요합니다')
     return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,reviews=reviews,body=body,path=path)
 def snapshot(rev=None):
