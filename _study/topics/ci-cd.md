@@ -4,6 +4,7 @@ title: CI/CD (Continuous Integration / Delivery / Deployment)
 category: 소프트웨어 공학
 score: 60
 max_score: 100
+reviews: [{"date":"2026-10-26","score":15}]
 ---
 ## 핵심 개념
 - CI(Continuous Integration, 지속적 통합): 개발자가 변경한 코드를 자주 공유 저장소에 통합하고 빌드·자동화 테스트로 변경을 검증하는 개발 실천.
