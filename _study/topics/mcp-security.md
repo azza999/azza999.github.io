@@ -4,6 +4,7 @@ title: MCP 보안 취약점과 대응 방안
 category: 정보보안
 score: 60
 max_score: 100
+reviews: [{"date":"2026-10-27","score":10}]
 ---
 
 ## 핵심 개념
