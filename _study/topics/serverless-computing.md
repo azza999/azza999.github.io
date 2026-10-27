@@ -4,6 +4,7 @@ title: 서버리스 컴퓨팅 (Serverless Computing)
 category: 클라우드
 score: 40
 max_score: 60
+reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
 - 서버리스 컴퓨팅: 클라우드 제공자가 서버의 프로비저닝·운영·확장을 관리하여 개발자가 인프라보다 애플리케이션 로직에 집중하도록 하는 컴퓨팅 모델.
