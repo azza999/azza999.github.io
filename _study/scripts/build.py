@@ -68,19 +68,23 @@ def render_md(body):
     if table: out.append('</tbody></table></div>')
     if fence: out.append('</code></pre>')
     return ''.join(out)
+def points(t):
+    return t['score'] + sum(r['score'] for r in t['reviews'])
 def build():
     current=snapshot(); daily={}; events=[]; previous={}
     try: commits=git('log','--first-parent','--reverse','--format=%H %cI','HEAD','--',TOPICS).splitlines()
     except subprocess.CalledProcessError: commits=[]
     for row in commits:
         rev,stamp=row.split(' ',1); day=datetime.fromisoformat(stamp).astimezone(ZoneInfo('Asia/Seoul')).date().isoformat()
-        topics=snapshot(rev); scores={t['id']:t['score'] for t in topics}; lookup={t['id']:t for t in topics}
+        topics=snapshot(rev); scores={t['id']:points(t) for t in topics}; lookup={t['id']:t for t in topics}
         for key in sorted(set(previous)|set(scores)):
             before=previous.get(key,0); after=scores.get(key,0)
             if before!=after:
                 events.append(dict(date=day,title=lookup.get(key,{}).get('title',key),before=before,after=after,delta=after-before,commit=rev[:7]))
         daily[day]=sum(scores.values()); previous=scores
-    for t in current: t['html']=render_md(t.pop('body'))
+    for t in current:
+        t['total_points']=points(t)
+        t['html']=render_md(t.pop('body'))
     out=REPO/'study'; out.mkdir(exist_ok=True)
     for p in (ROOT/'web').iterdir(): shutil.copy2(p,out/p.name)
     (out/'data.json').write_text(json.dumps(dict(topics=current,history=[dict(date=k,total=v) for k,v in sorted(daily.items())],events=events),ensure_ascii=False))
