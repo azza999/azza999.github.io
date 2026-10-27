@@ -4,6 +4,7 @@ title: RTO와 RPO
 category: 디지털 시큐리티
 score: 60
 max_score: 60
+reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
 - RTO(Recovery Time Objective, 복구목표시간): 장애 발생 후 업무·서비스를 복구해야 하는 목표 시간. 허용 가능한 서비스 중단 시간을 기준으로 설정한다.
