@@ -4,7 +4,7 @@ title: 주제 이름
 category: 디지털 시큐리티
 score: 0
 max_score: 100
-studied_at: 2026-10-30
+studied_at:
 reviews: []
 ---
 ## 핵심 개념
