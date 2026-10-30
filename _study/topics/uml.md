@@ -4,6 +4,7 @@ title: UML (Unified Modeling Language) · 2교시형
 category: 소프트웨어 공학
 score: 70
 max_score: 100
+studied_at: 2026-10-26
 reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
