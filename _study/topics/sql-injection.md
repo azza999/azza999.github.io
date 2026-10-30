@@ -4,6 +4,7 @@ title: SQL Injection
 category: 디지털 시큐리티
 score: 46
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - SQL Injection은 공격자가 사용자 입력을 통해 SQL 구문 구조를 조작하여 데이터 조회, 변경, 삭제 등 비인가 동작을 유도하는 공격이다.
