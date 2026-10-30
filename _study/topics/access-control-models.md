@@ -4,6 +4,7 @@ title: DAC, MAC, RBAC 접근통제 모델
 category: 디지털 시큐리티
 score: 44
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - DAC(Discretionary Access Control): 객체 소유자가 다른 사용자에게 접근 권한을 부여·회수하는 임의적 접근통제 방식
