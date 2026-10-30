@@ -4,6 +4,7 @@ title: Scrum (스크럼)
 category: 소프트웨어 공학
 score: 60
 max_score: 60
+studied_at: 2026-10-20
 reviews: [{"date":"2026-10-26","score":15},{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
