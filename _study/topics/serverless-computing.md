@@ -4,6 +4,7 @@ title: 서버리스 컴퓨팅 (Serverless Computing)
 category: 클라우드
 score: 40
 max_score: 60
+studied_at: 2026-10-21
 reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
