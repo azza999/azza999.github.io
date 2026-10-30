@@ -4,6 +4,7 @@ title: CSRF(Cross-Site Request Forgery)
 category: 디지털 시큐리티
 score: 32
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - CSRF는 이미 인증된 사용자의 브라우저가 사용자의 의도와 무관하게 공격자가 만든 요청을 대상 서버로 전송하게 만드는 공격이다.
