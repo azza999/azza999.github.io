@@ -4,6 +4,7 @@ title: SOP(Same-Origin Policy)와 CORS
 category: 디지털 시큐리티
 score: 50
 max_score: 60
+studied_at: 2026-10-05
 ---
 ## 핵심 개념
 - SOP(Same-Origin Policy)는 브라우저가 서로 다른 Origin 간의 스크립트 기반 데이터 접근을 제한하는 보안 정책이다.
