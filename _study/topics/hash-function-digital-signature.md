@@ -4,6 +4,7 @@ title: 해시 함수와 전자서명
 category: 디지털 시큐리티
 score: 38
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - 해시 함수(Hash Function)는 임의 길이의 입력을 고정 길이의 해시값(Message Digest)으로 변환하는 일방향 함수다.
