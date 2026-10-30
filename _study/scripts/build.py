@@ -97,8 +97,10 @@ def build():
                 events.append(dict(date=t.get('studied_at') or datetime.now(ZoneInfo('Asia/Seoul')).date().isoformat(),
                                    title=t['title'],before=0,after=t['score'],delta=t['score'],kind='study'))
     for t in current:
+        running=t['score']
         for i,r in enumerate(t['reviews'],1):
-            events.append(dict(date=r['date'],title=t['title'],delta=r['score'],kind='review',review_number=i))
+            events.append(dict(date=r['date'],title=t['title'],before=running,after=running+r['score'],delta=r['score'],kind='review',review_number=i))
+            running+=r['score']
     events.sort(key=lambda e:(e['date'],0 if e['kind']=='study' else 1,e['title']))
     changes={}
     for e in events: changes[e['date']]=changes.get(e['date'],0)+e['delta']
