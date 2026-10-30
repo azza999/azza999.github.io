@@ -4,6 +4,7 @@ title: XSS(Cross-Site Scripting)
 category: 디지털 시큐리티
 score: 35
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - XSS(Cross-Site Scripting)는 공격자가 삽입한 악성 스크립트가 피해자의 브라우저에서 신뢰된 웹사이트의 컨텍스트로 실행되도록 만드는 공격이다.
