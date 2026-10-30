@@ -4,6 +4,7 @@ title: 반정규화 (Denormalization)
 category: 데이터베이스
 score: 100
 max_score: 100
+studied_at: 2026-10-20
 reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
