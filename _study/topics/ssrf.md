@@ -4,6 +4,7 @@ title: SSRF(Server-Side Request Forgery)
 category: 디지털 시큐리티
 score: 40
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 SSRF(Server-Side Request Forgery)는 취약한 서버가 공격자의 입력을 신뢰하여, 서버가 가진 네트워크 위치와 신뢰 관계를 이용해 내부 API, 사설망 자원, 클라우드 메타데이터 서비스 또는 외부 사이트 등에 요청을 보내도록 만드는 공격이다.
