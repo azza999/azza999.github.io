@@ -74,6 +74,8 @@ def points(t):
     return t['score'] + sum(r['score'] for r in t['reviews'])
 def build():
     current=snapshot(); events=[]; previous={}; commit_days=set()
+    if not current:
+        raise RuntimeError('No study topics found; refusing to publish an empty dashboard')
     try: commits=git('log','--first-parent','--reverse','--format=%H %cI','HEAD','--',TOPICS).splitlines()
     except subprocess.CalledProcessError: commits=[]
     current_by_id={t['id']:t for t in current}
