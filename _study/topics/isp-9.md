@@ -4,6 +4,7 @@ title: ISP 9.0 (정보전략계획)
 category: IT 경영전략
 score: 40
 max_score: 60
+studied_at: 2026-10-28
 reviews: []
 ---
 ## 핵심 개념
