@@ -22,12 +22,14 @@ def parse(text, path):
     if not 1 <= max_score <= 100 or not 0 <= score <= max_score:
         raise ValueError(f'{path}: max_score는 1~100, score는 0~max_score 범위의 정수여야 합니다')
     if not meta.get('id') or not meta.get('title'): raise ValueError(f'{path}: id와 title이 필요합니다')
+    studied_at=meta.get('studied_at') or None
+    if studied_at and not re.fullmatch(r'\d{4}-\d{2}-\d{2}',studied_at): raise ValueError(f'{path}: invalid studied_at')
     reviews = json.loads(meta.get('reviews','[]'))
     if not isinstance(reviews,list): raise ValueError(f'{path}: reviews는 배열이어야 합니다')
     for i,review in enumerate(reviews,1):
         if not isinstance(review,dict) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',str(review.get('date',''))) or type(review.get('score')) is not int or review['score'] < 0:
             raise ValueError(f'{path}: {i}차 복습은 date(YYYY-MM-DD), score(0 이상의 정수)가 필요합니다')
-    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,reviews=reviews,body=body,path=path)
+    return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,studied_at=studied_at,reviews=reviews,body=body,path=path)
 def snapshot(rev=None):
     paths = git('ls-tree','--full-tree','-r','--name-only',rev,'--',TOPICS).splitlines() if rev else [str(p.relative_to(ROOT)) for p in sorted((ROOT/'topics').rglob('*.md'))]
     topics=[]
@@ -71,17 +73,39 @@ def render_md(body):
 def points(t):
     return t['score'] + sum(r['score'] for r in t['reviews'])
 def build():
-    current=snapshot(); daily={}; events=[]; previous={}
+    current=snapshot(); events=[]; previous={}; commit_days=set()
     try: commits=git('log','--first-parent','--reverse','--format=%H %cI','HEAD','--',TOPICS).splitlines()
     except subprocess.CalledProcessError: commits=[]
+    current_by_id={t['id']:t for t in current}
     for row in commits:
-        rev,stamp=row.split(' ',1); day=datetime.fromisoformat(stamp).astimezone(ZoneInfo('Asia/Seoul')).date().isoformat()
-        topics=snapshot(rev); scores={t['id']:points(t) for t in topics}; lookup={t['id']:t for t in topics}
+        rev,stamp=row.split(' ',1)
+        day=datetime.fromisoformat(stamp).astimezone(ZoneInfo('Asia/Seoul')).date().isoformat()
+        commit_days.add(day)
+        topics=snapshot(rev)
+        scores={t['id']:t['score'] for t in topics}; lookup={t['id']:t for t in topics}
         for key in sorted(set(previous)|set(scores)):
             before=previous.get(key,0); after=scores.get(key,0)
-            if before!=after:
-                events.append(dict(date=day,title=lookup.get(key,{}).get('title',key),before=before,after=after,delta=after-before,commit=rev[:7]))
-        daily[day]=sum(scores.values()); previous=scores
+            if before==after: continue
+            first=key not in previous and key in scores
+            actual=(current_by_id.get(key,{}).get('studied_at') or day) if first else day
+            events.append(dict(date=actual,title=lookup.get(key,current_by_id.get(key,{})).get('title',key),
+                               before=before,after=after,delta=after-before,commit=rev[:7],kind='study'))
+        previous=scores
+    if not commits:
+        for t in current:
+            if t['score']:
+                events.append(dict(date=t.get('studied_at') or datetime.now(ZoneInfo('Asia/Seoul')).date().isoformat(),
+                                   title=t['title'],before=0,after=t['score'],delta=t['score'],kind='study'))
+    for t in current:
+        for i,r in enumerate(t['reviews'],1):
+            events.append(dict(date=r['date'],title=t['title'],delta=r['score'],kind='review',review_number=i))
+    events.sort(key=lambda e:(e['date'],0 if e['kind']=='study' else 1,e['title']))
+    changes={}
+    for e in events: changes[e['date']]=changes.get(e['date'],0)+e['delta']
+    daily={}; total=0
+    for day in sorted(set(changes)|commit_days):
+        total+=changes.get(day,0)
+        daily[day]=total
     for t in current:
         t['total_points']=points(t)
         t['html']=render_md(t.pop('body'))
