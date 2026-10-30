@@ -4,6 +4,7 @@ title: Command Injection
 category: 디지털 시큐리티
 score: 40
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - Command Injection은 애플리케이션이 사용자 입력을 OS 명령어 생성 과정에 안전하게 분리하지 않고 사용하여, 공격자가 명령 구조를 조작하고 서버 권한으로 운영체제 명령을 실행하게 만드는 공격이다.
