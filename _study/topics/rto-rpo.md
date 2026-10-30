@@ -4,6 +4,7 @@ title: RTO와 RPO
 category: 디지털 시큐리티
 score: 60
 max_score: 60
+studied_at: 2026-10-20
 reviews: [{"date":"2026-10-27","score":10}]
 ---
 ## 핵심 개념
