@@ -4,6 +4,7 @@ title: 정보보안의 3요소(CIA Triad)
 category: 디지털 시큐리티
 score: 47
 max_score: 60
+studied_at: 2026-10-04
 ---
 ## 핵심 개념
 - 기밀성(Confidentiality): 정보가 인가되지 않은 사용자나 주체에게 노출되지 않도록 보호하는 특성
