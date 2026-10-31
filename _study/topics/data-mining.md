@@ -5,7 +5,7 @@ category: DB / 데이터 분석
 score: 40
 max_score: 60
 studied_at: 2026-10-28
-reviews: [{"date":"2026-10-30","score":10}]
+reviews: [{"date":"2026-10-30","score":10},{"date":"2026-10-31","score":10}]
 ---
 ## 핵심 개념
 - 데이터 마이닝(Data Mining): 대용량 데이터에서 유의미한 패턴, 연관관계, 규칙을 발견하여 의사결정에 활용하는 분석 기법.
