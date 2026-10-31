@@ -5,7 +5,7 @@ category: IT 경영전략
 score: 50
 max_score: 60
 studied_at: 2026-10-30
-reviews: []
+reviews: [{"date":"2026-10-31","score":10}]
 ---
 ## 핵심 개념
 - 앰비언트 컴퓨팅(Ambient Computing): 컴퓨팅 기술이 일상 환경에 자연스럽게 내재화되어, 사용자의 명시적 조작을 최소화하고 상황을 인식해 지능형 서비스를 제공하는 컴퓨팅 패러다임.
