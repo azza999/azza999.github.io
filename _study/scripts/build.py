@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = Path(subprocess.check_output(['git','-C',str(ROOT),'rev-parse','--show-toplevel']).decode().strip())
 PREFIX = ROOT.relative_to(REPO).as_posix()
 TOPICS = (PREFIX + '/topics') if PREFIX != '.' else 'topics'
+ROADMAP = ROOT / 'roadmap.json'
 def git(*args):
     return subprocess.check_output(['git','-C',str(REPO),*args]).decode('utf-8')
 def parse(text, path):
@@ -40,6 +41,29 @@ def snapshot(rev=None):
     ids=[t['id'] for t in topics]
     if len(ids)!=len(set(ids)): raise ValueError('topic id 중복')
     return topics
+def roadmap():
+    if not ROADMAP.exists(): return []
+    data=json.loads(ROADMAP.read_text(encoding='utf-8'))
+    if not isinstance(data,dict) or not isinstance(data.get('lectures'),list):
+        raise ValueError('roadmap.json: lectures 배열이 필요합니다')
+    ids=set()
+    result=[]
+    for lecture in data['lectures']:
+        if not isinstance(lecture,dict):
+            raise ValueError('roadmap.json: 강의 형식 오류')
+        key=lecture.get('id'); title=lecture.get('title')
+        entries=lecture.get('entries')
+        if not isinstance(key,str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',key) or key in ids or not isinstance(title,str) or not title.strip() or not isinstance(entries,list):
+            raise ValueError('roadmap.json: 고유 영문 id, 제목, entries 배열이 필요합니다')
+        ids.add(key)
+        normalized=[]
+        for entry in entries:
+            if not isinstance(entry,dict) or not isinstance(entry.get('date'),str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',entry['date']) or type(entry.get('score')) is not int or entry['score'] < 0:
+                raise ValueError(f'roadmap.json: {key} 기록에는 date(YYYY-MM-DD), score(0 이상 정수)가 필요합니다')
+            datetime.strptime(entry['date'],'%Y-%m-%d')
+            normalized.append(dict(date=entry['date'],score=entry['score']))
+        result.append(dict(id=key,title=title.strip(),entries=normalized,total_points=sum(e['score'] for e in normalized)))
+    return result
 def render_md(body):
     # Raw HTML is always escaped. Standard library only: headings, paragraphs,
     # lists, fenced code, bold, inline code and simple tables.
@@ -73,7 +97,7 @@ def render_md(body):
 def points(t):
     return t['score'] + sum(r['score'] for r in t['reviews'])
 def build():
-    current=snapshot(); events=[]; previous={}; commit_days=set()
+    current=snapshot(); lectures=roadmap(); events=[]; previous={}; commit_days=set()
     if not current:
         raise RuntimeError('No study topics found; refusing to publish an empty dashboard')
     try: commits=git('log','--first-parent','--reverse','--format=%H %cI','HEAD','--',TOPICS).splitlines()
@@ -103,7 +127,12 @@ def build():
         for i,r in enumerate(t['reviews'],1):
             events.append(dict(date=r['date'],title=t['title'],before=running,after=running+r['score'],delta=r['score'],kind='review',review_number=i))
             running+=r['score']
-    events.sort(key=lambda e:(e['date'],0 if e['kind']=='study' else 1,e['title']))
+    for lecture in lectures:
+        running=0
+        for entry in lecture['entries']:
+            events.append(dict(date=entry['date'],title=lecture['title'],before=running,after=running+entry['score'],delta=entry['score'],kind='roadmap'))
+            running+=entry['score']
+    events.sort(key=lambda e:(e['date'],{'study':0,'review':1,'roadmap':2}[e['kind']],e['title']))
     changes={}
     for e in events: changes[e['date']]=changes.get(e['date'],0)+e['delta']
     daily={}; total=0
@@ -115,7 +144,7 @@ def build():
         t['html']=render_md(t.pop('body'))
     out=REPO/'study'; out.mkdir(exist_ok=True)
     for p in (ROOT/'web').iterdir(): shutil.copy2(p,out/p.name)
-    (out/'data.json').write_text(json.dumps(dict(topics=current,history=[dict(date=k,total=v) for k,v in sorted(daily.items())],events=events),ensure_ascii=False))
+    (out/'data.json').write_text(json.dumps(dict(topics=current,lectures=lectures,history=[dict(date=k,total=v) for k,v in sorted(daily.items())],events=events),ensure_ascii=False))
     (out/'.nojekyll').touch()
-    print(f'Built {len(current)} topics, {len(events)} score changes -> {out}')
+    print(f'Built {len(current)} topics, {len(lectures)} roadmap lectures, {len(events)} score changes -> {out}')
 if __name__=='__main__': build()
