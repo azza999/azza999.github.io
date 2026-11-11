@@ -2,7 +2,7 @@
 id: project-charter-and-pmp
 title: 프로젝트 헌장·프로젝트 관리계획서(PMP)와 ITO
 category: 프로젝트 관리
-score: 0
+score: 24
 max_score: 60
 studied_at: 2026-11-11
 reviews: []
@@ -30,4 +30,4 @@ reviews: []
 - 참고: ITPE 프로젝트관리 V6.2, 24·29~31쪽, 2주차 강의 전사본.
 
 ## 평가 기록
-- 2026-11-11: 설명 중심 학습 기록. ITO의 T가 Transform이 아닌 Tools & Techniques임을 질문해 바로잡았음. 개별 프로세스 ITO의 독립 재현을 아직 확인하지 않아 점수 0/60으로 보류.
+- 2026-11-11: 최초 학습 24/60(보수적 잠정 평가). ITO의 의미를 확인한 뒤 각 세부 프로세스의 ITO를 서술 가능한 수준으로 이해해야 한다는 학습 목표를 스스로 정리함. 프로젝트 헌장·PMP 세부 항목의 독립 재현은 아직 미확인.
