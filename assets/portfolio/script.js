@@ -30,6 +30,7 @@ profile.projects.forEach(project => {
   if (project.summary?.trim()) { const p = document.createElement('p'); p.className = 'project-summary'; p.textContent = project.summary; content.append(p); }
   if (project.description?.trim()) { const p = document.createElement('p'); p.className = 'project-description'; p.textContent = project.description; content.append(p); }
   if (project.result?.trim()) { const p = document.createElement('p'); p.className = 'project-result'; p.textContent = project.result; content.append(p); }
+  if (project.note?.trim()) { const p = document.createElement('p'); p.className = 'project-note'; p.textContent = project.note; content.append(p); }
   const copy = document.createElement('div'); copy.className = 'project-copy';
   for (const [key, label] of Object.entries(labels)) {
     const block = document.createElement('div'); const h4 = document.createElement('h4'); h4.textContent = label;
