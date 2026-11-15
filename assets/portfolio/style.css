@@ -34,3 +34,7 @@
 
 /* Selected writings in the closing section */
 .selected-writings{margin:28px 0 10px}.selected-writings h3{font-size:20px!important;margin-bottom:9px!important}.selected-writings .writings-intro{font-size:15px!important;color:var(--muted)!important;margin-bottom:14px!important}.writing-links{border-top:1px solid var(--line)}.writing-links a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:13px 2px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.55}.writing-origin{white-space:nowrap;color:var(--muted);font-size:12px}@media(max-width:650px){.writing-links a{align-items:flex-start;gap:10px;font-size:15px}.writing-origin{font-size:11px}}@media print{.selected-writings{margin-top:4mm}.selected-writings h3{font-size:11pt!important}.selected-writings .writings-intro{font-size:8pt!important}.writing-links a{padding:2mm 0;font-size:9pt}.writing-origin{font-size:7pt}}
+
+/* Portfolio request notice for restricted work samples */
+.project-entry--summary .project-note{font-size:14px;line-height:1.75;color:#4e5d6c;background:#f5f8fc;border-left:3px solid var(--accent);padding:12px 15px;margin:8px 0 0}
+@media print{.project-entry--summary .project-note{font-size:8.5pt;padding:2.5mm 3mm;break-inside:avoid}}
