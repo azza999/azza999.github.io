@@ -2,10 +2,10 @@
 id: resource-optimization
 title: 자원 최적화(Resource Optimization)
 category: 프로젝트 관리
-score: 35
+score: 40
 max_score: 60
 studied_at: 2026-11-17
-reviews: []
+reviews: [{"date":"2026-11-17","score":5}]
 ---
 ## 핵심 개념
 자원 가용량과 프로젝트 일정 제약을 고려해 인력·장비의 투입을 조정하는 기법.
@@ -17,3 +17,5 @@ reviews: []
 - 2026-11-17: Leveling과 Smoothing의 일정/자원 우선순위 이해. '일정 여유가 있는 경우에도 Smoothing 적용'을 스스로 재정리했으며, 작업 연장 사례는 Leveling, Float 내 재배치는 Smoothing으로 정확히 판별.
 - 강의 전사본 음성 2: 두 기법의 차이 암기 강조.
 
+## 서술형 복습 기록
+- 2026-11-17: 1교시형 서술 복습 75/100. 정의 및 목적 20/25, 기법 비교 40/40, 일정·임계경로 영향 15/35. 평준화는 완료일·임계경로 변경 가능, 평활화는 Float 내 조정으로 둘 다 유지한다는 명시적 비교가 누락됨. 복습 가산 +5점.
