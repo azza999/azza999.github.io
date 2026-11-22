@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 복구 대상·담당자·순서·검증·원복을 문서와 훈련으로 준비한다.
 homework_order: 2
+diagram: drp
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 2
 
 **회상 단서:** 발동 기준 · R&R · 의존성 · 복구 절차 · 검증 · 원복 · 훈련
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="DRP의 발동·복구·검증 흐름 · 개념도">
+<img src="/assets/subnotes/concepts/drp.svg" alt="재해 발동과 연락 후 복구환경으로 전환하고 복구·업무 검증을 수행한다. 이후 안정화·원복·개선으로 이어진다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>DRP의 발동·복구·검증 흐름</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/drp.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 서비스 재개 전 업무 검증이 필요하다. 원복은 주센터 안전성과 복귀 조건 확인 후 수행한다.
+
+**손으로 그리기:** 네 상자를 지그재그로 잇고, 각 상자 아래 책임자·조건을 떠올린다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=80">ITPE 지식관리 · DRP</a> · <a href="https://cafe.naver.com/81th/242153">ITPE 카페 · BCP·DRP 답안</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 복구 절차의 흐름
 
-```text
-재해 판단·발동 → 비상 연락 → DR 전환
-→ 데이터·시스템 복구 → 업무 검증·서비스 재개
-→ 안정화 → 주센터 복귀 판단·원복 → 사후 개선
-```
 
 | 문서 항목 | 적어야 할 내용 |
 | --- | --- |

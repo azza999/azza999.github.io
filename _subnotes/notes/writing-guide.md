@@ -3,6 +3,7 @@ title: 서브노트 작성과 복습 방법
 category: 학습 방법
 updated: 2026-11-22
 summary: 기존 자료를 내 언어로 다듬고, 정의·개념도·키워드를 답안으로 연결하는 기록 원칙.
+diagram: writing-guide
 ---
 
 ## 기록 원칙
@@ -24,6 +25,21 @@ summary: 기존 자료를 내 언어로 다듬고, 정의·개념도·키워드�
 멘토는 시험 전 짧은 기간에 여러 차례 회독할 수 있는 정리 체계를 강조했다. 한승건 기술사는 한 페이지를 네 칸으로 나누고 토픽당 두 칸 이내로 작성한 개인 사례를 공유했다. 이는 참고할 방식이며, 모든 토픽에 적용해야 하는 고정 규칙은 아니다.
 
 최근 140회 최O하 필기 합격수기에서는 **정확한 정의·키워드·그림을 연결하는 연습**을 강조했다. 토픽이 2,213개까지 늘어나 중요도를 판단하기 어려웠던 점은 본인의 시행착오로 설명했다. 토픽 수를 늘리는 것만을 목표로 삼지 않는다.
+
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="서브노트를 만드는 학습 순환 · 개념도">
+<img src="/assets/subnotes/concepts/writing-guide.svg" alt="자료에서 정의·관계·키워드를 확인하고 내 언어와 그림으로 정리한다. 자료를 가리고 설명·손그림을 재현한 뒤 틀린 부분을 보완한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>서브노트를 만드는 학습 순환</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/writing-guide.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 카페 작성 원칙을 이 노트의 운영 방식으로 재구성한 그림이며 카페 원본 도식은 아니다.
+
+**손으로 그리기:** 자료 → 정리 → 재현 → 보완의 네 칸을 반복으로 연결한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://cafe.naver.com/81th/78220">ITPE 카페 · 서브노트 작성방법론</a> · <a href="https://cafe.naver.com/81th/106133">ITPE 카페 · 서브노트 작성 기본 사항</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
 
 ## 토픽별 기본 틀
 

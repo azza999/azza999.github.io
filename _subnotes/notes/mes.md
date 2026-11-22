@@ -4,6 +4,7 @@ category: 생산·공급망
 updated: 2026-11-22
 summary: 계획과 설비 사이에서 작업지시·진척·품질·실적을 연결한다.
 homework_order: 26
+diagram: mes
 ---
 
 ## 먼저 이해하기
@@ -16,15 +17,23 @@ homework_order: 26
 
 **회상 단서:** 작업지시 · 공정·진척 · 품질 · 실적 · 추적성 · POP
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="MES가 계획과 현장 실행을 연결하는 위치 · 개념도">
+<img src="/assets/subnotes/concepts/mes.svg" alt="상위 생산계획을 MES가 작업지시와 실행 관리로 구체화하고, 설비·현장의 생산실적과 품질 데이터를 모아 상위 계획에 보고한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>MES가 계획과 현장 실행을 연결하는 위치</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/mes.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** MES는 현장 실행을 관리한다. 장기 계획이나 설비 제어 각각과 범위를 구분한다.
+
+**손으로 그리기:** 계획·MES·현장 세 층 → 왼쪽은 아래 지시, 오른쪽은 위 실적.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=53">ITPE 지식관리 · MES</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 계획과 제어 사이
 
-```text
-경영·생산 계획
-      ↓ 작업 요구        ↑ 생산 실적
-MES: 지시·진척·품질·이력·자원 관리
-      ↓ 실행 연계        ↑ 현장 상태
-설비·제어: PLC·DCS·SCADA / 데이터 수집: POP
-```
 
 | 용어 | 초점 |
 | --- | --- |

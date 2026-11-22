@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 분석 대상을 나누고 근거를 모아 차별화 전략을 만든다.
 homework_order: 23
+diagram: three-four-c
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 23
 
 **회상 단서:** 고객 · 경쟁사 · 자사 + 환경
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="3C에 환경을 더한 수업의 4C · 개념도">
+<img src="/assets/subnotes/concepts/three-four-c.svg" alt="고객·경쟁사·자사의 세 관점이 3C이며 수업의 4C는 환경을 추가한다. 분석 결과를 가치 제안과 차별화에 연결한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>3C에 환경을 더한 수업의 4C</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/three-four-c.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 이번 수업에서 사용하는 4C다. 다른 맥락의 4C 모델과 용어를 섞지 않는다.
+
+**손으로 그리기:** 가운데 가치·차별화 → 주변에 고객·경쟁사·자사 → 마지막 환경을 더한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=24">ITPE 지식관리 · 3C·4C</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 관점별 질문
 
 | 관점 | 확인할 것 | 전략에 쓰는 방식 |
@@ -25,10 +41,6 @@ homework_order: 23
 | 자사 | 기술·인력·채널·자산은? | 실행 가능한 경쟁우위 |
 | 환경 | 경제·법·기술·사회 조건은? | 기회·위험·제약 |
 
-```text
-고객 요구 + 경쟁 대안 + 자사 역량 + 외부 조건
-→ 제공 가치·차별화 → 실행·검증
-```
 
 고객을 분석한다고 연령·성별만 나열하지 않는다. 구매 이유·불편·사용 맥락을 확인한다.
 

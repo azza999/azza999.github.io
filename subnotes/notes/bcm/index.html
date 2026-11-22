@@ -8,11 +8,12 @@
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
-<li><a href="#_3">관계를 한 장으로</a></li>
-<li><a href="#_4">가리고 설명하기</a></li>
-<li><a href="#_5">상황에 적용하기</a></li>
-<li><a href="#_6">헷갈리지 않기</a></li>
-<li><a href="#_7">수업 범위와 출처</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">관계를 한 장으로</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">수업 범위와 출처</a></li>
 </ul>
 </div>
 </nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
@@ -20,13 +21,19 @@
 <h2 id="_2">답안에 남길 핵심</h2>
 <p><strong>정의:</strong> BCM(Business Continuity Management)은 중단 사고의 영향을 분석하고, 핵심 업무를 허용 가능한 수준으로 지속·복구하도록 전략·계획·훈련·개선을 운영하는 관리 활동이다.</p>
 <p><strong>회상 단서:</strong> BIA → 전략 → BCP·DRP → 훈련 → 개선</p>
-<h2 id="_3">관계를 한 장으로</h2>
-<pre><code class="language-text">BCM: 조직의 지속적인 관리
- ├ BIA: 무엇부터, 언제까지 살릴까?
- ├ BCP: 사람·장소·업무를 어떻게 이어갈까?
- └ IT 복구: DRP(계획) + DRS(구현 체계)
-        훈련 결과를 다음 계획에 반영
-</code></pre>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BCM의 관리 범위와 계획의 포함관계 · 개념도">
+<img src="/assets/subnotes/concepts/bcm.svg" alt="BCM의 지속적 관리 안에 BIA와 BCP가 있고, BCP 중 IT 복구 계획이 DRP다. DRP는 DRS와 인력·절차로 실행한다." width="600" height="450" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BCM의 관리 범위와 계획의 포함관계</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bcm.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 상자는 관리 범위와 계획의 포함관계다. BCM은 관리 활동이고 BCMS는 이를 운영하는 경영시스템이다.</p>
+<p><strong>손으로 그리기:</strong> 큰 관리 상자 → BIA → BCP 상자 → 안에 DRP → 아래 실행 수단.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=78">ITPE 지식관리 · BCP·BCM</a> · <a href="https://cafe.naver.com/81th/242153">ITPE 카페 · BCMS·BCP·DRP 관계도</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
+<h2 id="_4">관계를 한 장으로</h2>
 <table>
 <thead>
 <tr>
@@ -53,7 +60,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">가리고 설명하기</h2>
+<h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>
 <li>BCM·BCP·DRP·DRS의 역할을 구분해보자.</li>
@@ -66,7 +73,7 @@
 <p><strong>2.</strong> 인력·사업장·협력사·연락망·업무 절차가 함께 준비되어야 실제 업무를 재개할 수 있다.</p>
 </div>
 </details>
-<h2 id="_5">상황에 적용하기</h2>
+<h2 id="_6">상황에 적용하기</h2>
 <p>주문 서버는 정상인데 물류센터가 침수됐다. BCM 담당자는 무엇을 확인해야 할까?</p>
 <details class="answer">
 <summary>풀이와 판단 근거</summary>
@@ -74,9 +81,9 @@
 <p>주문 접수를 계속할 최소 수준, 대체 물류 거점, 직원 안전·배치, 배송 협력사, 고객 안내, 주문 적체 처리 순서를 확인한다. IT 복구만 완료했다고 업무연속성을 달성한 것은 아니다.</p>
 </div>
 </details>
-<h2 id="_6">헷갈리지 않기</h2>
+<h2 id="_7">헷갈리지 않기</h2>
 <p>BCM을 “무중단 서버 구축”으로 축소하지 않는다. 재난 중에도 모든 업무를 평소와 똑같이 유지한다는 뜻이 아니라, 우선 업무를 정해 합의한 수준으로 지속·복구하는 것이다.</p>
-<h2 id="_7">수업 범위와 출처</h2>
+<h2 id="_8">수업 범위와 출처</h2>
 <ul>
 <li><strong>최종 숙제 01/32:</strong> BCM.</li>
 <li><strong>수업 메모의 강조 수준:</strong> 출제·암기 강조. 업무연속성 묶음에서 암기 지시.</li>

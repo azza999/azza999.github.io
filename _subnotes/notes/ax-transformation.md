@@ -4,6 +4,7 @@ category: 데이터·AI
 updated: 2026-11-22
 summary: 도구 설치보다 업무·데이터·책임·성과를 함께 바꾸고 자율 행동의 통제를 설계한다.
 homework_order: 32
+diagram: ax-transformation
 ---
 
 ## 먼저 이해하기
@@ -16,12 +17,23 @@ homework_order: 32
 
 **회상 단서:** 업무 재설계 · 데이터 · 모델·에이전트 · 사람·통제 · 성과
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="AX와 수업상 AX 2.0의 전환 구조 · 개념도">
+<img src="/assets/subnotes/concepts/ax-transformation.svg" alt="AX는 AI를 중심으로 업무와 의사결정을 재설계하는 조직 전환이다. 수업의 AX 2.0은 생성 보조를 넘어 계획·실행·협업하는 AI를 강조하며 사람의 감독과 평가를 함께 둔다." width="600" height="430" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>AX와 수업상 AX 2.0의 전환 구조</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/ax-transformation.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** AX 2.0은 이 수업과 지식관리의 설명 틀이다. 보편적으로 확정된 표준 단계·버전으로 쓰지 않는다.
+
+**손으로 그리기:** 전체 AX 상자 → 보조에서 실행·협업으로 → 아래 공통 감독 기반.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1782">ITPE 지식관리 · AX 2.0</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 전환의 흐름과 AX 2.0
 
-```text
-사업 문제 → 업무·데이터 준비 → 모델·도구 적용
-→ 사람·AI 역할·권한 설계 → 실증·성과 평가 → 확대·운영
-```
 
 | 비교 | AI 보조·자동화 중심 | ITPE의 AX 2.0 용례 |
 | --- | --- | --- |

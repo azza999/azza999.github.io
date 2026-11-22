@@ -4,6 +4,7 @@ category: IT 서비스관리
 updated: 2026-11-22
 summary: 고객 가치와 운영 프로세스, 측정 지표와 신뢰성 의사결정을 연결한다.
 homework_order: 11
+diagram: itsm-slo-error-budget
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 11
 
 **회상 단서:** 서비스 가치 · 사고/문제/변경 · SLI · SLO · 에러버짓
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="ITSM에서 SLO와 에러버짓을 쓰는 위치 · 개념도">
+<img src="/assets/subnotes/concepts/itsm-slo-error-budget.svg" alt="고객 요구에 따라 서비스를 운영하고 SLI를 측정한다. SLO와 비교하고 에러버짓 잔여량을 바탕으로 변경과 신뢰성 개선을 조정한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>ITSM에서 SLO와 에러버짓을 쓰는 위치</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/itsm-slo-error-budget.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 에러버짓은 SLO가 허용하는 불완전성의 범위다. SLO 99.9%이면 허용 실패 비율은 0.1%다.
+
+**손으로 그리기:** 서비스 운영 순환 네 칸 → 점검에 SLI·SLO, 판단에 에러버짓을 적는다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=75">ITPE 지식관리 · ITSM</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3162">ITPE 지식관리 · SLO·에러버짓</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 지표에서 판단으로
 
 | 용어 | 질문 | 예 |
@@ -27,11 +43,6 @@ homework_order: 11
 
 시간 기반 가용성이라면 30일은 43,200분이므로 **허용 중단시간 = 43,200 × 0.001 = 43.2분**이다. 요청 기반이면 분 대신 실패 요청 건수로 계산한다.
 
-```text
-고객 요구 → 서비스 설계 → SLI 측정·SLO 점검
-  ↑                             ↓
-개선 ← 사고·문제·변경 관리 + 에러버짓에 따른 판단
-```
 
 사고 관리는 복구, 문제 관리는 원인·재발 방지, 변경 관리는 변경 위험을 통제한다. 예산을 초과하면 합의한 정책에 따라 신뢰성 개선에 집중한다.
 

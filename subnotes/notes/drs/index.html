@@ -8,11 +8,12 @@
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
-<li><a href="#_3">준비 수준 비교</a></li>
-<li><a href="#_4">가리고 설명하기</a></li>
-<li><a href="#_5">상황에 적용하기</a></li>
-<li><a href="#_6">헷갈리지 않기</a></li>
-<li><a href="#_7">수업 범위와 출처</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">준비 수준 비교</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">수업 범위와 출처</a></li>
 </ul>
 </div>
 </nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
@@ -20,10 +21,19 @@
 <h2 id="_2">답안에 남길 핵심</h2>
 <p><strong>정의:</strong> DRS(Disaster Recovery System)는 재해로 중단된 IT 서비스와 데이터를 복구하기 위한 대체 인프라·백업·복제·전환 및 운영 체계다.</p>
 <p><strong>회상 단서:</strong> BIA → RTO/RPO → 전략 → 구축 → DR Drill</p>
-<h2 id="_3">준비 수준 비교</h2>
-<pre><code class="language-text">업무 영향·의존성 → 복구 목표·전략
-→ 대체 센터·백업·복제·전환 → 훈련·개선
-</code></pre>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="DRS의 주센터·복구센터 이중 구조 · 개념도">
+<img src="/assets/subnotes/concepts/drs.svg" alt="주센터의 응용·데이터·네트워크를 복구센터에 준비하고 복제한다. 재해 시 이용 경로를 전환한다. 유형별 자원 준비 수준은 서로 다르다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>DRS의 주센터·복구센터 이중 구조</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/drs.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 복구센터가 존재하는 것과 실제 복구 가능한 것은 다르다. 복제·의존성·전환 시험을 확인한다.</p>
+<p><strong>손으로 그리기:</strong> 좌우 센터 상자 → 복제 화살표 → 아래 서비스 전환 경로.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a> · <a href="https://cafe.naver.com/81th/239556">ITPE 카페 · DRS 구성도</a>. 확인: 2026-11-22.<br>카페 센터 구성도와 지식관리 DRS 유형을 대조해 단순화. DWDM은 특정 구현 예이므로 필수 구성처럼 표시하지 않음.</div>
+
+<h2 id="_4">준비 수준 비교</h2>
 <table>
 <thead>
 <tr>
@@ -61,7 +71,7 @@
 </tbody>
 </table>
 <p>유형 이름만으로 고정 RTO·RPO를 보장하지 않는다. 네트워크·인증·DNS·외부 연계와 복구 후 거래 검증까지 설계한다.</p>
-<h2 id="_4">가리고 설명하기</h2>
+<h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>
 <li>DRP와 DRS의 차이는?</li>
@@ -74,7 +84,7 @@
 <p><strong>2.</strong> 아니다. 복제 방식·장애 형태·정합성·전환 설계에 따라 달라진다.</p>
 </div>
 </details>
-<h2 id="_5">상황에 적용하기</h2>
+<h2 id="_6">상황에 적용하기</h2>
 <p>랜섬웨어 암호화가 복제 대상에도 전파됐다. 대체 센터만 있으면 될까?</p>
 <details class="answer">
 <summary>풀이와 판단 근거</summary>
@@ -82,9 +92,9 @@
 <p>오염된 최신 복제본만으로는 어려울 수 있다. 격리·불변 백업, 과거 복원 시점, 무결성 확인과 깨끗한 실행 환경도 준비해야 한다.</p>
 </div>
 </details>
-<h2 id="_6">헷갈리지 않기</h2>
+<h2 id="_7">헷갈리지 않기</h2>
 <p>HA는 일상 장애의 지속, DR은 재해 수준 중단의 복구에 주로 초점을 둔다. 서로 보완한다. “Hot Site=무조건 2시간”처럼 사례값을 보편 규칙으로 쓰지 않는다.</p>
-<h2 id="_7">수업 범위와 출처</h2>
+<h2 id="_8">수업 범위와 출처</h2>
 <ul>
 <li><strong>최종 숙제 14/32:</strong> DRS.</li>
 <li><strong>수업 메모의 강조 수준:</strong> 출제 강조. DRS 및 DR 나옴이라고 기록.</li>

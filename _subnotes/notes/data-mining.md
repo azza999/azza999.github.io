@@ -4,6 +4,7 @@ category: 데이터·AI
 updated: 2026-11-22
 summary: 분석 기법을 구분하고 지지도·신뢰도·향상도를 실제 숫자로 이해한다.
 homework_order: 27
+diagram: data-mining
 ---
 
 ## 먼저 이해하기
@@ -15,6 +16,21 @@ homework_order: 27
 **정의:** 데이터 마이닝은 데이터에서 유의미한 패턴·연관관계·규칙 또는 예측 모델을 발견하고 평가하는 분석 활동이다. KDD는 선택·전처리·변환·마이닝·평가를 포함하는 더 넓은 지식발견 과정이다.
 
 **회상 단서:** 분류 · 회귀 · 군집 · 연관 / 지지도·신뢰도·향상도 / 평가
+
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="데이터 마이닝의 발견과 예측 · 개념도">
+<img src="/assets/subnotes/concepts/data-mining.svg" alt="데이터에서 패턴을 추출하는 데이터 마이닝은 예측과 기술·발견으로 나눠 볼 수 있다. 예측에는 분류·회귀, 발견에는 군집·연관규칙이 있다." width="600" height="390" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>데이터 마이닝의 발견과 예측</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/data-mining.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 군집은 비슷한 데이터를 묶고 분류는 정해진 범주를 예측한다. 마이닝 결과를 인과관계로 단정하지 않는다.
+
+**손으로 그리기:** 위 데이터 마이닝 → 예측·발견 두 가지 → 각 대표 기법 두 개.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=12">ITPE 지식관리 · 데이터 마이닝</a>. 확인: 2026-11-22.<br>원본 6번의 예측·기술 분류 사용. 5번의 K-means 예측 모델 배치는 채택하지 않고 군집으로 정리함.</div>
 
 ## 기법과 연관규칙
 
@@ -31,9 +47,6 @@ homework_order: 27
 - 신뢰도 P(B｜A) = 12/20 = **60%**.
 - 향상도 P(B｜A)/P(B) = 0.6/0.3 = **2**.
 
-```text
-목적 → 데이터 선택·전처리 → 모델링 → 평가 → 활용
-```
 
 분류 평가에서는 혼동행렬의 TP·FP·FN·TN과 정밀도·재현율을 연결한다. 배깅은 표본 변화로 여러 모델을 결합하고, 부스팅은 이전 오류를 보완하는 방향으로 모델을 순차 결합한다.
 

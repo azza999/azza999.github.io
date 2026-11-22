@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 전체 분류와 핵심 영역 선택을 구분하고 그림으로 표현한다.
 homework_order: 24
+diagram: mece-liss
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 24
 
 **회상 단서:** MECE: 중복 X·누락 X / 수업의 LISS: 중요 영역 선택
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="MECE의 전체 분류와 수업상 LISS의 선택 · 개념도">
+<img src="/assets/subnotes/concepts/mece-liss.svg" alt="같은 전체 범위를 A·B·C·D로 겹침과 누락 없이 나누면 MECE다. 수업상 LISS는 중요한 영역을 골라 집중하는 설명이며 수학적 정의와 구분한다." width="600" height="370" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>MECE의 전체 분류와 수업상 LISS의 선택</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/mece-liss.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 아래는 수업의 전략적 선택 설명이다. 수학의 독립 생성집합을 불완전한 범위라는 뜻으로 사용하지 않는다.
+
+**손으로 그리기:** 같은 네 칸을 두 줄로 그린다 → 위 전체, 아래 선택한 칸만 강조한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=25">ITPE 지식관리 · MECE·LISS</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 손으로 그릴 그림
 
-```text
-전체 범위 [ A | B | C | D ]
-MECE       A + B + C + D  전체 포괄
-LISS       A     C        중요 영역 집중(수업 표현)
-```
 
 | 구분 | MECE | 수업의 LISS |
 | --- | --- | --- |

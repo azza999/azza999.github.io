@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 환경·사회·지배구조를 경영 의사결정과 실행·측정에 반영한다.
 homework_order: 20
+diagram: esg
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 20
 
 **회상 단서:** 환경 E · 사회 S · 지배구조 G · 측정·투명성
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="ESG의 세 관점과 IT의 기여 · 개념도">
+<img src="/assets/subnotes/concepts/esg.svg" alt="환경 E·사회 S·지배구조 G는 지속가능 경영의 세 관점이다. IT는 각각 에너지·탄소 관리, 접근성·개인정보 보호, 통제·책임·공시를 지원한다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>ESG의 세 관점과 IT의 기여</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/esg.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 환경 활동만으로 ESG 전체를 설명하지 않는다. 사회·지배구조의 목표와 측정 근거도 함께 본다.
+
+**손으로 그리기:** E·S·G 세 기둥 → 각 IT 사례 → 아래 지속가능 경영으로 합친다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=86">ITPE 지식관리 · ESG</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 세 영역과 IT의 역할
 
 | 영역 | 질문 | IT 연결 예 |
@@ -24,11 +40,6 @@ homework_order: 20
 | S 사회 | 사람·고객·공급망에 어떤 영향을 주나? | 접근성·개인정보 보호·안전 시스템 |
 | G 지배구조 | 누가 책임지고 어떻게 감독하나? | 의사결정 기록·통제·감사 증적 |
 
-```text
-주요 영향·이해관계자 → 목표·책임자 → 실행·데이터 수집
-             ↑                           ↓
-            개선 ← 검증·성과 설명·공개
-```
 
 지표의 범위·산정 기준·데이터 출처를 관리해야 실적을 비교할 수 있다. 특정 공시 의무나 적용 일정은 이 노트에서 확정하지 않는다.
 

@@ -4,6 +4,7 @@ category: 생산·공급망
 updated: 2026-11-22
 summary: SCP·SCE·SCPM과 채찍효과·CPFR를 하나의 흐름으로 묶는다.
 homework_order: 25
+diagram: scm
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 25
 
 **회상 단서:** SCP 계획 · SCE 실행 · SCPM 과정 관리 / 채찍효과 · CPFR
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="SCM의 제품·정보 흐름과 계획·실행·통합 · 개념도">
+<img src="/assets/subnotes/concepts/scm.svg" alt="공급자·제조·유통·고객으로 제품이 이동하고 수요·재고 정보는 반대 방향으로 공유된다. SCP·SCE·SCI가 전체 공급망을 계획·실행·통합한다." width="600" height="370" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>SCM의 제품·정보 흐름과 계획·실행·통합</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/scm.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 제품과 정보의 방향을 구분한다. 수요 정보를 함께 보지 못하면 상류로 주문 변동이 증폭될 수 있다.
+
+**손으로 그리기:** 공급자 → 제조 → 유통 → 고객, 아래 반대 방향 정보 화살표와 세 기능.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=49">ITPE 지식관리 · 공급망 관리</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 세 기능과 정보 흐름
 
-```text
-공급자 → 제조 → 유통 → 고객   [제품·물류]
-공급자 ←──── 실제 수요 정보 ─── 고객
-       SCP 계획 → SCE 실행 → SCPM 측정·개선
-```
 
 | 항목 | 의미 |
 | --- | --- |

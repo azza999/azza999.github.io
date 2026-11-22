@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 시간별 중단 영향과 의존성을 분석해 핵심 업무·복구 요구를 도출한다.
 homework_order: 17
+diagram: bia
 ---
 
 ## 먼저 이해하기
@@ -16,12 +17,23 @@ homework_order: 17
 
 **회상 단서:** 핵심 업무 · 시간별 영향 · 의존성 · 우선순위 · RTO/RPO 근거
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BIA가 복구 우선순위와 목표로 이어지는 흐름 · 개념도">
+<img src="/assets/subnotes/concepts/bia.svg" alt="업무와 의존 자원을 식별하고 중단 기간별 영향을 분석한다. 이를 바탕으로 핵심 업무·복구 우선순위·복구 목표를 정해 전략과 계획에 반영한다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BIA가 복구 우선순위와 목표로 이어지는 흐름</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bia.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 단순한 장비 중요도 평가가 아니다. 업무 중단이 고객·재무·법규 등에 미치는 영향을 본다.
+
+**손으로 그리기:** 업무 → 중단 영향 → 우선순위 → 목표 네 칸으로 연결한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1316">ITPE 지식관리 · BIA</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 분석 흐름
 
-```text
-업무·자원 식별 → 시간별 영향 → 허용 한계·복구 요구
-→ 우선순위 합의 → 전략·계획에 반영
-```
 
 | 항목 | 확인 질문 |
 | --- | --- |

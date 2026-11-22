@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 복제·대기 자원·전환을 서비스로 제공받되 복구 목표와 책임은 확인한다.
 homework_order: 3
+diagram: draas
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 3
 
 **회상 단서:** 복제 · 복구 자원 · 오케스트레이션 · 전환 · RTO/RPO · 책임 분담
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="DRaaS의 복제와 재해 시 서비스 전환 · 개념도">
+<img src="/assets/subnotes/concepts/draas.svg" alt="고객 운영환경을 공급자의 클라우드 복구환경으로 복제한다. 재해 시 이용자를 복구환경으로 전환하고 검증하며, 안정화 후 원복한다." width="600" height="430" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>DRaaS의 복제와 재해 시 서비스 전환</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/draas.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 복제 사본뿐 아니라 실제 서비스를 실행할 복구 자원과 전환 절차를 제공한다.
+
+**손으로 그리기:** 좌우에 고객·공급자, 아래 이용자 → 복제 화살표 → 재해 시 접속 경로.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=81">ITPE 지식관리 · DR·BIA·DRaaS</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a>. 확인: 2026-11-22.<br>DRaaS 설명·운영형태 표를 바탕으로 서비스 관계도를 직접 설계함. 점선은 평상시 접속 경로.</div>
+
 ## 서비스 흐름
 
-```text
-주 운영환경 → 데이터·구성 복제 → 공급자의 복구환경
-                                  ↓ 재해 발동
-                       서비스 전환·검증 → 원복
-```
 
 | 확인할 항목 | 확인 이유 |
 | --- | --- |

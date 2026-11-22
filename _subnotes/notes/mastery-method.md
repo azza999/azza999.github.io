@@ -3,6 +3,7 @@ title: 32개 주제를 내 것으로 만드는 복습법
 category: 학습 방법
 updated: 2026-11-22
 summary: 쉬운 설명에서 시작해 회상·구분·응용·다른 날 재현까지. 숙제 32개를 연결해 공부하는 순서.
+diagram: mastery-method
 ---
 
 ## 내 것이 됐다는 기준
@@ -23,6 +24,21 @@ summary: 쉬운 설명에서 시작해 회상·구분·응용·다른 날 재현
 6. **재현:** 다음 날 같은 토픽을 다시 설명한다. 이때는 읽기 전에 먼저 답한다.
 
 한 번에 4개 정도를 하나의 묶음으로 시작해보자. 4개는 운영을 위한 시작값이며, 시간과 난도에 맞춰 조정한다. 이미 잘 아는 토픽은 먼저 질문을 풀고 필요한 부분만 읽는다.
+
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="읽기에서 다른 날 재현까지 · 개념도">
+<img src="/assets/subnotes/concepts/mastery-method.svg" alt="읽고 구조를 이해한 후 가리고 설명·손그림을 재현한다. 정답과 비교해 교정하고 다른 날 다시 회상·적용한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>읽기에서 다른 날 재현까지</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/mastery-method.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 기존 복습 가이드와 카페의 개념도 연습 원칙을 시각화했다. 정해진 간격만으로 완벽한 기억을 보장하지 않는다.
+
+**손으로 그리기:** 이해 → 회상 → 교정 → 다른 날 재현을 네 칸으로 잇는다.
+
+<div class="diagram-source">개념도 참고: <a href="https://cafe.naver.com/81th/106133">ITPE 카페 · 개념도 손그림 연습</a> · <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">기존 복습 가이드의 근거 · 인출 연습 연구</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
 
 ## 기억에 남도록 다시 만나는 간격
 

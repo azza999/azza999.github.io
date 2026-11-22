@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 업무 요구에서 복구 자원·복제·전환·검증으로 이어지는 기술적 구현.
 homework_order: 14
+diagram: drs
 ---
 
 ## 먼저 이해하기
@@ -16,12 +17,23 @@ homework_order: 14
 
 **회상 단서:** BIA → RTO/RPO → 전략 → 구축 → DR Drill
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="DRS의 주센터·복구센터 이중 구조 · 개념도">
+<img src="/assets/subnotes/concepts/drs.svg" alt="주센터의 응용·데이터·네트워크를 복구센터에 준비하고 복제한다. 재해 시 이용 경로를 전환한다. 유형별 자원 준비 수준은 서로 다르다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>DRS의 주센터·복구센터 이중 구조</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/drs.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 복구센터가 존재하는 것과 실제 복구 가능한 것은 다르다. 복제·의존성·전환 시험을 확인한다.
+
+**손으로 그리기:** 좌우 센터 상자 → 복제 화살표 → 아래 서비스 전환 경로.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a> · <a href="https://cafe.naver.com/81th/239556">ITPE 카페 · DRS 구성도</a>. 확인: 2026-11-22.<br>카페 센터 구성도와 지식관리 DRS 유형을 대조해 단순화. DWDM은 특정 구현 예이므로 필수 구성처럼 표시하지 않음.</div>
+
 ## 준비 수준 비교
 
-```text
-업무 영향·의존성 → 복구 목표·전략
-→ 대체 센터·백업·복제·전환 → 훈련·개선
-```
 
 | 방식 | 사전 준비 | 검토 초점 |
 | --- | --- | --- |

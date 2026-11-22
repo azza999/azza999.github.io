@@ -5,6 +5,7 @@ on:
     paths:
       - '_subnotes/**'
       - 'subnotes/**'
+      - 'assets/subnotes/**'
       - '.github/workflows/subnotes.yml'
   workflow_dispatch:
 permissions:

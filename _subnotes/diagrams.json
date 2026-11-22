@@ -1,0 +1,814 @@
+{
+  "bcm": {
+    "title": "BCM의 관리 범위와 계획의 포함관계",
+    "alt": "BCM의 지속적 관리 안에 BIA와 BCP가 있고, BCP 중 IT 복구 계획이 DRP다. DRP는 DRS와 인력·절차로 실행한다.",
+    "width": 600,
+    "height": 450,
+    "asset": "/assets/subnotes/concepts/bcm.svg",
+    "draw": "큰 관리 상자 → BIA → BCP 상자 → 안에 DRP → 아래 실행 수단.",
+    "read": "상자는 관리 범위와 계획의 포함관계다. BCM은 관리 활동이고 BCMS는 이를 운영하는 경영시스템이다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · BCP·BCM",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=78",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 카페 · BCMS·BCP·DRP 관계도",
+        "url": "https://cafe.naver.com/81th/242153"
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "drp": {
+    "title": "DRP의 발동·복구·검증 흐름",
+    "alt": "재해 발동과 연락 후 복구환경으로 전환하고 복구·업무 검증을 수행한다. 이후 안정화·원복·개선으로 이어진다.",
+    "width": 600,
+    "height": 460,
+    "asset": "/assets/subnotes/concepts/drp.svg",
+    "draw": "네 상자를 지그재그로 잇고, 각 상자 아래 책임자·조건을 떠올린다.",
+    "read": "서비스 재개 전 업무 검증이 필요하다. 원복은 주센터 안전성과 복귀 조건 확인 후 수행한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · DRP",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=80",
+        "section": "서브노트",
+        "image_number": 4
+      },
+      {
+        "label": "ITPE 카페 · BCP·DRP 답안",
+        "url": "https://cafe.naver.com/81th/242153"
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "draas": {
+    "title": "DRaaS의 복제와 재해 시 서비스 전환",
+    "alt": "고객 운영환경을 공급자의 클라우드 복구환경으로 복제한다. 재해 시 이용자를 복구환경으로 전환하고 검증하며, 안정화 후 원복한다.",
+    "width": 600,
+    "height": 430,
+    "asset": "/assets/subnotes/concepts/draas.svg",
+    "draw": "좌우에 고객·공급자, 아래 이용자 → 복제 화살표 → 재해 시 접속 경로.",
+    "read": "복제 사본뿐 아니라 실제 서비스를 실행할 복구 자원과 전환 절차를 제공한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · DR·BIA·DRaaS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=81",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · DRS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251",
+        "section": "서브노트",
+        "image_number": 5
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "DRaaS 설명·운영형태 표를 바탕으로 서비스 관계도를 직접 설계함. 점선은 평상시 접속 경로."
+  },
+  "it-compliance": {
+    "title": "IT 컴플라이언스의 요구·통제·증거 연결",
+    "alt": "외부 법규와 내부 정책을 식별하고 통제를 설계·운영한다. 증거로 준수 여부를 평가한 뒤 미비점을 시정한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/it-compliance.svg",
+    "draw": "요구 → 통제 → 증거 → 시정, 네 상자를 순환으로 잇는다.",
+    "read": "법규 이름을 나열하는 데서 끝내지 않고, 운영 통제와 준수 증거를 연결한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · IT 컴플라이언스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=87",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · IT 컴플라이언스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=87",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "technology-valuation": {
+    "title": "기술 가치 평가의 세 접근법",
+    "alt": "평가대상과 목적을 정하고 수익·시장·비용 접근법으로 가치를 추정한다. 기술성·권리성·시장성·사업성과 가정을 함께 검토한다.",
+    "width": 600,
+    "height": 420,
+    "asset": "/assets/subnotes/concepts/technology-valuation.svg",
+    "draw": "위에 평가 대상, 가운데 세 방법, 아래 가치 추정 → 가지를 합친다.",
+    "read": "세 접근법은 자료와 목적에 맞게 선택·교차 검토한다. 세 결과를 무조건 단순 평균하지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 기술 가치 평가",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=131",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · 기술 가치 평가",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=131",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "bsc-it-bsc": {
+    "title": "BSC와 IT-BSC의 전략 가설",
+    "alt": "학습과 성장·내부 프로세스·고객·재무의 인과 가설에 IT-BSC의 미래 지향·운영 탁월성·고객 지향·회사 기여를 대응시킨다.",
+    "width": 600,
+    "height": 460,
+    "asset": "/assets/subnotes/concepts/bsc-it-bsc.svg",
+    "draw": "좌우 네 칸을 쌓고 아래에서 위로 화살표 → 같은 높이끼리 점선 대응.",
+    "read": "아래 역량이 위 성과에 기여한다는 전략 가설이다. 실제 인과관계와 KPI는 검증해야 한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · BSC·IT-BSC",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=8",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "BSC 구성도에 기존 노트의 IT-BSC 관점을 대응시켜 재구성. 점선은 기능적 대응이며 동일 개념이라는 뜻은 아님."
+  },
+  "swot": {
+    "title": "SWOT의 내부·외부 교차행렬",
+    "alt": "열은 내부 강점 S와 약점 W, 행은 외부 기회 O와 위협 T다. 교차점에서 SO·WO·ST·WT 전략을 도출한다.",
+    "width": 600,
+    "height": 420,
+    "asset": "/assets/subnotes/concepts/swot.svg",
+    "draw": "가로 S·W, 세로 O·T → 네 교차칸에 전략을 한 줄씩 쓴다.",
+    "read": "내부 상태 S·W와 외부 환경 O·T를 구분하고, 목록을 조합해 전략으로 연결한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · SWOT",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=23",
+        "section": "서브노트",
+        "image_number": 1
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "sharing-economy": {
+    "title": "공유경제의 삼자 거래 구조",
+    "alt": "제공자의 유휴자원을 플랫폼이 이용자 수요와 연결한다. 대가와 신뢰·평판이 거래를 뒷받침한다.",
+    "width": 600,
+    "height": 390,
+    "asset": "/assets/subnotes/concepts/sharing-economy.svg",
+    "draw": "제공자·플랫폼·이용자 세 칸 → 매칭 연결 → 아래 대가·후기 경로.",
+    "read": "플랫폼이 반드시 자산을 소유하는 것은 아니다. 이용 조건·책임·신뢰 장치가 중요하다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 공유경제",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=111",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "subscription-economy": {
+    "title": "구독경제의 반복 가치 교환",
+    "alt": "고객이 정기 대가를 지급하면 플랫폼이 이용권·배송·렌털 등 서비스를 제공한다. 이용·해지 데이터를 분석하고 가치를 개선해 재구독으로 연결한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/subscription-economy.svg",
+    "draw": "고객 → 서비스 → 데이터 → 개선을 순환으로 그린다.",
+    "read": "정기 결제만으로 성공하지 않는다. 이용 가치가 유지돼야 갱신과 반복매출로 이어진다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 구독경제",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=118",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "ambient-commerce-computing": {
+    "title": "앰비언트 컴퓨팅과 커머스의 연결",
+    "alt": "센싱·연결로 맥락 데이터를 모으고 분석·판단을 통해 자연스러운 서비스를 제공한다. 상거래에 적용하면 주문·결제 등 앰비언트 커머스가 된다.",
+    "width": 600,
+    "height": 290,
+    "asset": "/assets/subnotes/concepts/ambient-commerce-computing.svg",
+    "draw": "센싱 → 맥락 판단 → 서비스 세 칸, 마지막에 상거래 응용을 표시한다.",
+    "read": "앰비언트 컴퓨팅 전체를 무인결제로 한정하지 않는다. 개인정보·동의·오류 대응도 필요하다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 앰비언트 컴퓨팅·커머스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=100",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 지식관리 · 앰비언트 컴퓨팅·커머스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=100",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "itsm-slo-error-budget": {
+    "title": "ITSM에서 SLO와 에러버짓을 쓰는 위치",
+    "alt": "고객 요구에 따라 서비스를 운영하고 SLI를 측정한다. SLO와 비교하고 에러버짓 잔여량을 바탕으로 변경과 신뢰성 개선을 조정한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/itsm-slo-error-budget.svg",
+    "draw": "서비스 운영 순환 네 칸 → 점검에 SLI·SLO, 판단에 에러버짓을 적는다.",
+    "read": "에러버짓은 SLO가 허용하는 불완전성의 범위다. SLO 99.9%이면 허용 실패 비율은 0.1%다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · ITSM",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=75",
+        "section": "서브노트",
+        "image_number": 4
+      },
+      {
+        "label": "ITPE 지식관리 · SLO·에러버짓",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3162",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "sla": {
+    "title": "SLA의 약속·측정·미달 조치",
+    "alt": "고객과 제공자가 서비스 범위·목표·측정 기준·책임·미달 조치를 합의한다. 실제 측정 결과를 보고하고 합의 기준에 따라 개선한다.",
+    "width": 600,
+    "height": 410,
+    "asset": "/assets/subnotes/concepts/sla.svg",
+    "draw": "고객·제공자 → 가운데 SLA → 아래 측정·판단·조치.",
+    "read": "SLO는 목표치, SLA는 목표뿐 아니라 측정 방법과 책임·미달 조치를 포함한 합의다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · SLA",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=68",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · SLA",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=68",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "iso-22301": {
+    "title": "ISO 22301의 BCMS 운영 순환",
+    "alt": "ISO 22301의 조직 상황·리더십·기획·지원은 Plan, 운영은 Do, 성과평가는 Check, 개선은 Act로 연결된다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/iso-22301.svg",
+    "draw": "네 칸을 원형으로 잇고 P·D·C·A와 실제 활동을 함께 쓴다.",
+    "read": "인증 취득으로 끝나는 구조가 아니다. 운영·평가·개선을 반복하는 경영시스템이다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · ISO 22301",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=79",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · ISO 22301",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=79",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "drs": {
+    "title": "DRS의 주센터·복구센터 이중 구조",
+    "alt": "주센터의 응용·데이터·네트워크를 복구센터에 준비하고 복제한다. 재해 시 이용 경로를 전환한다. 유형별 자원 준비 수준은 서로 다르다.",
+    "width": 600,
+    "height": 410,
+    "asset": "/assets/subnotes/concepts/drs.svg",
+    "draw": "좌우 센터 상자 → 복제 화살표 → 아래 서비스 전환 경로.",
+    "read": "복구센터가 존재하는 것과 실제 복구 가능한 것은 다르다. 복제·의존성·전환 시험을 확인한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · DRS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251",
+        "section": "서브노트",
+        "image_number": 4
+      },
+      {
+        "label": "ITPE 카페 · DRS 구성도",
+        "url": "https://cafe.naver.com/81th/239556"
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "카페 센터 구성도와 지식관리 DRS 유형을 대조해 단순화. DWDM은 특정 구현 예이므로 필수 구성처럼 표시하지 않음."
+  },
+  "rto": {
+    "title": "RTO를 구분하는 공통 시간축",
+    "alt": "장애 전 복구 가능한 데이터 시점부터 장애까지는 데이터 손실 구간, 장애부터 서비스 복구까지는 복구 소요시간이다. RPO와 RTO는 각각 이 구간에 대한 목표다.",
+    "width": 600,
+    "height": 380,
+    "asset": "/assets/subnotes/concepts/rto.svg",
+    "draw": "시간축 → 데이터 시점·장애·복구 세 점 → 장애 좌우에 두 구간.",
+    "read": "그림의 구간은 실제 결과를 뜻하며 RPO·RTO는 허용 목표다. 실제 손실·복구시간이 목표 이내인지 비교한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · RTO·RPO",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=82",
+        "section": "서브노트",
+        "image_number": 5
+      },
+      {
+        "label": "ITPE 지식관리 · RTO·RPO",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=82",
+        "section": "서브노트",
+        "image_number": 14
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "원본의 시간축을 대조해 RPO는 장애 전 데이터 손실, RTO는 장애 후 복구 소요시간의 목표로 구분함."
+  },
+  "rpo": {
+    "title": "RPO를 구분하는 공통 시간축",
+    "alt": "장애 전 복구 가능한 데이터 시점부터 장애까지는 데이터 손실 구간, 장애부터 서비스 복구까지는 복구 소요시간이다. RPO와 RTO는 각각 이 구간에 대한 목표다.",
+    "width": 600,
+    "height": 380,
+    "asset": "/assets/subnotes/concepts/rpo.svg",
+    "draw": "시간축 → 데이터 시점·장애·복구 세 점 → 장애 좌우에 두 구간.",
+    "read": "그림의 구간은 실제 결과를 뜻하며 RPO·RTO는 허용 목표다. 실제 손실·복구시간이 목표 이내인지 비교한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · RTO·RPO",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=82",
+        "section": "서브노트",
+        "image_number": 5
+      },
+      {
+        "label": "ITPE 지식관리 · RTO·RPO",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=82",
+        "section": "서브노트",
+        "image_number": 14
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "원본의 시간축을 대조해 RPO는 장애 전 데이터 손실, RTO는 장애 후 복구 소요시간의 목표로 구분함."
+  },
+  "bia": {
+    "title": "BIA가 복구 우선순위와 목표로 이어지는 흐름",
+    "alt": "업무와 의존 자원을 식별하고 중단 기간별 영향을 분석한다. 이를 바탕으로 핵심 업무·복구 우선순위·복구 목표를 정해 전략과 계획에 반영한다.",
+    "width": 600,
+    "height": 460,
+    "asset": "/assets/subnotes/concepts/bia.svg",
+    "draw": "업무 → 중단 영향 → 우선순위 → 목표 네 칸으로 연결한다.",
+    "read": "단순한 장비 중요도 평가가 아니다. 업무 중단이 고객·재무·법규 등에 미치는 영향을 본다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · BIA",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1316",
+        "section": "서브노트",
+        "image_number": 3
+      },
+      {
+        "label": "ITPE 지식관리 · DRS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "isp": {
+    "title": "ISP의 5단계와 통합 이행계획",
+    "alt": "환경분석·현황분석·정보화 비전 및 전략 수립·목표모델 설계·통합 이행계획 순으로 전사 정보화 방향과 실행을 연결한다.",
+    "width": 600,
+    "height": 460,
+    "asset": "/assets/subnotes/concepts/isp.svg",
+    "draw": "세 칸 뒤 아래로 내려가 두 칸 → 환·현·비·목·통을 적는다.",
+    "read": "지식관리 구축절차의 핵심 단계를 유지했다. 실제 산출물과 검토 항목은 가이드·사업 조건에 맞춘다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · ISP·ISMP",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "ismp": {
+    "title": "ISMP의 요건 상세화와 발주 준비",
+    "alt": "프로젝트 착수·정보시스템 방향성 수립·업무와 정보기술 요건 분석·구조 및 요건 정의·구축사업 이행방안 수립으로 발주 가능한 요구사항을 도출한다.",
+    "width": 600,
+    "height": 460,
+    "asset": "/assets/subnotes/concepts/ismp.svg",
+    "draw": "세 칸에서 두 칸으로 이어지는 흐름 → 마지막에 예산·RFP를 표시한다.",
+    "read": "ISP의 전사 방향과 연결하되, 특정 사업의 기능·비기능·기술 요건과 발주 준비에 초점을 둔다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · ISP·ISMP",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3",
+        "section": "서브노트",
+        "image_number": 20
+      },
+      {
+        "label": "ITPE 지식관리 · ISP·ISMP",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3",
+        "section": "서브노트",
+        "image_number": 22
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "esg": {
+    "title": "ESG의 세 관점과 IT의 기여",
+    "alt": "환경 E·사회 S·지배구조 G는 지속가능 경영의 세 관점이다. IT는 각각 에너지·탄소 관리, 접근성·개인정보 보호, 통제·책임·공시를 지원한다.",
+    "width": 600,
+    "height": 410,
+    "asset": "/assets/subnotes/concepts/esg.svg",
+    "draw": "E·S·G 세 기둥 → 각 IT 사례 → 아래 지속가능 경영으로 합친다.",
+    "read": "환경 활동만으로 ESG 전체를 설명하지 않는다. 사회·지배구조의 목표와 측정 근거도 함께 본다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · ESG",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=86",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · ESG",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=86",
+        "section": "서브노트",
+        "image_number": 3
+      },
+      {
+        "label": "ITPE 지식관리 · ESG",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=86",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "it-governance": {
+    "title": "IT 거버넌스의 방향·책임과 실행의 연결",
+    "alt": "경영 목표와 이해관계자 요구를 바탕으로 거버넌스가 평가·지시·모니터링한다. 관리는 계획·구축·운영을 실행하고 성과와 위험을 보고한다.",
+    "width": 600,
+    "height": 430,
+    "asset": "/assets/subnotes/concepts/it-governance.svg",
+    "draw": "위 경영 목표 → 거버넌스 → 관리, 가운데 왕복 화살표에 방향·성과.",
+    "read": "거버넌스가 방향·책임·감독을 정하고, 관리가 실행과 운영을 수행한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · IT 거버넌스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=83",
+        "section": "서브노트",
+        "image_number": 3
+      },
+      {
+        "label": "ITPE 지식관리 · IT 거버넌스",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=83",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "it-investment": {
+    "title": "IT 투자의 사전·중간·사후 평가",
+    "alt": "투자 전 경제성을 평가하고 집행 중 비용·위험·진행을 점검하며 운영 후 실제 성과와 편익을 평가한다. 결과를 차기 투자에 반영한다.",
+    "width": 600,
+    "height": 390,
+    "asset": "/assets/subnotes/concepts/it-investment.svg",
+    "draw": "사전·중간·사후 세 칸 → 아래에 지표 → 사후에서 사전으로 환류.",
+    "read": "평가 시점과 지표의 용도를 구분한다. 경제성 수치만으로 전략 적합성·위험 평가를 대신하지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · IT 경제성 분석",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=6",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 지식관리 · IT 경제성 분석",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=6",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · IT-ROI",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=7",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "three-four-c": {
+    "title": "3C에 환경을 더한 수업의 4C",
+    "alt": "고객·경쟁사·자사의 세 관점이 3C이며 수업의 4C는 환경을 추가한다. 분석 결과를 가치 제안과 차별화에 연결한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/three-four-c.svg",
+    "draw": "가운데 가치·차별화 → 주변에 고객·경쟁사·자사 → 마지막 환경을 더한다.",
+    "read": "이번 수업에서 사용하는 4C다. 다른 맥락의 4C 모델과 용어를 섞지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 3C·4C",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=24",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 지식관리 · 3C·4C",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=24",
+        "section": "서브노트",
+        "image_number": 2
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "mece-liss": {
+    "title": "MECE의 전체 분류와 수업상 LISS의 선택",
+    "alt": "같은 전체 범위를 A·B·C·D로 겹침과 누락 없이 나누면 MECE다. 수업상 LISS는 중요한 영역을 골라 집중하는 설명이며 수학적 정의와 구분한다.",
+    "width": 600,
+    "height": 370,
+    "asset": "/assets/subnotes/concepts/mece-liss.svg",
+    "draw": "같은 네 칸을 두 줄로 그린다 → 위 전체, 아래 선택한 칸만 강조한다.",
+    "read": "아래는 수업의 전략적 선택 설명이다. 수학의 독립 생성집합을 불완전한 범위라는 뜻으로 사용하지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · MECE·LISS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=25",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 지식관리 · MECE·LISS",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=25",
+        "section": "서브노트",
+        "image_number": 2
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "scm": {
+    "title": "SCM의 제품·정보 흐름과 계획·실행·통합",
+    "alt": "공급자·제조·유통·고객으로 제품이 이동하고 수요·재고 정보는 반대 방향으로 공유된다. SCP·SCE·SCI가 전체 공급망을 계획·실행·통합한다.",
+    "width": 600,
+    "height": 370,
+    "asset": "/assets/subnotes/concepts/scm.svg",
+    "draw": "공급자 → 제조 → 유통 → 고객, 아래 반대 방향 정보 화살표와 세 기능.",
+    "read": "제품과 정보의 방향을 구분한다. 수요 정보를 함께 보지 못하면 상류로 주문 변동이 증폭될 수 있다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 공급망 관리",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=49",
+        "section": "서브노트",
+        "image_number": 3
+      },
+      {
+        "label": "ITPE 지식관리 · 공급망 관리",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=49",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "mes": {
+    "title": "MES가 계획과 현장 실행을 연결하는 위치",
+    "alt": "상위 생산계획을 MES가 작업지시와 실행 관리로 구체화하고, 설비·현장의 생산실적과 품질 데이터를 모아 상위 계획에 보고한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/mes.svg",
+    "draw": "계획·MES·현장 세 층 → 왼쪽은 아래 지시, 오른쪽은 위 실적.",
+    "read": "MES는 현장 실행을 관리한다. 장기 계획이나 설비 제어 각각과 범위를 구분한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · MES",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=53",
+        "section": "서브노트",
+        "image_number": 2
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "data-mining": {
+    "title": "데이터 마이닝의 발견과 예측",
+    "alt": "데이터에서 패턴을 추출하는 데이터 마이닝은 예측과 기술·발견으로 나눠 볼 수 있다. 예측에는 분류·회귀, 발견에는 군집·연관규칙이 있다.",
+    "width": 600,
+    "height": 390,
+    "asset": "/assets/subnotes/concepts/data-mining.svg",
+    "draw": "위 데이터 마이닝 → 예측·발견 두 가지 → 각 대표 기법 두 개.",
+    "read": "군집은 비슷한 데이터를 묶고 분류는 정해진 범주를 예측한다. 마이닝 결과를 인과관계로 단정하지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 데이터 마이닝",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=12",
+        "section": "서브노트",
+        "image_number": 6
+      },
+      {
+        "label": "ITPE 지식관리 · 데이터 마이닝",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=12",
+        "section": "서브노트",
+        "image_number": 8
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "원본 6번의 예측·기술 분류 사용. 5번의 K-means 예측 모델 배치는 채택하지 않고 군집으로 정리함."
+  },
+  "neural-network": {
+    "title": "신경망의 순전파와 학습",
+    "alt": "입력층에서 은닉층을 거쳐 출력층으로 계산한다. 지도학습에서는 출력과 정답의 오차를 계산하고 역전파와 최적화로 가중치를 갱신한다.",
+    "width": 600,
+    "height": 410,
+    "asset": "/assets/subnotes/concepts/neural-network.svg",
+    "draw": "세 층에 동그라미 → 층 사이 연결 → 아래 순전파·학습 방향.",
+    "read": "연결선은 가중치를 가진다. 모든 신경망 학습이 정답을 쓰는 것은 아니므로 역전파 설명은 지도학습 예다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 신경망 분석",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=18",
+        "section": "서브노트",
+        "image_number": 3
+      },
+      {
+        "label": "ITPE 지식관리 · 신경망 분석",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=18",
+        "section": "서브노트",
+        "image_number": 4
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "dark-patterns": {
+    "title": "다크패턴이 선택을 왜곡하는 경로",
+    "alt": "소비자의 선택 화면에 정보 은폐·오도·압박·방해를 넣으면 이해와 선택이 왜곡돼 원치 않는 결제나 해지 실패로 이어질 수 있다.",
+    "width": 600,
+    "height": 290,
+    "asset": "/assets/subnotes/concepts/dark-patterns.svg",
+    "draw": "화면 → 조작 요소 → 왜곡된 결과, 아래 대응 원칙 세 개.",
+    "read": "모든 설득 디자인이 다크패턴은 아니다. 충분한 정보와 자유로운 선택을 방해하는지 확인한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 다크패턴",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=122",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · 다크패턴",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=122",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "digital-cartel": {
+    "title": "디지털 카르텔의 가격 상호작용",
+    "alt": "여러 기업의 가격결정 알고리즘이 가격 정보를 관찰하고 반응한다. 공통 알고리즘·신호·학습 방식 등이 경쟁 제한 위험을 만들 수 있으나 같은 가격만으로 담합을 단정하지 않는다.",
+    "width": 600,
+    "height": 390,
+    "asset": "/assets/subnotes/concepts/digital-cartel.svg",
+    "draw": "기업별 알고리즘 두 칸 → 관찰·반응 → 아래 경쟁 제한 위험.",
+    "read": "그림은 위험의 개념 구조다. 가격 일치만으로 합의·위법성을 확정하지 않으며 유형별 증거를 확인한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 디지털 카르텔",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=121",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · 디지털 카르텔",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=121",
+        "section": "서브노트",
+        "image_number": 3
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "intellectual-property": {
+    "title": "지식재산권을 보호 대상별로 나눈 구조",
+    "alt": "지식재산권은 산업재산권·저작권·신지식재산의 영역으로 나누어 학습한다. 기술·표장·표현·영업비밀 등 보호 대상이 다르고 일부 영역은 중첩될 수 있다.",
+    "width": 600,
+    "height": 410,
+    "asset": "/assets/subnotes/concepts/intellectual-property.svg",
+    "draw": "큰 권리 상자 → 세 가지 → 각 보호 대상 예시 두 개.",
+    "read": "학습용 분류이며 모든 법적 권리가 서로 배타적인 것은 아니다. 아이디어와 구체적 표현의 보호도 구분한다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · 지식재산권",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=130",
+        "section": "서브노트",
+        "image_number": 1
+      },
+      {
+        "label": "ITPE 지식관리 · 지식재산권",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=130",
+        "section": "서브노트",
+        "image_number": 2
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "ax-transformation": {
+    "title": "AX와 수업상 AX 2.0의 전환 구조",
+    "alt": "AX는 AI를 중심으로 업무와 의사결정을 재설계하는 조직 전환이다. 수업의 AX 2.0은 생성 보조를 넘어 계획·실행·협업하는 AI를 강조하며 사람의 감독과 평가를 함께 둔다.",
+    "width": 600,
+    "height": 430,
+    "asset": "/assets/subnotes/concepts/ax-transformation.svg",
+    "draw": "전체 AX 상자 → 보조에서 실행·협업으로 → 아래 공통 감독 기반.",
+    "read": "AX 2.0은 이 수업과 지식관리의 설명 틀이다. 보편적으로 확정된 표준 단계·버전으로 쓰지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 지식관리 · AX 2.0",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1782",
+        "section": "서브노트",
+        "image_number": 2
+      },
+      {
+        "label": "ITPE 지식관리 · AX 2.0",
+        "url": "https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1782",
+        "section": "키워드(암기법)",
+        "image_number": null
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "writing-guide": {
+    "title": "서브노트를 만드는 학습 순환",
+    "alt": "자료에서 정의·관계·키워드를 확인하고 내 언어와 그림으로 정리한다. 자료를 가리고 설명·손그림을 재현한 뒤 틀린 부분을 보완한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/writing-guide.svg",
+    "draw": "자료 → 정리 → 재현 → 보완의 네 칸을 반복으로 연결한다.",
+    "read": "카페 작성 원칙을 이 노트의 운영 방식으로 재구성한 그림이며 카페 원본 도식은 아니다.",
+    "sources": [
+      {
+        "label": "ITPE 카페 · 서브노트 작성방법론",
+        "url": "https://cafe.naver.com/81th/78220"
+      },
+      {
+        "label": "ITPE 카페 · 서브노트 작성 기본 사항",
+        "url": "https://cafe.naver.com/81th/106133"
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  },
+  "mastery-method": {
+    "title": "읽기에서 다른 날 재현까지",
+    "alt": "읽고 구조를 이해한 후 가리고 설명·손그림을 재현한다. 정답과 비교해 교정하고 다른 날 다시 회상·적용한다.",
+    "width": 600,
+    "height": 440,
+    "asset": "/assets/subnotes/concepts/mastery-method.svg",
+    "draw": "이해 → 회상 → 교정 → 다른 날 재현을 네 칸으로 잇는다.",
+    "read": "기존 복습 가이드와 카페의 개념도 연습 원칙을 시각화했다. 정해진 간격만으로 완벽한 기억을 보장하지 않는다.",
+    "sources": [
+      {
+        "label": "ITPE 카페 · 개념도 손그림 연습",
+        "url": "https://cafe.naver.com/81th/106133"
+      },
+      {
+        "label": "기존 복습 가이드의 근거 · 인출 연습 연구",
+        "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+      }
+    ],
+    "checked_at": "2026-11-22",
+    "adaptation": "핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음."
+  }
+}

@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: BCR·NPV·IRR·PP를 구분하고 사전·중간·사후 평가로 연결한다.
 homework_order: 22
+diagram: it-investment
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 22
 
 **회상 단서:** BCR·NPV·IRR·PP / 사전·중간·사후 / 실현 편익
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="IT 투자의 사전·중간·사후 평가 · 개념도">
+<img src="/assets/subnotes/concepts/it-investment.svg" alt="투자 전 경제성을 평가하고 집행 중 비용·위험·진행을 점검하며 운영 후 실제 성과와 편익을 평가한다. 결과를 차기 투자에 반영한다." width="600" height="390" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>IT 투자의 사전·중간·사후 평가</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/it-investment.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 평가 시점과 지표의 용도를 구분한다. 경제성 수치만으로 전략 적합성·위험 평가를 대신하지 않는다.
+
+**손으로 그리기:** 사전·중간·사후 세 칸 → 아래에 지표 → 사후에서 사전으로 환류.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=6">ITPE 지식관리 · IT 경제성 분석</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=7">ITPE 지식관리 · IT-ROI</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 네 지표의 차이
 
 | 지표 | 계산·의미 | 일반적 판단 |
@@ -27,10 +43,6 @@ homework_order: 22
 
 단순 PP는 시간가치와 회수 이후 현금흐름을 충분히 반영하지 않는다. 현재가치 기반 BCR·NPV·IRR은 할인 개념을 사용한다. 현금흐름 부호가 여러 번 바뀌면 IRR 해석에 주의한다.
 
-```text
-사전: 대안·타당성 → 중간: 집행·일정·성과 전망
-→ 사후: 실제 비용·실현 편익 → 다음 투자에 환류
-```
 
 단순 ROI의 예시는 **(편익−비용)÷비용×100%**다. 기간과 비용·편익 범위를 밝혀야 비교 가능하다.
 

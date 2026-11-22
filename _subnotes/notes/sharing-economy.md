@@ -4,6 +4,7 @@ category: 비즈니스 모델
 updated: 2026-11-22
 summary: 유휴 자원의 접근·사용을 연결하고 거래의 신뢰와 책임을 설계한다.
 homework_order: 8
+diagram: sharing-economy
 ---
 
 ## 먼저 이해하기
@@ -16,12 +17,23 @@ homework_order: 8
 
 **회상 단서:** 유휴 자원 · 접근·이용 · 매칭 · 평판 · 책임
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="공유경제의 삼자 거래 구조 · 개념도">
+<img src="/assets/subnotes/concepts/sharing-economy.svg" alt="제공자의 유휴자원을 플랫폼이 이용자 수요와 연결한다. 대가와 신뢰·평판이 거래를 뒷받침한다." width="600" height="390" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>공유경제의 삼자 거래 구조</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/sharing-economy.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 플랫폼이 반드시 자산을 소유하는 것은 아니다. 이용 조건·책임·신뢰 장치가 중요하다.
+
+**손으로 그리기:** 제공자·플랫폼·이용자 세 칸 → 매칭 연결 → 아래 대가·후기 경로.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=111">ITPE 지식관리 · 공유경제</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 거래 구조
 
-```text
-제공자(남는 자원) ↔ 플랫폼(매칭·신뢰·결제) ↔ 이용자
-                이용 기록·평가·분쟁 처리
-```
 
 | 과제 | 대응 설계 |
 | --- | --- |

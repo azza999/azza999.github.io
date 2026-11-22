@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 특정 개발사업의 요구사항·규모·구축전략을 구체화해 RFP 작성으로 연결한다.
 homework_order: 19
+diagram: ismp
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ ISP에서 “주문 시스템을 개선하자”가 나왔다면, ISMP는 어떤
 
 **회상 단서:** 프방어구축 · 기능/비기능 · FP · 구축계획 · RFP
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="ISMP의 요건 상세화와 발주 준비 · 개념도">
+<img src="/assets/subnotes/concepts/ismp.svg" alt="프로젝트 착수·정보시스템 방향성 수립·업무와 정보기술 요건 분석·구조 및 요건 정의·구축사업 이행방안 수립으로 발주 가능한 요구사항을 도출한다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>ISMP의 요건 상세화와 발주 준비</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/ismp.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** ISP의 전사 방향과 연결하되, 특정 사업의 기능·비기능·기술 요건과 발주 준비에 초점을 둔다.
+
+**손으로 그리기:** 세 칸에서 두 칸으로 이어지는 흐름 → 마지막에 예산·RFP를 표시한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=3">ITPE 지식관리 · ISP·ISMP</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 수행 5단계
 
 | 단계 | 핵심 활동 |
@@ -26,10 +42,6 @@ ISP에서 “주문 시스템을 개선하자”가 나왔다면, ISMP는 어떤
 | 정보시스템 구조·요건 정의 | 목표 구조와 상세 기능·비기능 요건 |
 | 구축사업 이행방안 수립 | 발주 범위·예산·일정·RFP |
 
-```text
-ISP(방향·로드맵) → ISMP(특정 사업의 상세 계획)
-→ RFP·발주 → 구축사업
-```
 
 **FP는 기능 규모, MM은 인력 투입 공수**다. SW 직접구매·분리발주 검토도 범위·비용 구체화와 연결된다. 금액 기준·예외는 해당 시점의 공식 규정을 별도 확인한다.
 

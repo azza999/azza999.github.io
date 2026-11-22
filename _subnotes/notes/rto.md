@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 장애 후 미래 방향으로 보는 복구목표시간.
 homework_order: 15
+diagram: rto
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 15
 
 **회상 단서:** 중단시간 · 업무 재개 · 전환·복구·검증 · 비용 균형
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="RTO를 구분하는 공통 시간축 · 개념도">
+<img src="/assets/subnotes/concepts/rto.svg" alt="장애 전 복구 가능한 데이터 시점부터 장애까지는 데이터 손실 구간, 장애부터 서비스 복구까지는 복구 소요시간이다. RPO와 RTO는 각각 이 구간에 대한 목표다." width="600" height="380" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>RTO를 구분하는 공통 시간축</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/rto.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 그림의 구간은 실제 결과를 뜻하며 RPO·RTO는 허용 목표다. 실제 손실·복구시간이 목표 이내인지 비교한다.
+
+**손으로 그리기:** 시간축 → 데이터 시점·장애·복구 세 점 → 장애 좌우에 두 구간.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=82">ITPE 지식관리 · RTO·RPO</a>. 확인: 2026-11-22.<br>원본의 시간축을 대조해 RPO는 장애 전 데이터 손실, RTO는 장애 후 복구 소요시간의 목표로 구분함.</div>
+
 ## 시간축
 
-```text
-복구 데이터 시점      장애          목표 복구
-    13:55             14:00           16:00
-      └─ RPO 5분 ───────┘─ RTO 2시간 ──┘
-```
 
 | 개선 방법 | 효과·고려사항 |
 | --- | --- |

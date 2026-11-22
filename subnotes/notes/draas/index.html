@@ -8,11 +8,12 @@
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
-<li><a href="#_3">서비스 흐름</a></li>
-<li><a href="#_4">가리고 설명하기</a></li>
-<li><a href="#_5">상황에 적용하기</a></li>
-<li><a href="#_6">헷갈리지 않기</a></li>
-<li><a href="#_7">수업 범위와 출처</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">서비스 흐름</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">수업 범위와 출처</a></li>
 </ul>
 </div>
 </nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
@@ -20,11 +21,19 @@
 <h2 id="_2">답안에 남길 핵심</h2>
 <p><strong>정의:</strong> DRaaS(Disaster Recovery as a Service)는 IT 시스템과 데이터를 복제·보호하고 재해 시 복구 환경으로 전환하는 기능을 서비스 형태로 제공하는 모델이다.</p>
 <p><strong>회상 단서:</strong> 복제 · 복구 자원 · 오케스트레이션 · 전환 · RTO/RPO · 책임 분담</p>
-<h2 id="_3">서비스 흐름</h2>
-<pre><code class="language-text">주 운영환경 → 데이터·구성 복제 → 공급자의 복구환경
-                                  ↓ 재해 발동
-                       서비스 전환·검증 → 원복
-</code></pre>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="DRaaS의 복제와 재해 시 서비스 전환 · 개념도">
+<img src="/assets/subnotes/concepts/draas.svg" alt="고객 운영환경을 공급자의 클라우드 복구환경으로 복제한다. 재해 시 이용자를 복구환경으로 전환하고 검증하며, 안정화 후 원복한다." width="600" height="430" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>DRaaS의 복제와 재해 시 서비스 전환</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/draas.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 복제 사본뿐 아니라 실제 서비스를 실행할 복구 자원과 전환 절차를 제공한다.</p>
+<p><strong>손으로 그리기:</strong> 좌우에 고객·공급자, 아래 이용자 → 복제 화살표 → 재해 시 접속 경로.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=81">ITPE 지식관리 · DR·BIA·DRaaS</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a>. 확인: 2026-11-22.<br>DRaaS 설명·운영형태 표를 바탕으로 서비스 관계도를 직접 설계함. 점선은 평상시 접속 경로.</div>
+
+<h2 id="_4">서비스 흐름</h2>
 <table>
 <thead>
 <tr>
@@ -55,7 +64,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">가리고 설명하기</h2>
+<h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>
 <li>일반 백업 서비스와 DRaaS를 구분하는 중심은?</li>
@@ -68,7 +77,7 @@
 <p><strong>2.</strong> 아니다. 응용 의존성·계정·네트워크·정합성을 포함한 실제 전환을 검증해야 한다.</p>
 </div>
 </details>
-<h2 id="_5">상황에 적용하기</h2>
+<h2 id="_6">상황에 적용하기</h2>
 <p>공급자가 “데이터는 안전하게 저장된다”고만 안내한다. 2시간 내 업무 재개 요구를 충족한다고 볼 수 있을까?</p>
 <details class="answer">
 <summary>풀이와 판단 근거</summary>
@@ -76,9 +85,9 @@
 <p>저장만으로는 판단할 수 없다. 응용 실행 자원, 전환 절차, 네트워크 연결과 실제 복구시간을 확인해야 한다. 데이터 복제 지연과 RPO도 별도로 검증한다.</p>
 </div>
 </details>
-<h2 id="_6">헷갈리지 않기</h2>
+<h2 id="_7">헷갈리지 않기</h2>
 <p>백업 보관과 업무 재개는 다르다. 공급자 장애·종속성도 검토하고, “클라우드이므로 자동으로 RPO=0”이라고 쓰지 않는다.</p>
-<h2 id="_7">수업 범위와 출처</h2>
+<h2 id="_8">수업 범위와 출처</h2>
 <ul>
 <li><strong>최종 숙제 03/32:</strong> DRaaS.</li>
 <li><strong>수업 메모의 강조 수준:</strong> 용어 암기. 단어 암기 지시. 독립 출제 강조로 확대하지 않음.</li>

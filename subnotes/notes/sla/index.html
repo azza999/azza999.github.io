@@ -8,11 +8,12 @@
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
-<li><a href="#_3">약속의 구성</a></li>
-<li><a href="#_4">가리고 설명하기</a></li>
-<li><a href="#_5">상황에 적용하기</a></li>
-<li><a href="#_6">헷갈리지 않기</a></li>
-<li><a href="#_7">수업 범위와 출처</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">약속의 구성</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">수업 범위와 출처</a></li>
 </ul>
 </div>
 </nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
@@ -20,7 +21,19 @@
 <h2 id="_2">답안에 남길 핵심</h2>
 <p><strong>정의:</strong> SLA(Service Level Agreement)는 제공자와 고객이 서비스 범위·수준 목표·측정 및 보고 방법·역할과 책임·미달 시 조치를 합의한 문서다.</p>
 <p><strong>회상 단서:</strong> 범위 · 지표 · 목표 · 측정 · 보고 · 책임·보상</p>
-<h2 id="_3">약속의 구성</h2>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="SLA의 약속·측정·미달 조치 · 개념도">
+<img src="/assets/subnotes/concepts/sla.svg" alt="고객과 제공자가 서비스 범위·목표·측정 기준·책임·미달 조치를 합의한다. 실제 측정 결과를 보고하고 합의 기준에 따라 개선한다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>SLA의 약속·측정·미달 조치</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/sla.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> SLO는 목표치, SLA는 목표뿐 아니라 측정 방법과 책임·미달 조치를 포함한 합의다.</p>
+<p><strong>손으로 그리기:</strong> 고객·제공자 → 가운데 SLA → 아래 측정·판단·조치.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=68">ITPE 지식관리 · SLA</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
+<h2 id="_4">약속의 구성</h2>
 <table>
 <thead>
 <tr>
@@ -51,11 +64,8 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-text">고객 요구 → SLA 합의 → 측정·보고 → 차이 분석·개선
-                 SLM이 지속 관리
-</code></pre>
 <p>SLA는 합의, SLM은 관리 활동, SoW는 수행 업무 범위를 기술한 문서다. 계약에 포함되는 방식은 상황에 따라 다르다.</p>
-<h2 id="_4">가리고 설명하기</h2>
+<h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>
 <li>가용성 99.9%만 쓰면 충분할까?</li>
@@ -68,7 +78,7 @@
 <p><strong>2.</strong> SLO는 목표치, SLA는 목표 외에 고객과의 책임·측정·조치 합의를 포함한다.</p>
 </div>
 </details>
-<h2 id="_5">상황에 적용하기</h2>
+<h2 id="_6">상황에 적용하기</h2>
 <p>공급자는 서버 가동률 100%, 고객은 주문 성공률 97%라고 보고한다. 무엇을 고칠까?</p>
 <details class="answer">
 <summary>풀이와 판단 근거</summary>
@@ -76,9 +86,9 @@
 <p>서버 생존과 고객 거래 성공은 다른 지표다. 고객 경험에 맞는 지표와 관측 위치·집계 방식을 합의해야 한다.</p>
 </div>
 </details>
-<h2 id="_6">헷갈리지 않기</h2>
+<h2 id="_7">헷갈리지 않기</h2>
 <p>가용성·처리량·응답시간은 다르다. 응답시간도 평균과 백분위의 차이를 고려한다. SoW·비즈니스 케이스·제품 백로그를 완전한 동의어로 외우지 않는다.</p>
-<h2 id="_7">수업 범위와 출처</h2>
+<h2 id="_8">수업 범위와 출처</h2>
 <ul>
 <li><strong>최종 숙제 12/32:</strong> SLA.</li>
 <li><strong>수업 메모의 강조 수준:</strong> 출제 강조. SLM·SoW와 연결, 운영 성과측정 및 가용률 설명.</li>

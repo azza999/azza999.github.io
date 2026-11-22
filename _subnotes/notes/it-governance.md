@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: IT 투자를 사업 목표·가치·위험·책임과 연결해 평가·지시·감독한다.
 homework_order: 21
+diagram: it-governance
 ---
 
 ## 먼저 이해하기
@@ -16,15 +17,23 @@ IT팀이 프로젝트를 일정대로 끝내도 사업에 필요 없는 시스�
 
 **회상 단서:** 전략 정렬 · 가치 전달 · 위험·자원 · 성과 · EDM
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="IT 거버넌스의 방향·책임과 실행의 연결 · 개념도">
+<img src="/assets/subnotes/concepts/it-governance.svg" alt="경영 목표와 이해관계자 요구를 바탕으로 거버넌스가 평가·지시·모니터링한다. 관리는 계획·구축·운영을 실행하고 성과와 위험을 보고한다." width="600" height="430" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>IT 거버넌스의 방향·책임과 실행의 연결</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/it-governance.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 거버넌스가 방향·책임·감독을 정하고, 관리가 실행과 운영을 수행한다.
+
+**손으로 그리기:** 위 경영 목표 → 거버넌스 → 관리, 가운데 왕복 화살표에 방향·성과.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=83">ITPE 지식관리 · IT 거버넌스</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 거버넌스와 관리의 연결
 
-```text
-사업 목적·이해관계자
-      ↓
-평가(Evaluate) → 지시(Direct) → 감독(Monitor)
-      ↑               ↓                 |
-      └──── 관리 실행·측정 결과 ──────────┘
-```
 
 | 활동 | 질문 |
 | --- | --- |

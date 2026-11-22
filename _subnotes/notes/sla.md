@@ -4,6 +4,7 @@ category: IT 서비스관리
 updated: 2026-11-22
 summary: 지표·목표·측정 범위·보고·미달 조치까지 합의한다.
 homework_order: 12
+diagram: sla
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 12
 
 **회상 단서:** 범위 · 지표 · 목표 · 측정 · 보고 · 책임·보상
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="SLA의 약속·측정·미달 조치 · 개념도">
+<img src="/assets/subnotes/concepts/sla.svg" alt="고객과 제공자가 서비스 범위·목표·측정 기준·책임·미달 조치를 합의한다. 실제 측정 결과를 보고하고 합의 기준에 따라 개선한다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>SLA의 약속·측정·미달 조치</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/sla.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** SLO는 목표치, SLA는 목표뿐 아니라 측정 방법과 책임·미달 조치를 포함한 합의다.
+
+**손으로 그리기:** 고객·제공자 → 가운데 SLA → 아래 측정·판단·조치.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=68">ITPE 지식관리 · SLA</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 약속의 구성
 
 | 항목 | 예시 |
@@ -26,10 +42,6 @@ homework_order: 12
 | 역할·보고 | 양측 책임, 보고서, 이의 처리 |
 | 미달 조치 | 원인 분석·개선·합의한 서비스 크레딧 |
 
-```text
-고객 요구 → SLA 합의 → 측정·보고 → 차이 분석·개선
-                 SLM이 지속 관리
-```
 
 SLA는 합의, SLM은 관리 활동, SoW는 수행 업무 범위를 기술한 문서다. 계약에 포함되는 방식은 상황에 따라 다르다.
 

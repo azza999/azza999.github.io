@@ -8,11 +8,12 @@
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
-<li><a href="#_3">분석 흐름</a></li>
-<li><a href="#_4">가리고 설명하기</a></li>
-<li><a href="#_5">상황에 적용하기</a></li>
-<li><a href="#_6">헷갈리지 않기</a></li>
-<li><a href="#_7">수업 범위와 출처</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">분석 흐름</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">수업 범위와 출처</a></li>
 </ul>
 </div>
 </nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
@@ -20,10 +21,19 @@
 <h2 id="_2">답안에 남길 핵심</h2>
 <p><strong>정의:</strong> BIA(Business Impact Analysis)는 업무 중단이 조직에 미치는 영향을 시간에 따라 분석하여 핵심 업무·복구 우선순위·필요 자원과 복구 요구사항을 도출하는 활동이다.</p>
 <p><strong>회상 단서:</strong> 핵심 업무 · 시간별 영향 · 의존성 · 우선순위 · RTO/RPO 근거</p>
-<h2 id="_3">분석 흐름</h2>
-<pre><code class="language-text">업무·자원 식별 → 시간별 영향 → 허용 한계·복구 요구
-→ 우선순위 합의 → 전략·계획에 반영
-</code></pre>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BIA가 복구 우선순위와 목표로 이어지는 흐름 · 개념도">
+<img src="/assets/subnotes/concepts/bia.svg" alt="업무와 의존 자원을 식별하고 중단 기간별 영향을 분석한다. 이를 바탕으로 핵심 업무·복구 우선순위·복구 목표를 정해 전략과 계획에 반영한다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BIA가 복구 우선순위와 목표로 이어지는 흐름</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bia.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 단순한 장비 중요도 평가가 아니다. 업무 중단이 고객·재무·법규 등에 미치는 영향을 본다.</p>
+<p><strong>손으로 그리기:</strong> 업무 → 중단 영향 → 우선순위 → 목표 네 칸으로 연결한다.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1316">ITPE 지식관리 · BIA</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
+<h2 id="_4">분석 흐름</h2>
 <table>
 <thead>
 <tr>
@@ -55,7 +65,7 @@
 </tbody>
 </table>
 <p>BIA는 주로 중단의 영향, 위험평가는 발생 가능성·취약성·위험에 초점을 둔다. 두 결과를 함께 활용한다.</p>
-<h2 id="_4">가리고 설명하기</h2>
+<h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>
 <li>BIA 결과는 DRS 설계에 어떻게 쓰나?</li>
@@ -68,7 +78,7 @@
 <p><strong>2.</strong> 가격과 업무 피해는 다르다. 매출·안전·의무·시간 민감도를 함께 봐야 한다.</p>
 </div>
 </details>
-<h2 id="_5">상황에 적용하기</h2>
+<h2 id="_6">상황에 적용하기</h2>
 <p>주문이 최우선이면 주문 DB만 먼저 복구하면 될까?</p>
 <details class="answer">
 <summary>풀이와 판단 근거</summary>
@@ -76,9 +86,9 @@
 <p>인증이 선행되어야 한다면 인증·네트워크·DB 등을 복구 묶음으로 설계한다. 핵심 업무의 종단 간 재개 가능성을 기준으로 순서를 정한다.</p>
 </div>
 </details>
-<h2 id="_6">헷갈리지 않기</h2>
+<h2 id="_7">헷갈리지 않기</h2>
 <p>RTO·RPO는 IT부서가 임의로 적는 숫자가 아니다. 업무 담당자와 영향·손실 허용량을 합의하고 기술·비용 실현 가능성을 검토한다.</p>
-<h2 id="_7">수업 범위와 출처</h2>
+<h2 id="_8">수업 범위와 출처</h2>
 <ul>
 <li><strong>최종 숙제 17/32:</strong> BIA.</li>
 <li><strong>수업 메모의 강조 수준:</strong> 출제 강조. 업무영향분석 관련 나옴이라고 기록.</li>

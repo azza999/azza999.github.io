@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 기술의 경제적 가치를 수익·원가·시장이라는 세 관점으로 평가한다.
 homework_order: 5
+diagram: technology-valuation
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 5
 
 **회상 단서:** 수원시: 수익 접근 · 원가 접근 · 시장 접근
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="기술 가치 평가의 세 접근법 · 개념도">
+<img src="/assets/subnotes/concepts/technology-valuation.svg" alt="평가대상과 목적을 정하고 수익·시장·비용 접근법으로 가치를 추정한다. 기술성·권리성·시장성·사업성과 가정을 함께 검토한다." width="600" height="420" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>기술 가치 평가의 세 접근법</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/technology-valuation.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 세 접근법은 자료와 목적에 맞게 선택·교차 검토한다. 세 결과를 무조건 단순 평균하지 않는다.
+
+**손으로 그리기:** 위에 평가 대상, 가운데 세 방법, 아래 가치 추정 → 가지를 합친다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=131">ITPE 지식관리 · 기술 가치 평가</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 세 접근법 비교
 
 | 접근법 | 중심 질문 | 확인할 것 | 한계 |
@@ -24,10 +40,6 @@ homework_order: 5
 | 원가 | 같은 효용을 다시 확보하려면 얼마일까? | 재생산·대체 비용, 진부화 | 비용이 수익 가치를 보장하지 않음 |
 | 시장 | 비슷한 기술은 얼마에 거래됐을까? | 유사 거래와 차이 조정 | 비교 가능한 거래가 부족할 수 있음 |
 
-```text
-평가 목적·기준일 → 기술·권리·시장·사업 검토
-→ 적합한 접근법 선택 → 가정·민감도 점검 → 가치 범위
-```
 
 **수업의 우선 암기 범위는 수원시 세 가지다.** 세부 평가 절차는 이해·응용용으로 읽는다.
 

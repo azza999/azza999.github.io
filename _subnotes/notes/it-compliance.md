@@ -4,6 +4,7 @@ category: 규제·권리
 updated: 2026-11-22
 summary: 법과 계약의 요구를 통제로 바꾸고, 운영 증적으로 준수 여부를 확인한다.
 homework_order: 4
+diagram: it-compliance
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 4
 
 **회상 단서:** 요구사항 식별 → 통제 설계 → 운영 → 증적 → 점검·시정
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="IT 컴플라이언스의 요구·통제·증거 연결 · 개념도">
+<img src="/assets/subnotes/concepts/it-compliance.svg" alt="외부 법규와 내부 정책을 식별하고 통제를 설계·운영한다. 증거로 준수 여부를 평가한 뒤 미비점을 시정한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>IT 컴플라이언스의 요구·통제·증거 연결</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/it-compliance.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 법규 이름을 나열하는 데서 끝내지 않고, 운영 통제와 준수 증거를 연결한다.
+
+**손으로 그리기:** 요구 → 통제 → 증거 → 시정, 네 상자를 순환으로 잇는다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=87">ITPE 지식관리 · IT 컴플라이언스</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 요구를 운영으로 바꾸기
 
 | 요구 | 통제 예시 | 확인 증적 |
@@ -24,11 +40,6 @@ homework_order: 4
 | 약속한 서비스 수준 충족 | 가용성 측정, 장애 대응 | SLA 보고서, 장애 기록 |
 | 소프트웨어 사용조건 준수 | 라이선스 자산·배포 관리 | 구매 계약, 설치 목록 |
 
-```text
-적용 요구 → 통제 담당자·절차 → 운영 기록
-       ↑                         ↓
-     시정·개선 ← 감사·준수 점검
-```
 
 답안은 “법 준수”라는 단어에서 멈추지 말고 **요구-통제-증적**을 한 줄로 연결한다.
 

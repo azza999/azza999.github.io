@@ -6,10 +6,12 @@ import re
 import shutil
 import json
 import markdown
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / 'subnotes'
 WEB = ROOT / 'web'
+DIAGRAMS = json.loads((ROOT / 'diagrams.json').read_text(encoding='utf-8'))
 
 
 def esc(value):
@@ -30,6 +32,21 @@ def read_note(path):
         if not meta.get(key):
             raise ValueError(f'{path.name}: missing {key}')
     date.fromisoformat(meta['updated'])
+    diagram = DIAGRAMS.get(meta.get('diagram'))
+    if not diagram:
+        raise ValueError(f'{path.name}: a source-reviewed concept diagram is required')
+    asset = diagram['asset']
+    if not asset.startswith('/assets/subnotes/concepts/') or '..' in asset:
+        raise ValueError(f'{path.name}: invalid diagram asset path')
+    image = ROOT.parent / asset.lstrip('/')
+    if not image.is_file() or asset not in body:
+        raise ValueError(f'{path.name}: embed the required diagram in the Markdown body')
+    svg = ET.parse(image).getroot()
+    ns = {'svg': 'http://www.w3.org/2000/svg'}
+    if not svg.findtext('svg:title', namespaces=ns) or not svg.findtext('svg:desc', namespaces=ns):
+        raise ValueError(f'{path.name}: SVG title and description are required')
+    if not all(diagram.get(k) for k in ('alt', 'draw', 'read', 'sources', 'checked_at')):
+        raise ValueError(f'{path.name}: diagram provenance and drawing guidance are required')
     if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', path.stem):
         raise ValueError(f'{path.name}: use a stable lowercase English filename')
     if re.search(r'^# ', body, re.M):

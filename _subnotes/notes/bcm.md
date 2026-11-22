@@ -4,6 +4,7 @@ category: 업무연속성
 updated: 2026-11-22
 summary: 서버 복구를 넘어 사람·장소·연락·업무까지 준비하는 조직의 연속성 관리.
 homework_order: 1
+diagram: bcm
 ---
 
 ## 먼저 이해하기
@@ -16,15 +17,23 @@ homework_order: 1
 
 **회상 단서:** BIA → 전략 → BCP·DRP → 훈련 → 개선
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BCM의 관리 범위와 계획의 포함관계 · 개념도">
+<img src="/assets/subnotes/concepts/bcm.svg" alt="BCM의 지속적 관리 안에 BIA와 BCP가 있고, BCP 중 IT 복구 계획이 DRP다. DRP는 DRS와 인력·절차로 실행한다." width="600" height="450" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BCM의 관리 범위와 계획의 포함관계</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bcm.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 상자는 관리 범위와 계획의 포함관계다. BCM은 관리 활동이고 BCMS는 이를 운영하는 경영시스템이다.
+
+**손으로 그리기:** 큰 관리 상자 → BIA → BCP 상자 → 안에 DRP → 아래 실행 수단.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=78">ITPE 지식관리 · BCP·BCM</a> · <a href="https://cafe.naver.com/81th/242153">ITPE 카페 · BCMS·BCP·DRP 관계도</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 관계를 한 장으로
 
-```text
-BCM: 조직의 지속적인 관리
- ├ BIA: 무엇부터, 언제까지 살릴까?
- ├ BCP: 사람·장소·업무를 어떻게 이어갈까?
- └ IT 복구: DRP(계획) + DRS(구현 체계)
-        훈련 결과를 다음 계획에 반영
-```
 
 | 단계 | 실제로 정할 것 |
 | --- | --- |

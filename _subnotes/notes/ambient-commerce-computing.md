@@ -4,6 +4,7 @@ category: 비즈니스 모델
 updated: 2026-11-22
 summary: 주변 상황을 인식하는 컴퓨팅 기반과 그 기반을 이용한 상거래를 구분한다.
 homework_order: 10
+diagram: ambient-commerce-computing
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 10
 
 **회상 단서:** 환경 내재화 · 상황 인식 · 자연스러운 인터페이스 · 동의·제어
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="앰비언트 컴퓨팅과 커머스의 연결 · 개념도">
+<img src="/assets/subnotes/concepts/ambient-commerce-computing.svg" alt="센싱·연결로 맥락 데이터를 모으고 분석·판단을 통해 자연스러운 서비스를 제공한다. 상거래에 적용하면 주문·결제 등 앰비언트 커머스가 된다." width="600" height="290" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>앰비언트 컴퓨팅과 커머스의 연결</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/ambient-commerce-computing.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 앰비언트 컴퓨팅 전체를 무인결제로 한정하지 않는다. 개인정보·동의·오류 대응도 필요하다.
+
+**손으로 그리기:** 센싱 → 맥락 판단 → 서비스 세 칸, 마지막에 상거래 응용을 표시한다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=100">ITPE 지식관리 · 앰비언트 컴퓨팅·커머스</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 기반과 응용 구분
 
-```text
-센서·기기 → 상황 인식 → 추론·추천 → 승인·행동
-                ↑                   ↓
-            개인정보 통제       주문·결제(커머스)
-```
 
 | 구분 | 컴퓨팅 | 커머스 |
 | --- | --- | --- |

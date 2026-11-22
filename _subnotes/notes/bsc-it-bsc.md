@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 재무 성과만 보지 않고 고객·프로세스·역량을 함께 측정한다.
 homework_order: 6
+diagram: bsc-it-bsc
 ---
 
 ## 먼저 이해하기
@@ -15,6 +16,21 @@ homework_order: 6
 **정의:** BSC(Balanced Scorecard)는 조직의 전략을 재무·고객·내부 프로세스·학습과 성장 관점의 목표와 지표로 구체화하는 성과관리 체계다. IT-BSC는 이를 IT의 사업 기여와 서비스·역량 평가에 맞게 적용한다.
 
 **회상 단서:** BSC 재고내학 / IT-BSC 회고운미
+
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BSC와 IT-BSC의 전략 가설 · 개념도">
+<img src="/assets/subnotes/concepts/bsc-it-bsc.svg" alt="학습과 성장·내부 프로세스·고객·재무의 인과 가설에 IT-BSC의 미래 지향·운영 탁월성·고객 지향·회사 기여를 대응시킨다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BSC와 IT-BSC의 전략 가설</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bsc-it-bsc.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 아래 역량이 위 성과에 기여한다는 전략 가설이다. 실제 인과관계와 KPI는 검증해야 한다.
+
+**손으로 그리기:** 좌우 네 칸을 쌓고 아래에서 위로 화살표 → 같은 높이끼리 점선 대응.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=8">ITPE 지식관리 · BSC·IT-BSC</a>. 확인: 2026-11-22.<br>BSC 구성도에 기존 노트의 IT-BSC 관점을 대응시켜 재구성. 점선은 기능적 대응이며 동일 개념이라는 뜻은 아님.</div>
 
 ## 네 관점과 지표 예시
 
@@ -32,10 +48,6 @@ homework_order: 6
 | 운영 탁월성 | 가용성, 장애 복구시간, 변경 성공률 |
 | 미래 지향 | 기술 역량, 부채 개선, 혁신 준비 |
 
-```text
-역량 향상 → 프로세스 개선 → 고객 가치 향상 → 재무 성과
-  전략 목표마다 CSF·KPI·목표치·책임자 연결
-```
 
 인과관계는 전략 가설이므로 실제 데이터로 확인한다.
 

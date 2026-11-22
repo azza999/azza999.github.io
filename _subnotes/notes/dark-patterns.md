@@ -4,6 +4,7 @@ category: 규제·권리
 updated: 2026-11-22
 summary: 편취·오도·방해·압박의 유형을 사용자 경험과 대응 설계로 설명한다.
 homework_order: 29
+diagram: dark-patterns
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 29
 
 **회상 단서:** 편오방압 · 정보·동의 · 선택 대칭성 · 취소 용이성
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="다크패턴이 선택을 왜곡하는 경로 · 개념도">
+<img src="/assets/subnotes/concepts/dark-patterns.svg" alt="소비자의 선택 화면에 정보 은폐·오도·압박·방해를 넣으면 이해와 선택이 왜곡돼 원치 않는 결제나 해지 실패로 이어질 수 있다." width="600" height="290" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>다크패턴이 선택을 왜곡하는 경로</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/dark-patterns.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 모든 설득 디자인이 다크패턴은 아니다. 충분한 정보와 자유로운 선택을 방해하는지 확인한다.
+
+**손으로 그리기:** 화면 → 조작 요소 → 왜곡된 결과, 아래 대응 원칙 세 개.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=122">ITPE 지식관리 · 다크패턴</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 유형과 개선 예
 
 | 수업 분류 | 사례 | 개선 설계 |
@@ -25,10 +41,6 @@ homework_order: 29
 | 방해형 | 해지 절차 숨김·과도한 클릭 | 쉽게 찾는 해지·취소 경로 |
 | 압박형 | 근거 없는 재고·시간 압박 | 사실에 근거한 정보·자유로운 선택 |
 
-```text
-화면·여정 점검 → 선택 왜곡 식별 → 개선
-→ 사용자 시험 → 불만·해지·오결제 분석
-```
 
 가입률만 높이는 설계와 신뢰를 지키는 설계를 구분한다. 자동 탐지는 보조 수단이며 실제 이용 흐름·사용자 이해를 함께 확인한다.
 

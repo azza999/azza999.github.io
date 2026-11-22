@@ -4,6 +4,7 @@ category: 전략·투자
 updated: 2026-11-22
 summary: 강점·약점·기회·위협을 분류한 뒤 실행 가능한 전략으로 바꾼다.
 homework_order: 7
+diagram: swot
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 7
 
 **회상 단서:** 내부 S·W / 외부 O·T → SO·WO·ST·WT
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="SWOT의 내부·외부 교차행렬 · 개념도">
+<img src="/assets/subnotes/concepts/swot.svg" alt="열은 내부 강점 S와 약점 W, 행은 외부 기회 O와 위협 T다. 교차점에서 SO·WO·ST·WT 전략을 도출한다." width="600" height="420" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>SWOT의 내부·외부 교차행렬</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/swot.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 내부 상태 S·W와 외부 환경 O·T를 구분하고, 목록을 조합해 전략으로 연결한다.
+
+**손으로 그리기:** 가로 S·W, 세로 O·T → 네 교차칸에 전략을 한 줄씩 쓴다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=23">ITPE 지식관리 · SWOT</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 분류에서 전략까지
 
 | 조합 | 전략의 방향 | 보안 서비스 회사 예시 |
@@ -25,10 +41,6 @@ homework_order: 7
 | ST | 강점으로 위협 대응 | 탐지 품질로 가격 경쟁과 차별화 |
 | WT | 약점과 위협의 손실 최소화 | 수익성 낮은 시장의 진입 축소 |
 
-```text
-내부 분석(S/W) + 외부 분석(O/T)
-→ 네 가지 전략 대안 → 우선순위·실행계획·성과지표
-```
 
 먼저 조직·사업·기간이라는 분석 범위를 정해야 같은 사실을 엉뚱하게 분류하지 않는다.
 

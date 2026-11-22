@@ -4,6 +4,7 @@ category: 데이터·AI
 updated: 2026-11-22
 summary: 입력·가중합·활성화·출력과 학습 과정을 연결한다.
 homework_order: 28
+diagram: neural-network
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 28
 
 **회상 단서:** 입력층·은닉층·출력층 · 가중치·편향 · 활성화 · 손실 · 역전파
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="신경망의 순전파와 학습 · 개념도">
+<img src="/assets/subnotes/concepts/neural-network.svg" alt="입력층에서 은닉층을 거쳐 출력층으로 계산한다. 지도학습에서는 출력과 정답의 오차를 계산하고 역전파와 최적화로 가중치를 갱신한다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>신경망의 순전파와 학습</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/neural-network.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 연결선은 가중치를 가진다. 모든 신경망 학습이 정답을 쓰는 것은 아니므로 역전파 설명은 지도학습 예다.
+
+**손으로 그리기:** 세 층에 동그라미 → 층 사이 연결 → 아래 순전파·학습 방향.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=18">ITPE 지식관리 · 신경망 분석</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 구조와 학습
 
-```text
-입력 x → 가중합(Wx+b) → 활성화 → 다음 층 → 예측
-                                         ↓
-가중치 갱신 ← 기울기·역전파 ← 손실(예측과 정답 비교)
-```
 
 | 요소 | 역할 |
 | --- | --- |

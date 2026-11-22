@@ -4,6 +4,7 @@ category: 규제·권리
 updated: 2026-11-22
 summary: 산업재산권·저작권·새로운 보호 대상을 구분하고 IT 사례에 적용한다.
 homework_order: 31
+diagram: intellectual-property
 ---
 
 ## 먼저 이해하기
@@ -16,6 +17,21 @@ homework_order: 31
 
 **회상 단서:** 산저신 · 특실상디 · 표현/기술/표지/비밀 구분
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="지식재산권을 보호 대상별로 나눈 구조 · 개념도">
+<img src="/assets/subnotes/concepts/intellectual-property.svg" alt="지식재산권은 산업재산권·저작권·신지식재산의 영역으로 나누어 학습한다. 기술·표장·표현·영업비밀 등 보호 대상이 다르고 일부 영역은 중첩될 수 있다." width="600" height="410" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>지식재산권을 보호 대상별로 나눈 구조</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/intellectual-property.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 학습용 분류이며 모든 법적 권리가 서로 배타적인 것은 아니다. 아이디어와 구체적 표현의 보호도 구분한다.
+
+**손으로 그리기:** 큰 권리 상자 → 세 가지 → 각 보호 대상 예시 두 개.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=130">ITPE 지식관리 · 지식재산권</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 보호 대상의 분류
 
 | 범주·권리 | 무엇을 보호하나? | IT 사례 |
@@ -27,10 +43,6 @@ homework_order: 31
 | 저작권 | 창작적인 표현 | 프로그램 코드·문서·그림 |
 | 영업비밀 등 | 법적 요건을 갖춘 비공개 정보 등 | 비밀 관리한 노하우·자료 |
 
-```text
-창작·개발 결과 → 보호 대상 식별 → 권리·요건 확인
-→ 계약·출원·비밀관리·라이선스 → 이용·침해 대응
-```
 
 “신지식재산권”은 교재의 확장 분류다. 영업비밀·반도체 배치설계·데이터베이스 등은 각각의 보호 근거와 요건을 확인한다. 프로그램 표현의 보호를 별도 독립된 구법 체계와 혼동하지 않는다.
 

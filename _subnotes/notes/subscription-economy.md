@@ -4,6 +4,7 @@ category: 비즈니스 모델
 updated: 2026-11-22
 summary: 정기 결제보다 중요한 것은 지속 제공·이용 경험·유지율이다.
 homework_order: 9
+diagram: subscription-economy
 ---
 
 ## 먼저 이해하기
@@ -16,13 +17,23 @@ homework_order: 9
 
 **회상 단서:** 반복 수익 · 지속 가치 · 개인화 · 유지·이탈 관리
 
+## 개념도
+
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="구독경제의 반복 가치 교환 · 개념도">
+<img src="/assets/subnotes/concepts/subscription-economy.svg" alt="고객이 정기 대가를 지급하면 플랫폼이 이용권·배송·렌털 등 서비스를 제공한다. 이용·해지 데이터를 분석하고 가치를 개선해 재구독으로 연결한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>구독경제의 반복 가치 교환</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/subscription-economy.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+**읽는 법:** 정기 결제만으로 성공하지 않는다. 이용 가치가 유지돼야 갱신과 반복매출로 이어진다.
+
+**손으로 그리기:** 고객 → 서비스 → 데이터 → 개선을 순환으로 그린다.
+
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=118">ITPE 지식관리 · 구독경제</a>. 확인: 2026-11-22.<br>핵심 관계만 남긴 학습용 재구성. 원본 이미지를 전재하지 않음.</div>
+
 ## 흐름과 관리 지표
 
-```text
-가입·요금제 → 결제·이용권 → 지속 제공·지원
-    ↑                         ↓
-  재구독 ← 가치 확인 ← 이용·불만·이탈 분석
-```
 
 | 관리 요소 | 확인할 것 |
 | --- | --- |
