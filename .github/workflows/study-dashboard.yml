@@ -27,10 +27,6 @@ jobs:
           python-version: '3.12'
       - name: Build dashboard data
         run: python _study/scripts/build.py
-      - name: Build Markdown notebook
-        run: |
-          pip install -r _subnotes/requirements.txt
-          python _subnotes/build.py
       - name: Validate generated dashboard
         run: |
           python - <<'PY'
@@ -47,7 +43,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add study/ subnotes/
+          git add study/
           if ! git diff --cached --quiet; then
             git commit -m 'build: refresh study dashboard data'
             git push origin HEAD:master
@@ -59,8 +55,6 @@ jobs:
           destination: ./_site
       - name: Preserve standalone dashboard files
         run: sudo cp -r study/. _site/study/
-      - name: Preserve standalone notebook files
-        run: sudo cp -r subnotes/. _site/subnotes/
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

@@ -1,0 +1,46 @@
+name: Publish Markdown notebook
+on:
+  push:
+    branches: [master]
+    paths:
+      - '_subnotes/**'
+      - 'subnotes/**'
+      - '.github/workflows/subnotes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: study-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build Markdown notebook
+        run: |
+          pip install -r _subnotes/requirements.txt
+          python _subnotes/build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Preserve standalone study and notebook files
+        run: |
+          sudo mkdir -p _site/study _site/subnotes
+          sudo cp -r study/. _site/study/
+          sudo cp -r subnotes/. _site/subnotes/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
