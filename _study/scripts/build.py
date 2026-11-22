@@ -1,4 +1,4 @@
-import json, subprocess, shutil, re, html
+import json, subprocess, shutil, re, html, math
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -9,6 +9,9 @@ TOPICS = (PREFIX + '/topics') if PREFIX != '.' else 'topics'
 ROADMAP = ROOT / 'roadmap.json'
 def git(*args):
     return subprocess.check_output(['git','-C',str(REPO),*args]).decode('utf-8')
+def valid_review_score(score):
+    return (type(score) is int and score >= 0) or (type(score) is float and math.isfinite(score) and score >= 0)
+
 def parse(text, path):
     if not text.startswith('---\n') or '\n---\n' not in text[4:]:
         raise ValueError(f'{path}: front matter가 필요합니다')
@@ -28,8 +31,8 @@ def parse(text, path):
     reviews = json.loads(meta.get('reviews','[]'))
     if not isinstance(reviews,list): raise ValueError(f'{path}: reviews는 배열이어야 합니다')
     for i,review in enumerate(reviews,1):
-        if not isinstance(review,dict) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',str(review.get('date',''))) or type(review.get('score')) is not int or review['score'] < 0:
-            raise ValueError(f'{path}: {i}차 복습은 date(YYYY-MM-DD), score(0 이상의 정수)가 필요합니다')
+        if not isinstance(review,dict) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',str(review.get('date',''))) or not valid_review_score(review.get('score')):
+            raise ValueError(f'{path}: {i}차 복습은 date(YYYY-MM-DD), score(0 이상의 유한한 수)가 필요합니다')
     return dict(id=meta['id'],title=meta['title'],category=meta.get('category','기타'),score=score,max_score=max_score,studied_at=studied_at,reviews=reviews,body=body,path=path)
 def snapshot(rev=None):
     paths = git('ls-tree','--full-tree','-r','--name-only',rev,'--',TOPICS).splitlines() if rev else [str(p.relative_to(ROOT)) for p in sorted((ROOT/'topics').rglob('*.md'))]

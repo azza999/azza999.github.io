@@ -30,13 +30,13 @@ jobs:
       - name: Validate generated dashboard
         run: |
           python - <<'PY'
-          import json
+          import json, math
           from pathlib import Path
           data = json.loads(Path('study/data.json').read_text())
           assert data['topics'], 'No topics generated'
           expected = sum(t['score'] + sum(r['score'] for r in t.get('reviews', [])) for t in data['topics'])
           expected += sum(l['total_points'] for l in data.get('lectures', []))
-          assert data['history'] and data['history'][-1]['total'] == expected, 'History total mismatch'
+          assert data['history'] and math.isclose(data['history'][-1]['total'], expected, rel_tol=0.0, abs_tol=1e-9), 'History total mismatch'
           print(f'Validated {len(data["topics"])} topics; total {expected}')
           PY
       - name: Keep generated dashboard in master
