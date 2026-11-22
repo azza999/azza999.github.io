@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>BCP · 업무를 이어갈 계획과 DRP의 역할 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">셀테 추가 09 · 업무연속성</p><h1>BCP · 업무를 이어갈 계획과 DRP의 역할</h1><p class="lead">BCP는 조직의 핵심 업무 지속 계획이고 DRP는 그중 IT 복구 계획임을 비교한다.</p><p class="selftest-links"><strong>셀프테스트 연결</strong> <a href="../../selftest/#basic-25">기본 25</a></p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#bcp-drp">BCP와 DRP를 같은 축에서 비교하기</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">셀프테스트 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>센터 정전으로 서버는 복구센터에서 살아났지만 상담원은 접속 계정이 없고 고객 안내 문구도 없다. IT 복구는 됐어도 주문·상담 업무는 재개되지 않는다. BCP는 사람·장소·협력사·연락·IT를 함께 준비해 핵심 업무를 합의한 수준으로 이어가도록 정하는 계획이다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> BCP(Business Continuity Plan)는 업무 중단 사고에 대응해 우선 업무를 정해진 수준으로 지속·재개·복구하도록 역할·자원·절차·연락과 운영 방안을 문서화한 업무연속성 계획이다. DRP는 그중 IT 시스템·서비스·데이터의 재해복구에 초점을 둔다.</p>
+<p><strong>회상 단서:</strong> 핵심 업무 · BIA·위험평가 · 대체 인력·장소 · 연락·자원 · DRP · 훈련·현행화</p>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="BCP의 업무 범위와 그 안의 IT 복구 · 개념도">
+<img src="/assets/subnotes/concepts/bcp.svg" alt="BCP는 사람·장소·업무·협력사·IT의 지속 방안을 포함하며, DRP는 이 가운데 IT 복구 계획이다. BIA의 우선순위·목표가 두 계획에 연결된다." width="600" height="490" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>BCP의 업무 범위와 그 안의 IT 복구</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/bcp.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 큰 업무 지속 계획 안에 IT 복구 계획이 있다. IT 복구 결과도 실제 업무 재개로 검증해야 한다.</p>
+<p><strong>손으로 그리기:</strong> 위 BIA → 아래 큰 BCP 상자 → 그 안에 업무 요소와 DRP → 아래 DRS 실행 수단.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=78">ITPE 지식관리 · BCP·BCM</a> · <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=80">ITPE 지식관리 · DRP</a> · <a href="https://cafe.naver.com/81th/242153">ITPE 카페 · BCP·DRP 관계도</a>. 확인: 2026-11-22.<br>BCP·DRP 관계도와 지식관리 구성요소를 대조해 재구성. BCM 활동과 계획 문서의 범위를 구분함.</div>
+
+<h2 id="bcp-drp">BCP와 DRP를 같은 축에서 비교하기</h2>
+<table>
+<thead>
+<tr>
+<th>비교 축</th>
+<th>BCP</th>
+<th>DRP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>질문</td>
+<td>업무를 어떤 수준으로 어떻게 계속할까?</td>
+<td>IT와 데이터를 어떻게 복구할까?</td>
+</tr>
+<tr>
+<td>범위</td>
+<td>인력·장소·물류·협력사·고객·IT</td>
+<td>응용·서버·네트워크·데이터·복구환경</td>
+</tr>
+<tr>
+<td>주요 내용</td>
+<td>위기 대응, 비상 연락, 대체 업무·근무, 자원·책임</td>
+<td>발동, 전환, 복원·정합성, 서비스 검증·원복</td>
+</tr>
+<tr>
+<td>기준·검증</td>
+<td>핵심 업무 수행과 최소 운영 수준</td>
+<td>RTO·RPO 충족 및 실제 서비스 복구</td>
+</tr>
+<tr>
+<td>관계</td>
+<td>전사 업무 지속 계획</td>
+<td>BCP와 연계되는 IT 복구 계획</td>
+</tr>
+</tbody>
+</table>
+<p>수립 시에는 <strong>계획·범위 확인 → BIA·위험평가 → 연속성 전략 → BCP 설계·문서화 → 훈련·검증 → 유지관리</strong>로 연결해 설명할 수 있다. 이는 지식관리의 계·분·전·설·모·유 흐름을 풀어 쓴 것이다. 모든 업무를 무조건 평소 수준으로 유지하는 계획은 아니다.</p>
+<p>BIA에서 무엇을 먼저 언제까지 살릴지 정한 뒤, 대체 장소·인력·장비·협력사와 연락 체계를 연결한다. 연락처·권한·업무·시스템이 바뀌면 문서를 현행화하고 훈련으로 실제 이용 가능성을 확인한다. BCM은 이 전체를 지속적으로 관리하는 활동이다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>자료를 덮고 말하거나 빈 종이에 적는다. 정답을 열기 전에 두 질문에 먼저 답한다.</p>
+<ol>
+<li>서버 복구 완료를 업무연속성 확보와 동일시할 수 없는 이유는?</li>
+<li>BCM·BCP·DRP·DRS를 각각 한 문장으로 구분해보자.</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 직원·계정·장소·절차·협력사·고객 안내 등 업무 수행 조건이 함께 갖춰져야 한다. IT 가동은 그중 한 조건이다.</p>
+<p><strong>2.</strong> BCM은 지속적 관리, BCP는 업무 지속 계획, DRP는 IT 재해복구 계획, DRS는 복구를 구현할 시스템·기술 체계다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>감염병으로 주요 상담센터 직원 절반이 출근하지 못한다. BCP와 DRP 중 어느 부분을 먼저 확인할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>우선 상담 우선순위와 최소 운영 수준, 대체 인력·근무지·재택 접속·교육·고객 안내 등 BCP의 업무 지속 대안을 확인한다. IT 자체 장애가 없다면 DR센터 전환이 핵심 대책은 아닐 수 있다. 필요한 IT 지원은 BCP와 연계해 준비한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>BCP를 BCM이라는 경영시스템 전체와 섞거나, 백업 문서 한 장으로 축소하지 않는다. BCP와 DRP의 포함관계는 책임·범위의 관계이며 재난 때 BCP가 모두 끝나야 DRP를 시작한다는 직렬 순서가 아니다. <a href="/subnotes/notes/bcm/">BCM</a>·<a href="/subnotes/notes/drp/">DRP</a>와 연결해 복습한다.</p>
+<h2 id="_7">셀프테스트 범위와 출처</h2>
+<ul>
+<li><strong>셀프테스트 추가 범위:</strong> 기본 25번 · BCP와 DRP 비교. 확정 숙제 32개에 새 숙제 번호를 붙이는 것이 아니라 문제지의 추가 주제를 별도로 보완한다.</li>
+<li><a href="https://cafe.naver.com/81th/243521">ITPE 151기 셀프테스트 공지·문제지</a>. 문제 번호는 로컬 보관 PDF와 대조했다. 문제지의 출제 예상 표현은 실제 출제 확정을 뜻하지 않는다.</li>
+<li><a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=78">ITPE 지식관리 · BCP·BCM</a>.</li>
+<li><a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=80">ITPE 지식관리 · DRP</a>.</li>
+<li><a href="https://cafe.naver.com/81th/242153">ITPE 카페 · BCP·DRP 관계도</a>.</li>
+</ul>
+<p>확인일: 2026-11-22. 원문 도표를 전재하지 않고 개인 학습용 설명과 그림으로 재구성했다. 학습 여부는 가리고 설명·비교·적용하는 답변으로 확인한다.</p></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

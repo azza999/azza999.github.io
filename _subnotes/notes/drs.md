@@ -45,6 +45,22 @@ diagram: drs
 
 유형 이름만으로 고정 RTO·RPO를 보장하지 않는다. 네트워크·인증·DNS·외부 연계와 복구 후 거래 검증까지 설계한다.
 
+## 셀프테스트 보완 · Active-Active·Passive·Pilot Light
+
+**2교시형 6**에서는 서비스 처리 방식과 대기 자원의 준비 수준을 구분한다.
+
+| 구분 | 평상시 | 재해 시 핵심 작업 | 설계 유의점 |
+| --- | --- | --- | --- |
+| Active-Active | 여러 사이트가 실제 요청을 처리 | 정상 사이트로 트래픽을 재분배 | 데이터 충돌·정합성, 잔여 사이트의 처리 용량 |
+| Active-Passive | 주 사이트가 처리하고 보조는 대기 | 보조를 활성화하고 경로 전환 | 대기 자원 준비 수준에 따라 기동·확장·복구 작업이 달라짐 |
+| Pilot Light | 보조에 데이터·핵심 기반만 유지 | 응용·실행 자원을 기동·확장한 뒤 서비스 검증 | 서비스 준비 완료 전에는 전체 요청을 처리할 수 없음 |
+
+**Pilot Light는 Active-Passive 계열의 한 전략**이다. 세 항목을 서로 배타적인 동일 수준의 분류처럼 쓰지 않는다. Warm Standby는 축소된 전체 서비스를 실행해 두는 방식으로 Pilot Light와 구분할 수 있다.
+
+먼저 BIA로 요구 RTO·RPO를 정하고, 복제 지연·자원 기동·네트워크 전환·거래 검증을 포함한 시험으로 달성 여부를 확인한다. 무중단 목표를 선언하는 것과 실제 재해 복구 목표를 만족하는 것은 다르다.
+
+근거: [AWS · Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html). 관련: [IDC 입지와 재난 대응](/subnotes/notes/idc-location/).
+
 ## 가리고 설명하기
 
 본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.

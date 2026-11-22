@@ -1,0 +1,894 @@
+{
+  "title": "151기 1~2주차 셀프테스트 문제별 노트 연결",
+  "checked_at": "2026-11-22",
+  "source_url": "https://cafe.naver.com/81th/243521",
+  "source_document": "2주차 ITPE 실전모의고사 문제지_151기_1교시_1.pdf",
+  "source_document_sha256": "01e5aa5ae7a591530475ade50982860a9422c543230d5a4bfc0a676045cca66b",
+  "groups": [
+    {
+      "id": "basic",
+      "label": "기본",
+      "count": 50
+    },
+    {
+      "id": "advanced",
+      "label": "심화",
+      "count": 7
+    },
+    {
+      "id": "essay",
+      "label": "2교시형",
+      "count": 6
+    }
+  ],
+  "extra_topics": [
+    {
+      "number": 1,
+      "slug": "ai-bpr",
+      "topic": "AI 기반 BPR",
+      "questions": [
+        "기본 2"
+      ]
+    },
+    {
+      "number": 2,
+      "slug": "edutech",
+      "topic": "에듀테크",
+      "questions": [
+        "기본 11"
+      ]
+    },
+    {
+      "number": 3,
+      "slug": "suptech",
+      "topic": "섭테크",
+      "questions": [
+        "기본 11",
+        "기본 24"
+      ]
+    },
+    {
+      "number": 4,
+      "slug": "fintech",
+      "topic": "핀테크와 기술요소",
+      "questions": [
+        "기본 11",
+        "기본 18"
+      ]
+    },
+    {
+      "number": 5,
+      "slug": "itil-v4",
+      "topic": "ITIL 4",
+      "questions": [
+        "기본 12"
+      ]
+    },
+    {
+      "number": 6,
+      "slug": "process-mining",
+      "topic": "프로세스 마이닝",
+      "questions": [
+        "기본 13"
+      ]
+    },
+    {
+      "number": 7,
+      "slug": "svs-svc",
+      "topic": "SVS·SVC",
+      "questions": [
+        "기본 20"
+      ]
+    },
+    {
+      "number": 8,
+      "slug": "opinion-mining",
+      "topic": "오피니언 마이닝",
+      "questions": [
+        "기본 22"
+      ]
+    },
+    {
+      "number": 9,
+      "slug": "bcp",
+      "topic": "BCP",
+      "questions": [
+        "기본 25"
+      ]
+    },
+    {
+      "number": 10,
+      "slug": "scm-demand-forecast",
+      "topic": "SCM 수요예측",
+      "questions": [
+        "기본 26"
+      ]
+    },
+    {
+      "number": 11,
+      "slug": "supply-chain-attack",
+      "topic": "공급망 공격",
+      "questions": [
+        "기본 27"
+      ]
+    },
+    {
+      "number": 12,
+      "slug": "egov-performance",
+      "topic": "전자정부 성과관리",
+      "questions": [
+        "기본 32"
+      ]
+    },
+    {
+      "number": 13,
+      "slug": "ahp",
+      "topic": "AHP",
+      "questions": [
+        "기본 33"
+      ]
+    },
+    {
+      "number": 14,
+      "slug": "iso-38500",
+      "topic": "ISO/IEC 38500",
+      "questions": [
+        "기본 39"
+      ]
+    },
+    {
+      "number": 15,
+      "slug": "sow-sla-slm",
+      "topic": "SoW·SLA·SLM",
+      "questions": [
+        "기본 41"
+      ]
+    },
+    {
+      "number": 16,
+      "slug": "okr",
+      "topic": "OKR",
+      "questions": [
+        "기본 42"
+      ]
+    },
+    {
+      "number": 17,
+      "slug": "proptech",
+      "topic": "프롭테크",
+      "questions": [
+        "기본 46"
+      ]
+    },
+    {
+      "number": 18,
+      "slug": "iso-42001",
+      "topic": "ISO/IEC 42001",
+      "questions": [
+        "기본 49"
+      ]
+    },
+    {
+      "number": 19,
+      "slug": "deep-tech",
+      "topic": "딥테크",
+      "questions": [
+        "기본 50"
+      ]
+    },
+    {
+      "number": 20,
+      "slug": "vrio",
+      "topic": "VRIO",
+      "questions": [
+        "심화 1"
+      ]
+    },
+    {
+      "number": 21,
+      "slug": "digital-transformation",
+      "topic": "디지털 전환(DX)",
+      "questions": [
+        "심화 3"
+      ]
+    },
+    {
+      "number": 22,
+      "slug": "quantum-transformation",
+      "topic": "퀀텀 전환(QX)",
+      "questions": [
+        "심화 5"
+      ]
+    },
+    {
+      "number": 23,
+      "slug": "open-banking",
+      "topic": "오픈뱅킹",
+      "questions": [
+        "심화 6"
+      ]
+    },
+    {
+      "number": 24,
+      "slug": "idc-location",
+      "topic": "IDC 입지와 재난 대응",
+      "questions": [
+        "심화 7"
+      ]
+    },
+    {
+      "number": 25,
+      "slug": "strategy-environment",
+      "topic": "외부·내부 환경 분석",
+      "questions": [
+        "2교시형 2"
+      ]
+    },
+    {
+      "number": 26,
+      "slug": "public-sla",
+      "topic": "공공 SLA",
+      "questions": [
+        "2교시형 4"
+      ]
+    },
+    {
+      "number": 27,
+      "slug": "government-ea",
+      "topic": "범정부 EA",
+      "questions": [
+        "2교시형 5"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "basic-1",
+      "group": "basic",
+      "number": 1,
+      "label": "기본 1",
+      "title": "AX 전환",
+      "notes": [
+        "ax-transformation"
+      ]
+    },
+    {
+      "id": "basic-2",
+      "group": "basic",
+      "number": 2,
+      "label": "기본 2",
+      "title": "AI 기반 업무 프로세스 재설계",
+      "notes": [
+        "ai-bpr"
+      ]
+    },
+    {
+      "id": "basic-3",
+      "group": "basic",
+      "number": 3,
+      "label": "기본 3",
+      "title": "연관규칙 분석 지표",
+      "notes": [
+        "data-mining"
+      ]
+    },
+    {
+      "id": "basic-4",
+      "group": "basic",
+      "number": 4,
+      "label": "기본 4",
+      "title": "프로젝트·비즈니스 경제성 평가",
+      "notes": [
+        "it-investment"
+      ]
+    },
+    {
+      "id": "basic-5",
+      "group": "basic",
+      "number": 5,
+      "label": "기본 5",
+      "title": "지식재산권",
+      "notes": [
+        "intellectual-property"
+      ]
+    },
+    {
+      "id": "basic-6",
+      "group": "basic",
+      "number": 6,
+      "label": "기본 6",
+      "title": "ISP·ISMP 단계별 활동과 산출물",
+      "notes": [
+        "isp",
+        "ismp"
+      ]
+    },
+    {
+      "id": "basic-7",
+      "group": "basic",
+      "number": 7,
+      "label": "기본 7",
+      "title": "디지털 카르텔",
+      "notes": [
+        "digital-cartel"
+      ]
+    },
+    {
+      "id": "basic-8",
+      "group": "basic",
+      "number": 8,
+      "label": "기본 8",
+      "title": "앰비언트 커머스",
+      "notes": [
+        "ambient-commerce-computing"
+      ]
+    },
+    {
+      "id": "basic-9",
+      "group": "basic",
+      "number": 9,
+      "label": "기본 9",
+      "title": "ISP 9.0",
+      "notes": [
+        "isp"
+      ]
+    },
+    {
+      "id": "basic-10",
+      "group": "basic",
+      "number": 10,
+      "label": "기본 10",
+      "title": "공급망 관리(SCM)",
+      "notes": [
+        "scm"
+      ]
+    },
+    {
+      "id": "basic-11",
+      "group": "basic",
+      "number": 11,
+      "label": "기본 11",
+      "title": "에듀테크·섭테크·핀테크",
+      "notes": [
+        "edutech",
+        "suptech",
+        "fintech"
+      ]
+    },
+    {
+      "id": "basic-12",
+      "group": "basic",
+      "number": 12,
+      "label": "기본 12",
+      "title": "ITIL 4",
+      "notes": [
+        "itil-v4"
+      ]
+    },
+    {
+      "id": "basic-13",
+      "group": "basic",
+      "number": 13,
+      "label": "기본 13",
+      "title": "프로세스 마이닝·데이터 마이닝 비교",
+      "notes": [
+        "process-mining",
+        "data-mining"
+      ]
+    },
+    {
+      "id": "basic-14",
+      "group": "basic",
+      "number": 14,
+      "label": "기본 14",
+      "title": "데이터 마이닝 기술요소",
+      "notes": [
+        "data-mining"
+      ]
+    },
+    {
+      "id": "basic-15",
+      "group": "basic",
+      "number": 15,
+      "label": "기본 15",
+      "title": "ITSM",
+      "notes": [
+        "itsm-slo-error-budget"
+      ]
+    },
+    {
+      "id": "basic-16",
+      "group": "basic",
+      "number": 16,
+      "label": "기본 16",
+      "title": "SLA",
+      "notes": [
+        "sla"
+      ]
+    },
+    {
+      "id": "basic-17",
+      "group": "basic",
+      "number": 17,
+      "label": "기본 17",
+      "title": "ISO 22301",
+      "notes": [
+        "iso-22301"
+      ]
+    },
+    {
+      "id": "basic-18",
+      "group": "basic",
+      "number": 18,
+      "label": "기본 18",
+      "title": "핀테크 기술요소",
+      "notes": [
+        "fintech"
+      ]
+    },
+    {
+      "id": "basic-19",
+      "group": "basic",
+      "number": 19,
+      "label": "기본 19",
+      "title": "ISMP",
+      "notes": [
+        "ismp"
+      ]
+    },
+    {
+      "id": "basic-20",
+      "group": "basic",
+      "number": 20,
+      "label": "기본 20",
+      "title": "SVS와 SVC",
+      "notes": [
+        "svs-svc"
+      ]
+    },
+    {
+      "id": "basic-21",
+      "group": "basic",
+      "number": 21,
+      "label": "기본 21",
+      "title": "공유경제",
+      "notes": [
+        "sharing-economy"
+      ]
+    },
+    {
+      "id": "basic-22",
+      "group": "basic",
+      "number": 22,
+      "label": "기본 22",
+      "title": "오피니언 마이닝",
+      "notes": [
+        "opinion-mining"
+      ]
+    },
+    {
+      "id": "basic-23",
+      "group": "basic",
+      "number": 23,
+      "label": "기본 23",
+      "title": "ESG 경영",
+      "notes": [
+        "esg"
+      ]
+    },
+    {
+      "id": "basic-24",
+      "group": "basic",
+      "number": 24,
+      "label": "기본 24",
+      "title": "섭테크",
+      "notes": [
+        "suptech"
+      ]
+    },
+    {
+      "id": "basic-25",
+      "group": "basic",
+      "number": 25,
+      "label": "기본 25",
+      "title": "BCP와 DRP 비교",
+      "notes": [
+        "bcp",
+        "drp"
+      ]
+    },
+    {
+      "id": "basic-26",
+      "group": "basic",
+      "number": 26,
+      "label": "기본 26",
+      "title": "SCM 수요예측 7단계와 기법",
+      "notes": [
+        "scm-demand-forecast",
+        "scm"
+      ]
+    },
+    {
+      "id": "basic-27",
+      "group": "basic",
+      "number": 27,
+      "label": "기본 27",
+      "title": "공급망 공격",
+      "notes": [
+        "supply-chain-attack"
+      ]
+    },
+    {
+      "id": "basic-28",
+      "group": "basic",
+      "number": 28,
+      "label": "기본 28",
+      "title": "BIA와 DRP 관계",
+      "notes": [
+        "bia",
+        "drp"
+      ]
+    },
+    {
+      "id": "basic-29",
+      "group": "basic",
+      "number": 29,
+      "label": "기본 29",
+      "title": "RTO와 RPO",
+      "notes": [
+        "rto",
+        "rpo"
+      ]
+    },
+    {
+      "id": "basic-30",
+      "group": "basic",
+      "number": 30,
+      "label": "기본 30",
+      "title": "신경망 분석",
+      "notes": [
+        "neural-network"
+      ]
+    },
+    {
+      "id": "basic-31",
+      "group": "basic",
+      "number": 31,
+      "label": "기본 31",
+      "title": "DRS 구축유형",
+      "notes": [
+        "drs"
+      ]
+    },
+    {
+      "id": "basic-32",
+      "group": "basic",
+      "number": 32,
+      "label": "기본 32",
+      "title": "전자정부 성과관리 지침",
+      "notes": [
+        "egov-performance"
+      ]
+    },
+    {
+      "id": "basic-33",
+      "group": "basic",
+      "number": 33,
+      "label": "기본 33",
+      "title": "AHP",
+      "notes": [
+        "ahp"
+      ]
+    },
+    {
+      "id": "basic-34",
+      "group": "basic",
+      "number": 34,
+      "label": "기본 34",
+      "title": "MECE와 4C 연계",
+      "notes": [
+        "mece-liss",
+        "three-four-c"
+      ]
+    },
+    {
+      "id": "basic-35",
+      "group": "basic",
+      "number": 35,
+      "label": "기본 35",
+      "title": "IT-BSC",
+      "notes": [
+        "bsc-it-bsc"
+      ]
+    },
+    {
+      "id": "basic-36",
+      "group": "basic",
+      "number": 36,
+      "label": "기본 36",
+      "title": "MECE와 LISS 비교",
+      "notes": [
+        "mece-liss"
+      ]
+    },
+    {
+      "id": "basic-37",
+      "group": "basic",
+      "number": 37,
+      "label": "기본 37",
+      "title": "BSC",
+      "notes": [
+        "bsc-it-bsc"
+      ]
+    },
+    {
+      "id": "basic-38",
+      "group": "basic",
+      "number": 38,
+      "label": "기본 38",
+      "title": "MES",
+      "notes": [
+        "mes"
+      ]
+    },
+    {
+      "id": "basic-39",
+      "group": "basic",
+      "number": 39,
+      "label": "기본 39",
+      "title": "ISO/IEC 38500",
+      "notes": [
+        "iso-38500"
+      ]
+    },
+    {
+      "id": "basic-40",
+      "group": "basic",
+      "number": 40,
+      "label": "기본 40",
+      "title": "IT 거버넌스 정의와 사례",
+      "notes": [
+        "it-governance"
+      ]
+    },
+    {
+      "id": "basic-41",
+      "group": "basic",
+      "number": 41,
+      "label": "기본 41",
+      "title": "SoW·SLA·SLM 관계",
+      "notes": [
+        "sow-sla-slm",
+        "sla"
+      ]
+    },
+    {
+      "id": "basic-42",
+      "group": "basic",
+      "number": 42,
+      "label": "기본 42",
+      "title": "OKR와 BSC 비교",
+      "notes": [
+        "okr",
+        "bsc-it-bsc"
+      ]
+    },
+    {
+      "id": "basic-43",
+      "group": "basic",
+      "number": 43,
+      "label": "기본 43",
+      "title": "3C·4C",
+      "notes": [
+        "three-four-c"
+      ]
+    },
+    {
+      "id": "basic-44",
+      "group": "basic",
+      "number": 44,
+      "label": "기본 44",
+      "title": "SWOT",
+      "notes": [
+        "swot"
+      ]
+    },
+    {
+      "id": "basic-45",
+      "group": "basic",
+      "number": 45,
+      "label": "기본 45",
+      "title": "DRaaS",
+      "notes": [
+        "draas"
+      ]
+    },
+    {
+      "id": "basic-46",
+      "group": "basic",
+      "number": 46,
+      "label": "기본 46",
+      "title": "프롭테크",
+      "notes": [
+        "proptech"
+      ]
+    },
+    {
+      "id": "basic-47",
+      "group": "basic",
+      "number": 47,
+      "label": "기본 47",
+      "title": "IT 컴플라이언스",
+      "notes": [
+        "it-compliance"
+      ]
+    },
+    {
+      "id": "basic-48",
+      "group": "basic",
+      "number": 48,
+      "label": "기본 48",
+      "title": "SLO와 에러버짓",
+      "notes": [
+        "itsm-slo-error-budget"
+      ]
+    },
+    {
+      "id": "basic-49",
+      "group": "basic",
+      "number": 49,
+      "label": "기본 49",
+      "title": "ISO/IEC 42001",
+      "notes": [
+        "iso-42001"
+      ]
+    },
+    {
+      "id": "basic-50",
+      "group": "basic",
+      "number": 50,
+      "label": "기본 50",
+      "title": "딥테크",
+      "notes": [
+        "deep-tech"
+      ]
+    },
+    {
+      "id": "advanced-1",
+      "group": "advanced",
+      "number": 1,
+      "label": "심화 1",
+      "title": "VRIO Framework",
+      "notes": [
+        "vrio"
+      ]
+    },
+    {
+      "id": "advanced-2",
+      "group": "advanced",
+      "number": 2,
+      "label": "심화 2",
+      "title": "구독경제",
+      "notes": [
+        "subscription-economy"
+      ]
+    },
+    {
+      "id": "advanced-3",
+      "group": "advanced",
+      "number": 3,
+      "label": "심화 3",
+      "title": "디지털 전환(DX)",
+      "notes": [
+        "digital-transformation"
+      ]
+    },
+    {
+      "id": "advanced-4",
+      "group": "advanced",
+      "number": 4,
+      "label": "심화 4",
+      "title": "AI 전환(AX)",
+      "notes": [
+        "ax-transformation"
+      ]
+    },
+    {
+      "id": "advanced-5",
+      "group": "advanced",
+      "number": 5,
+      "label": "심화 5",
+      "title": "퀀텀 전환(QX)",
+      "notes": [
+        "quantum-transformation"
+      ]
+    },
+    {
+      "id": "advanced-6",
+      "group": "advanced",
+      "number": 6,
+      "label": "심화 6",
+      "title": "오픈뱅킹",
+      "notes": [
+        "open-banking"
+      ]
+    },
+    {
+      "id": "advanced-7",
+      "group": "advanced",
+      "number": 7,
+      "label": "심화 7",
+      "title": "IDC 지리적 위치선정과 재난 대응",
+      "notes": [
+        "idc-location"
+      ]
+    },
+    {
+      "id": "essay-1",
+      "group": "essay",
+      "number": 1,
+      "label": "2교시형 1",
+      "title": "AX 필요성·추진절차·장애요인과 대응",
+      "notes": [
+        "ax-transformation",
+        "ai-bpr"
+      ]
+    },
+    {
+      "id": "essay-2",
+      "group": "essay",
+      "number": 2,
+      "label": "2교시형 2",
+      "title": "경영전략의 외부·내부 환경 분석",
+      "notes": [
+        "strategy-environment",
+        "swot",
+        "three-four-c"
+      ]
+    },
+    {
+      "id": "essay-3",
+      "group": "essay",
+      "number": 3,
+      "label": "2교시형 3",
+      "title": "SLA 구성·절차·HW/SW/NW 지표와 측정",
+      "notes": [
+        "sla",
+        "sow-sla-slm"
+      ]
+    },
+    {
+      "id": "essay-4",
+      "group": "essay",
+      "number": 4,
+      "label": "2교시형 4",
+      "title": "공공 SLA·정보시스템 등급·표준안 고려사항",
+      "notes": [
+        "public-sla"
+      ]
+    },
+    {
+      "id": "essay-5",
+      "group": "essay",
+      "number": 5,
+      "label": "2교시형 5",
+      "title": "범정부 EA 메타모델·참조모형·성숙도",
+      "notes": [
+        "government-ea"
+      ]
+    },
+    {
+      "id": "essay-6",
+      "group": "essay",
+      "number": 6,
+      "label": "2교시형 6",
+      "title": "RTO/RPO와 Active-Active·Passive·Pilot Light",
+      "notes": [
+        "rto",
+        "rpo",
+        "drs"
+      ]
+    }
+  ],
+  "scope_note": "확정 숙제 32개는 유지한다. 추가 주제는 숙제 번호에 편입하지 않는다. 질문 제목은 문제지의 요구를 짧게 요약했으며 시험 예측·출제 확정을 뜻하지 않는다."
+}

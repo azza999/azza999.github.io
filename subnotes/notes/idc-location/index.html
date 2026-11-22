@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>IDC 위치 선정 · 함께 멈추지 않는 거점 설계 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">셀테 추가 24 · 업무연속성</p><h1>IDC 위치 선정 · 함께 멈추지 않는 거점 설계</h1><p class="lead">거리 자체보다 공동 재난과 공유 인프라를 피하면서 복구목표·복제 지연·운영 가능성을 만족하는 위치를 고른다.</p><p class="selftest-links"><strong>셀프테스트 연결</strong> <a href="../../selftest/#advanced-7">심화 7</a></p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">핵심 구조와 답안 포인트</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">셀프테스트 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>주센터와 복구센터가 다른 건물에 있어도 같은 변전소와 같은 통신 관로를 사용하면 한 사고로 모두 멈출 수 있다. 반대로 무조건 멀리 두면 안전하다고 생각하기 쉽지만, 복제 지연과 인력 이동·물류 때문에 목표 복구가 어려울 수 있다. 위치 선정은 위험 분리와 실행 가능성의 균형이다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> IDC 지리적 위치 선정은 주·복구 거점이 동일 재난과 공유 자원 장애에 함께 영향받지 않도록 위험을 분리하면서 업무연속성 목표, 연결성·접근성·보안·비용을 만족하는 후보지를 평가하는 활동이다.</p>
+<p><strong>회상 단서:</strong> 상관위험 · 독립 전력·통신 · 재난·전쟁 · RTO·RPO · 복제 지연 · 접근·운영</p>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="위험 분리와 복구 가능성을 함께 보는 선정 흐름 · 개념도">
+<img src="/assets/subnotes/concepts/idc-location.svg" alt="IDC 입지와 복구 전략은 재난·지정학 위험, 전력·통신 의존성, 거리·복제 지연, 운영·인력·비용을 함께 고려해 RTO·RPO 달성 여부로 검증한다." width="600" height="440" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>위험 분리와 복구 가능성을 함께 보는 선정 흐름</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/idc-location.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 주변 네 칸은 후보지를 평가하는 관점이다. 서로 독립적인 위험 분리와 복구 목표를 함께 고려한다.</p>
+<p><strong>손으로 그리기:</strong> 가운데 입지·복구 전략 → 주변에 재난, 전력·통신, 거리·지연, 운영·인력 네 칸.</p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS 전략·복구센터 위치</a> · <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf">NIST SP 800-34 Rev.1 · 비상계획과 대체 사이트</a>. 확인: 2026-11-22.<br>원문 구조·설명을 검토하여 핵심 관계만 직접 재구성한 학습용 도식. 원본 이미지는 전재하지 않음.</div>
+
+<h2 id="_4">핵심 구조와 답안 포인트</h2>
+<table>
+<thead>
+<tr>
+<th>평가 축</th>
+<th>확인 사항</th>
+<th>전략에 반영할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자연·지역 위험</td>
+<td>지진·침수·화재·기상, 같은 재난권역 여부</td>
+<td>주·복구 거점의 공통 위험 분리</td>
+</tr>
+<tr>
+<td>전쟁·사회 위험</td>
+<td>공격 목표 집중, 대피·통제·치안</td>
+<td>거점 분산·비상 연락·인력 대체</td>
+</tr>
+<tr>
+<td>전력·통신</td>
+<td>독립 공급, 경로·관로·사업자 의존</td>
+<td>표면상 이중화가 아닌 실제 독립성</td>
+</tr>
+<tr>
+<td>기술·복구</td>
+<td>통신 지연, 복제 방식, 데이터 정합성</td>
+<td>업무별 RTO·RPO·전환 구조</td>
+</tr>
+<tr>
+<td>운영·준수</td>
+<td>인력 접근, 물류, 데이터 보관·접근 규정</td>
+<td>원격운영·계약·교육·비용</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">가리고 설명하기</h2>
+<p>본문을 덮고 먼저 내 말로 답한다.</p>
+<ol>
+<li>두 센터가 떨어져 있다는 사실만으로 위험이 분리됐다고 볼 수 있을까?</li>
+<li>복구센터는 최대한 멀수록 항상 좋은가?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 아니다. 재난권역·전력·통신 경로·공급자·접근 통제 같은 공통 원인을 조사해야 한다.</p>
+<p><strong>2.</strong> 아니다. 위험 분리 이점과 복제 지연·비용·운영 접근성, 업무별 복구 목표를 함께 비교한다.</p>
+</div>
+</details>
+<h2 id="_6">상황에 적용하기</h2>
+<p>본사와 복구센터를 100km 이상 떨어뜨렸지만 전쟁 시 특정 통신 중계국이 끊기면 두 곳 모두 외부 연결을 잃는다. 무엇을 보완할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>거리 기준 충족만 보고 승인하지 않는다. 통신 경로와 중계 인프라의 공통 장애점을 파악하고 물리적으로 분리된 경로·접속 거점·사업자 구성을 검토한다. 필요하면 추가 거점·오프라인 사본·원격운영·대체 인력을 준비한다. 분산만 늘리면 되는 것이 아니라 실제 단절·전환·복구 시험으로 RTO·RPO와 업무 재개를 검증한다.</p>
+</div>
+</details>
+<h2 id="_7">헷갈리지 않기</h2>
+<p>교재의 특정 거리 예시는 위험 분리를 설명하기 위한 참고다. 모든 조직에 통용되는 보편적인 안전 거리나 법정 최소거리로 외우지 않는다. NIST도 위험평가로 지역·접근성·보안·환경·비용을 고려하도록 설명한다. 클라우드 리전·가용영역 이름만 달라도 실제 의존성이 분리됐다고 자동 가정하지 않는다.</p>
+<h2 id="_8">셀프테스트 범위와 출처</h2>
+<ul>
+<li><strong>심화 7번.</strong> 확정 숙제 32개와 구분하여 추가한 셀프테스트 보완 노트다.</li>
+<li><a href="https://cafe.naver.com/81th/243521">151기 셀프테스트 공지와 첨부 문제지</a>. 문제지의 출제 예상 표현은 강사의 의견이며 실제 출제를 확정하지 않는다.</li>
+<li><a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=1251">ITPE 지식관리 · DRS 전략·복구센터 위치</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf">NIST SP 800-34 Rev.1 · 비상계획과 대체 사이트</a></li>
+<li>확인일: 2026-11-22. 아래 설명과 사례는 개인 학습용으로 재구성했으며 원문 도표를 전재하지 않았다.</li>
+</ul></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

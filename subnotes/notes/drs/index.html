@@ -3,13 +3,14 @@
 <meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
 <meta name="theme-color" content="#f6f8fb"><title>DRS · 실제로 서비스를 되살리는 복구 체계 · 서브노트</title>
 <link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
-<main id="main"><header class="note-header"><p class="eyebrow">숙제 14/32 · 업무연속성</p><h1>DRS · 실제로 서비스를 되살리는 복구 체계</h1><p class="lead">업무 요구에서 복구 자원·복제·전환·검증으로 이어지는 기술적 구현.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 14/32 · 업무연속성</p><h1>DRS · 실제로 서비스를 되살리는 복구 체계</h1><p class="lead">업무 요구에서 복구 자원·복제·전환·검증으로 이어지는 기술적 구현.</p><p class="selftest-links"><strong>셀프테스트 연결</strong> <a href="../../selftest/#basic-31">기본 31</a> · <a href="../../selftest/#essay-6">2교시형 6</a></p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
 <div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
 <ul>
 <li><a href="#_1">먼저 이해하기</a></li>
 <li><a href="#_2">답안에 남길 핵심</a></li>
 <li><a href="#_3">개념도</a></li>
 <li><a href="#_4">준비 수준 비교</a></li>
+<li><a href="#active-activepassivepilot-light">셀프테스트 보완 · Active-Active·Passive·Pilot Light</a></li>
 <li><a href="#_5">가리고 설명하기</a></li>
 <li><a href="#_6">상황에 적용하기</a></li>
 <li><a href="#_7">헷갈리지 않기</a></li>
@@ -71,6 +72,41 @@
 </tbody>
 </table>
 <p>유형 이름만으로 고정 RTO·RPO를 보장하지 않는다. 네트워크·인증·DNS·외부 연계와 복구 후 거래 검증까지 설계한다.</p>
+<h2 id="active-activepassivepilot-light">셀프테스트 보완 · Active-Active·Passive·Pilot Light</h2>
+<p><strong>2교시형 6</strong>에서는 서비스 처리 방식과 대기 자원의 준비 수준을 구분한다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>평상시</th>
+<th>재해 시 핵심 작업</th>
+<th>설계 유의점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active-Active</td>
+<td>여러 사이트가 실제 요청을 처리</td>
+<td>정상 사이트로 트래픽을 재분배</td>
+<td>데이터 충돌·정합성, 잔여 사이트의 처리 용량</td>
+</tr>
+<tr>
+<td>Active-Passive</td>
+<td>주 사이트가 처리하고 보조는 대기</td>
+<td>보조를 활성화하고 경로 전환</td>
+<td>대기 자원 준비 수준에 따라 기동·확장·복구 작업이 달라짐</td>
+</tr>
+<tr>
+<td>Pilot Light</td>
+<td>보조에 데이터·핵심 기반만 유지</td>
+<td>응용·실행 자원을 기동·확장한 뒤 서비스 검증</td>
+<td>서비스 준비 완료 전에는 전체 요청을 처리할 수 없음</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pilot Light는 Active-Passive 계열의 한 전략</strong>이다. 세 항목을 서로 배타적인 동일 수준의 분류처럼 쓰지 않는다. Warm Standby는 축소된 전체 서비스를 실행해 두는 방식으로 Pilot Light와 구분할 수 있다.</p>
+<p>먼저 BIA로 요구 RTO·RPO를 정하고, 복제 지연·자원 기동·네트워크 전환·거래 검증을 포함한 시험으로 달성 여부를 확인한다. 무중단 목표를 선언하는 것과 실제 재해 복구 목표를 만족하는 것은 다르다.</p>
+<p>근거: <a href="https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html">AWS · Disaster recovery options in the cloud</a>. 관련: <a href="/subnotes/notes/idc-location/">IDC 입지와 재난 대응</a>.</p>
 <h2 id="_5">가리고 설명하기</h2>
 <p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
 <ol>

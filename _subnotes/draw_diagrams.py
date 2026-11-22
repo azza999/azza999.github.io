@@ -315,6 +315,9 @@ def build():
     d=cycle('읽기에서 다른 날 재현까지','읽고 구조를 이해한 후 가리고 설명·손그림을 재현한다. 정답과 비교해 교정하고 다른 날 다시 회상·적용한다.',['읽고 이해\n핵심 관계 확인','가리고 꺼내기\n설명·손그림','비교·교정\n빠진 관계 보완','다른 날 재현\n비교·새 상황 적용'],'막힌 지점만 다시 보완')
     save('mastery-method',d,'이해 → 회상 → 교정 → 다른 날 재현을 네 칸으로 잇는다.','기존 복습 가이드와 카페의 개념도 연습 원칙을 시각화했다. 정해진 간격만으로 완벽한 기억을 보장하지 않는다.',[cafe(106133,'개념도 손그림 연습'),{'label':'기존 복습 가이드의 근거 · 인출 연습 연구','url':'https://doi.org/10.1111/j.1467-9280.2006.01693.x'}])
 
+    if (ROOT/'extra_diagrams.json').exists():
+        from draw_extra_diagrams import add_extra_diagrams
+        add_extra_diagrams(Drawing, flow, cycle, save)
     (ROOT/'diagrams.json').write_text(json.dumps(MANIFEST,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f'Rendered {len(MANIFEST)} concept diagrams in {DEST}')
 

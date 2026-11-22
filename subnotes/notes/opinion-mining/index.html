@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>오피니언 마이닝 · 대상과 속성별 의견 읽기 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">셀테 추가 08 · 데이터·AI</p><h1>오피니언 마이닝 · 대상과 속성별 의견 읽기</h1><p class="lead">텍스트에서 누구의 무엇에 대한 어떤 평가인지 추출하고 긍정·부정·중립과 강도를 해석한다.</p><p class="selftest-links"><strong>셀프테스트 연결</strong> <a href="../../selftest/#basic-22">기본 22</a></p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">개념도</a></li>
+<li><a href="#_4">문장에서 개선 근거로</a></li>
+<li><a href="#_5">가리고 설명하기</a></li>
+<li><a href="#_6">상황에 적용하기</a></li>
+<li><a href="#_7">헷갈리지 않기</a></li>
+<li><a href="#_8">셀프테스트 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>“화면은 예쁜데 배터리는 너무 빨리 닳는다.” 이 문장을 통째로 긍정이나 부정 하나로만 분류하면 제품의 개선점을 놓친다. 화면 디자인에는 긍정, 배터리 지속시간에는 부정이라는 <strong>대상·속성별 의견</strong>을 나눠야 한다. 사실을 적은 문장과 평가를 담은 문장도 먼저 구분할 필요가 있다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> 오피니언 마이닝(Opinion Mining)은 리뷰·게시글 등 텍스트에서 의견의 대상·속성과 평가 표현을 추출하고, 감성의 극성·강도·맥락을 분석해 평가·요구·동향을 파악하는 기술이다.</p>
+<p><strong>회상 단서:</strong> 대상·속성 · 의견 추출 · 긍정·부정·중립 · 감성 강도 · 부정어·풍자·도메인</p>
+<h2 id="_3">개념도</h2>
+<figure class="concept-diagram">
+<div class="diagram-viewport" tabindex="0" role="region" aria-label="의견에서 속성별 평가와 개선점 추출 · 개념도">
+<img src="/assets/subnotes/concepts/opinion-mining.svg" alt="리뷰를 수집·전처리하고 평가 대상과 속성을 추출한 뒤, 속성별 감성을 분석해 검증된 개선 근거로 정리한다." width="600" height="460" loading="lazy" decoding="async">
+</div>
+<figcaption><strong>의견에서 속성별 평가와 개선점 추출</strong><br>자료의 구조·설명을 바탕으로 직접 재구성한 학습용 SVG. <a href="/assets/subnotes/concepts/opinion-mining.svg" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+
+<p><strong>읽는 법:</strong> 분석은 추정이다. 속성·맥락을 함께 봐야 같은 문장의 긍정과 부정을 구분할 수 있다.</p>
+<p><strong>손으로 그리기:</strong> 수집·추출·감성·활용 네 상자 → 추출 아래 대상·속성, 감성 아래 극성·강도. </p>
+<div class="diagram-source">개념도 참고: <a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=17">ITPE 지식관리 · 오피니언 구성요소</a>. 확인: 2026-11-22.<br>원본 처리 흐름과 구성요소 표를 대조해 대상·속성 중심으로 단순화함.</div>
+
+<h2 id="_4">문장에서 개선 근거로</h2>
+<table>
+<thead>
+<tr>
+<th>분석 요소</th>
+<th>질문</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상·개체</td>
+<td>무엇에 대한 평가인가?</td>
+<td>특정 휴대전화</td>
+</tr>
+<tr>
+<td>속성(Aspect)</td>
+<td>어떤 특성에 대한 평가인가?</td>
+<td>화면·배터리</td>
+</tr>
+<tr>
+<td>평가·극성</td>
+<td>좋아하는가, 불만인가?</td>
+<td>디자인 긍정·지속시간 부정</td>
+</tr>
+<tr>
+<td>강도·맥락</td>
+<td>얼마나, 어떤 조건에서 그런가?</td>
+<td>게임 중 배터리가 매우 빨리 감소</td>
+</tr>
+</tbody>
+</table>
+<p>일반적인 흐름은 <strong>수집 → 전처리 → 의견·대상·속성 추출 → 감성 분류·집계 → 검증·활용</strong>이다. 형태소·부정어·문맥을 처리하고, 감성사전·분류 모델·언어모델 등을 목적에 맞게 선택한다. 결과는 문서 단위, 문장 단위, 속성 단위로 낼 수 있다.</p>
+<p>텍스트 마이닝은 주제·개체·분류·요약 등 텍스트의 정보 추출 전반을 다룬다. 오피니언 마이닝은 그중 의견·평가의 방향과 대상을 중심으로 본다. 단어 빈도만 세는 것보다 맥락이 중요하며, “작다”도 휴대성에는 칭찬이지만 화면 크기에는 불만일 수 있다.</p>
+<p>분석 후 실제 리뷰 표본과 대조해 오분류를 확인하고, 수집 채널·언어·시점·조작 리뷰 편향을 함께 기록한다. 전체 고객을 대표하지 않는 SNS 표본을 시장 전체의 생각으로 일반화하지 않는다.</p>
+<h2 id="_5">가리고 설명하기</h2>
+<p>자료를 덮고 말하거나 빈 종이에 적는다. 정답을 열기 전에 두 질문에 먼저 답한다.</p>
+<ol>
+<li>한 문장 안에 긍정과 부정이 함께 있으면 어떻게 처리할까?</li>
+<li>긍정 단어를 많이 찾으면 정확한 의견 분석이라고 볼 수 있을까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 대상·속성을 분리해 각각의 평가를 추출한다. 문서 전체의 극성 하나만으로 세부 개선점을 덮지 않는다.</p>
+<p><strong>2.</strong> 아니다. 부정어, 풍자, 비교, 조건, 도메인 의미를 확인해야 한다. “좋기는 한데 다시 안 산다”는 단어 수만으로 해석하기 어렵다.</p>
+</div>
+</details>
+<h2 id="_6">상황에 적용하기</h2>
+<p>신제품 리뷰 100개에서 “배송은 빠르지만 설치가 어렵다”가 반복된다. 보고서를 “대체로 긍정적”으로 끝내도 될까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>배송과 설치를 분리해 배송 만족과 설치 불편을 각각 보고한다. 설치 단계·설명서·지원 채널에 대한 추가 근거를 찾고 개선 우선순위를 제안한다. 리뷰 수집 기간·채널과 표본의 한계도 명시해 전체 고객 만족도와 혼동하지 않는다.</p>
+</div>
+</details>
+<h2 id="_7">헷갈리지 않기</h2>
+<p>감성 분류 결과는 사람의 마음을 직접 측정한 사실이 아니다. 모델이 텍스트 표현에서 추정한 결과다. 개인정보가 포함된 리뷰는 수집·보관·공개 범위를 통제하며, 출처와 표본 조건을 보존한다. <a href="/subnotes/notes/data-mining/">데이터 마이닝</a>의 일반 패턴 탐색과 분석 목적을 구분한다.</p>
+<h2 id="_8">셀프테스트 범위와 출처</h2>
+<ul>
+<li><strong>셀프테스트 추가 범위:</strong> 기본 22번 · 오피니언 마이닝. 확정 숙제 32개에 새 숙제 번호를 붙이는 것이 아니라 문제지의 추가 주제를 별도로 보완한다.</li>
+<li><a href="https://cafe.naver.com/81th/243521">ITPE 151기 셀프테스트 공지·문제지</a>. 문제 번호는 로컬 보관 PDF와 대조했다. 문제지의 출제 예상 표현은 실제 출제 확정을 뜻하지 않는다.</li>
+<li><a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=17">ITPE 지식관리 · 오피니언 마이닝</a>.</li>
+<li><a href="https://itpe.co.kr/main/portal/selectPortalContent.do?topicId=17">ITPE 지식관리 · 오피니언 구성요소</a>.</li>
+</ul>
+<p>확인일: 2026-11-22. 원문 도표를 전재하지 않고 개인 학습용 설명과 그림으로 재구성했다. 학습 여부는 가리고 설명·비교·적용하는 답변으로 확인한다.</p></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>
