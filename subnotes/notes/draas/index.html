@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>DRaaS · 재해복구를 서비스로 이용하기 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 03/32 · 업무연속성</p><h1>DRaaS · 재해복구를 서비스로 이용하기</h1><p class="lead">복제·대기 자원·전환을 서비스로 제공받되 복구 목표와 책임은 확인한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">서비스 흐름</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>별도 DR 센터를 모두 직접 마련하는 대신, 공급자의 복구 인프라와 운영 기능을 이용하는 방식이다. 평소 데이터를 복제해두고 재해가 나면 준비된 환경에서 서비스를 재개한다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> DRaaS(Disaster Recovery as a Service)는 IT 시스템과 데이터를 복제·보호하고 재해 시 복구 환경으로 전환하는 기능을 서비스 형태로 제공하는 모델이다.</p>
+<p><strong>회상 단서:</strong> 복제 · 복구 자원 · 오케스트레이션 · 전환 · RTO/RPO · 책임 분담</p>
+<h2 id="_3">서비스 흐름</h2>
+<pre><code class="language-text">주 운영환경 → 데이터·구성 복제 → 공급자의 복구환경
+                                  ↓ 재해 발동
+                       서비스 전환·검증 → 원복
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>확인할 항목</th>
+<th>확인 이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTO·RPO</td>
+<td>계약 목표가 업무 요구를 충족하는가</td>
+</tr>
+<tr>
+<td>전환·원복 시험</td>
+<td>복구 후 실제 이용과 주센터 복귀가 가능한가</td>
+</tr>
+<tr>
+<td>책임 분담</td>
+<td>네트워크·계정·응용 변경은 누가 수행하는가</td>
+</tr>
+<tr>
+<td>보안·보관 위치</td>
+<td>접근권한, 암호화, 데이터 위치 요구를 만족하는가</td>
+</tr>
+<tr>
+<td>전체 비용</td>
+<td>복제 저장료뿐 아니라 전환·실행·전송 비용도 있는가</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>일반 백업 서비스와 DRaaS를 구분하는 중심은?</li>
+<li>DRaaS를 쓰면 복구훈련이 불필요할까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 데이터 사본 보관을 넘어 서비스 실행에 필요한 복구 환경과 전환 절차를 제공하는지다.</p>
+<p><strong>2.</strong> 아니다. 응용 의존성·계정·네트워크·정합성을 포함한 실제 전환을 검증해야 한다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>공급자가 “데이터는 안전하게 저장된다”고만 안내한다. 2시간 내 업무 재개 요구를 충족한다고 볼 수 있을까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>저장만으로는 판단할 수 없다. 응용 실행 자원, 전환 절차, 네트워크 연결과 실제 복구시간을 확인해야 한다. 데이터 복제 지연과 RPO도 별도로 검증한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>백업 보관과 업무 재개는 다르다. 공급자 장애·종속성도 검토하고, “클라우드이므로 자동으로 RPO=0”이라고 쓰지 않는다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 03/32:</strong> DRaaS.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 용어 암기. 단어 암기 지시. 독립 출제 강조로 확대하지 않음.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 314~322쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/drs/">DRS</a> · <a href="/subnotes/notes/rto/">RTO</a> · <a href="/subnotes/notes/rpo/">RPO</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../drp/"><small>이전 숙제</small>DRP · 재해 때 실행할 복구 계획</a><a href="../it-compliance/"><small>다음 숙제</small>IT 컴플라이언스 · 준수를 증명하는 체계</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

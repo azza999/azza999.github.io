@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>앰비언트 컴퓨팅·커머스 · 환경에 스며든 서비스 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 10/32 · 비즈니스 모델</p><h1>앰비언트 컴퓨팅·커머스 · 환경에 스며든 서비스</h1><p class="lead">주변 상황을 인식하는 컴퓨팅 기반과 그 기반을 이용한 상거래를 구분한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">기반과 응용 구분</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>스마트 냉장고가 재고를 인식하는 것은 주변에 스며든 컴퓨팅이다. 부족한 식품을 제안하고 승인 후 주문까지 연결하면 커머스 응용이다. 두 용어는 같은 말이 아니다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> 앰비언트 컴퓨팅은 기기·센서·네트워크·지능 처리가 생활 환경에 통합되어 상황에 맞는 상호작용을 제공하는 방식이다. 앰비언트 커머스는 이를 활용해 구매 과정이 생활 맥락에 자연스럽게 연결되는 상거래 방식이다.</p>
+<p><strong>회상 단서:</strong> 환경 내재화 · 상황 인식 · 자연스러운 인터페이스 · 동의·제어</p>
+<h2 id="_3">기반과 응용 구분</h2>
+<pre><code class="language-text">센서·기기 → 상황 인식 → 추론·추천 → 승인·행동
+                ↑                   ↓
+            개인정보 통제       주문·결제(커머스)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>컴퓨팅</th>
+<th>커머스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>초점</td>
+<td>환경에 내재된 정보 처리·상호작용</td>
+<td>구매·결제·공급</td>
+</tr>
+<tr>
+<td>예</td>
+<td>재실·조도에 따른 실내 제어</td>
+<td>소모품 부족 감지 후 재주문</td>
+</tr>
+<tr>
+<td>통제</td>
+<td>상황 정확성·인증·개인정보</td>
+<td>공통 통제에 오결제·취소·고지 추가</td>
+</tr>
+</tbody>
+</table>
+<p>Zero UI는 화면 조작을 줄이는 방향이다. 음성·제스처·햅틱 등 상호작용까지 사라진다는 뜻은 아니다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>컴퓨팅과 커머스를 한 사례로 구분해보자.</li>
+<li>자동화가 많으면 동의가 덜 중요할까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 주변 인식·지능 처리는 기반, 그중 구매·결제로 연결되는 응용이 커머스다.</p>
+<p><strong>2.</strong> 아니다. 승인·취소·사용자 제어와 예외 처리가 더 중요하다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>스마트 스피커가 TV 광고를 주문으로 오인했다. 무엇을 보완할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>화자·기기 인증, 의도 확인, 결제 승인, 취소 경로와 로그를 둔다. 편의성과 자동 실행을 구분하고 위험한 행동에는 명확한 제어를 둔다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>상황 인식은 앰비언트 컴퓨팅의 주요 기능이며 완전한 동의어가 아니다. 모든 앰비언트 서비스가 상거래를 수행하지 않는다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 10/32:</strong> 엠비언트 커머스/컴퓨팅.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 출제 강조. 두 용어 모두 나옴으로 기록. 메모의 같은 것이라는 표현은 개념상 완전 동의어로 확정하지 않음.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 373~374쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/subscription-economy/">구독경제</a> · <a href="/subnotes/notes/ax-transformation/">AX</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../subscription-economy/"><small>이전 숙제</small>구독경제 · 계속 이용할 가치를 제공하기</a><a href="../itsm-slo-error-budget/"><small>다음 숙제</small>ITSM·SLO·에러버짓 · 서비스 운영의 기준</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

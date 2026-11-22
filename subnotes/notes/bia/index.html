@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>BIA · 무엇을 먼저 복구할지 정하는 분석 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 17/32 · 업무연속성</p><h1>BIA · 무엇을 먼저 복구할지 정하는 분석</h1><p class="lead">시간별 중단 영향과 의존성을 분석해 핵심 업무·복구 요구를 도출한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">분석 흐름</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>메일·주문·급여가 모두 멈췄다. 가장 비싼 서버부터 켜야 할까? BIA는 장비 가격이 아니라 업무 중단의 피해와 시간 민감도를 보고 우선순위를 정한다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> BIA(Business Impact Analysis)는 업무 중단이 조직에 미치는 영향을 시간에 따라 분석하여 핵심 업무·복구 우선순위·필요 자원과 복구 요구사항을 도출하는 활동이다.</p>
+<p><strong>회상 단서:</strong> 핵심 업무 · 시간별 영향 · 의존성 · 우선순위 · RTO/RPO 근거</p>
+<h2 id="_3">분석 흐름</h2>
+<pre><code class="language-text">업무·자원 식별 → 시간별 영향 → 허용 한계·복구 요구
+→ 우선순위 합의 → 전략·계획에 반영
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>확인 질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>재무 영향</td>
+<td>매출 손실·배상·추가 비용은?</td>
+</tr>
+<tr>
+<td>비재무 영향</td>
+<td>안전·신뢰·계약·고객 피해는?</td>
+</tr>
+<tr>
+<td>시간 민감도</td>
+<td>1시간·1일·1주의 차이는?</td>
+</tr>
+<tr>
+<td>의존성</td>
+<td>필요한 사람·데이터·공급자는?</td>
+</tr>
+<tr>
+<td>복구 요구</td>
+<td>언제까지 어느 수준·데이터까지 복구하나?</td>
+</tr>
+</tbody>
+</table>
+<p>BIA는 주로 중단의 영향, 위험평가는 발생 가능성·취약성·위험에 초점을 둔다. 두 결과를 함께 활용한다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>BIA 결과는 DRS 설계에 어떻게 쓰나?</li>
+<li>서버 가격이 복구 순서의 기준으로 부족한 이유는?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 우선순위·RTO/RPO·자원 요구를 복구 방식과 자원 선택의 기준으로 쓴다.</p>
+<p><strong>2.</strong> 가격과 업무 피해는 다르다. 매출·안전·의무·시간 민감도를 함께 봐야 한다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>주문이 최우선이면 주문 DB만 먼저 복구하면 될까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>인증이 선행되어야 한다면 인증·네트워크·DB 등을 복구 묶음으로 설계한다. 핵심 업무의 종단 간 재개 가능성을 기준으로 순서를 정한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>RTO·RPO는 IT부서가 임의로 적는 숫자가 아니다. 업무 담당자와 영향·손실 허용량을 합의하고 기술·비용 실현 가능성을 검토한다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 17/32:</strong> BIA.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 출제 강조. 업무영향분석 관련 나옴이라고 기록.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 315~316쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/bcm/">BCM</a> · <a href="/subnotes/notes/rto/">RTO</a> · <a href="/subnotes/notes/rpo/">RPO</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../rpo/"><small>이전 숙제</small>RPO · 어느 시점의 데이터까지 지킬 것인가</a><a href="../isp/"><small>다음 숙제</small>ISP · 경영전략을 정보화 청사진으로</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

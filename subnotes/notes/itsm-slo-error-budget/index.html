@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>ITSM·SLO·에러버짓 · 서비스 운영의 기준 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 11/32 · IT 서비스관리</p><h1>ITSM·SLO·에러버짓 · 서비스 운영의 기준</h1><p class="lead">고객 가치와 운영 프로세스, 측정 지표와 신뢰성 의사결정을 연결한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">지표에서 판단으로</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>서버가 정상이어도 고객이 주문을 못 하면 좋은 서비스가 아니다. ITSM은 필요한 서비스를 제공·개선하는 관리이고, SLO·에러버짓은 품질과 변경 속도를 조정하는 기준이다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> ITSM(IT Service Management)은 고객 가치와 요구에 맞춰 IT 서비스를 설계·전환·제공·운영·개선하는 관리 활동이다. SLO는 서비스 수준 목표이며 에러버짓은 목표가 허용하는 불완전성의 범위다.</p>
+<p><strong>회상 단서:</strong> 서비스 가치 · 사고/문제/변경 · SLI · SLO · 에러버짓</p>
+<h2 id="_3">지표에서 판단으로</h2>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>질문</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLI</td>
+<td>무엇을 어떻게 측정하나?</td>
+<td>유효 요청 중 성공 비율</td>
+</tr>
+<tr>
+<td>SLO</td>
+<td>어느 기간에 어느 수준을 목표로 하나?</td>
+<td>30일간 성공률 99.9%</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>고객과 어떤 수준·책임을 약속했나?</td>
+<td>목표·측정·미달 조치 합의</td>
+</tr>
+<tr>
+<td>에러버짓</td>
+<td>허용되는 실패 범위는?</td>
+<td>성공률 99.9%이면 실패 비율 0.1%</td>
+</tr>
+</tbody>
+</table>
+<p>시간 기반 가용성이라면 30일은 43,200분이므로 <strong>허용 중단시간 = 43,200 × 0.001 = 43.2분</strong>이다. 요청 기반이면 분 대신 실패 요청 건수로 계산한다.</p>
+<pre><code class="language-text">고객 요구 → 서비스 설계 → SLI 측정·SLO 점검
+  ↑                             ↓
+개선 ← 사고·문제·변경 관리 + 에러버짓에 따른 판단
+</code></pre>
+<p>사고 관리는 복구, 문제 관리는 원인·재발 방지, 변경 관리는 변경 위험을 통제한다. 예산을 초과하면 합의한 정책에 따라 신뢰성 개선에 집중한다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>SLI·SLO·SLA를 구분해보자.</li>
+<li>0.1%는 장애를 내도 되는 권리일까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> SLI는 지표, SLO는 목표치, SLA는 고객과의 서비스 수준 합의다.</p>
+<p><strong>2.</strong> 아니다. 변경과 신뢰성을 조정하는 기준이며 계약·안전 요구를 면제하지 않는다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>30일 가용성 SLO 99.9%인데 이미 50분 중단됐다. 큰 변경을 바로 배포할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>시간 예산 43.2분을 초과했다. 정책에 따라 위험한 변경을 제한하고 안정화·원인 제거를 우선한다. 긴급 보안 수정 등 예외는 영향과 승인 기준에 따라 판단한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>ITSM=ITIL은 아니다. ITIL은 참고 체계 중 하나다. 요청 실패율을 중단 분으로 바로 환산하지 않는다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 11/32:</strong> ITSM(+SLO/에러버짓).</li>
+<li><strong>수업 메모의 강조 수준:</strong> ITSM 출제 강조 / 하위 항목 메모 미확인. ITSM은 반복 강조. SLO·에러버짓은 메모에 직접 언급 없음. 최종 숙제에는 포함.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 243~247, 280~284쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+<li><a href="https://sre.google/workbook/implementing-slos/">Google SRE Workbook · Implementing SLOs</a>. SLI·SLO·에러버짓 개념 보완.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/sla/">SLA</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../ambient-commerce-computing/"><small>이전 숙제</small>앰비언트 컴퓨팅·커머스 · 환경에 스며든 서비스</a><a href="../sla/"><small>다음 숙제</small>SLA · 서비스 수준을 측정 가능한 약속으로</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>경제성 평가·IT-ROI · 투자 전후의 가치 판단 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 22/32 · 전략·투자</p><h1>경제성 평가·IT-ROI · 투자 전후의 가치 판단</h1><p class="lead">BCR·NPV·IRR·PP를 구분하고 사전·중간·사후 평가로 연결한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">네 지표의 차이</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>시스템을 만들기 전에는 할 가치가 있는지, 진행 중에는 계획대로 가는지, 운영 후에는 약속한 편익이 실현됐는지 확인한다. 투자금 회수 속도와 총 가치도 서로 다른 질문이다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> IT 프로젝트 경제성 평가는 비용과 편익을 비교해 투자 타당성을 판단하는 활동이다. IT-ROI 투자성과평가 체계는 사전·중간·사후 평가를 연결하여 투자 의사결정과 성과 개선을 지원한다.</p>
+<p><strong>회상 단서:</strong> BCR·NPV·IRR·PP / 사전·중간·사후 / 실현 편익</p>
+<h2 id="_3">네 지표의 차이</h2>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>계산·의미</th>
+<th>일반적 판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BCR</td>
+<td>편익 현재가치 ÷ 비용 현재가치</td>
+<td>1 초과</td>
+</tr>
+<tr>
+<td>NPV</td>
+<td>미래 순현금흐름 현재가치 합 − 초기 투자</td>
+<td>0 초과</td>
+</tr>
+<tr>
+<td>IRR</td>
+<td>NPV를 0으로 만드는 할인율</td>
+<td>일반적 현금흐름에서 요구수익률 초과</td>
+</tr>
+<tr>
+<td>PP</td>
+<td>누적 순현금흐름으로 투자금을 회수하는 기간</td>
+<td>정한 기준 기간보다 짧은가</td>
+</tr>
+</tbody>
+</table>
+<p>단순 PP는 시간가치와 회수 이후 현금흐름을 충분히 반영하지 않는다. 현재가치 기반 BCR·NPV·IRR은 할인 개념을 사용한다. 현금흐름 부호가 여러 번 바뀌면 IRR 해석에 주의한다.</p>
+<pre><code class="language-text">사전: 대안·타당성 → 중간: 집행·일정·성과 전망
+→ 사후: 실제 비용·실현 편익 → 다음 투자에 환류
+</code></pre>
+<p>단순 ROI의 예시는 <strong>(편익−비용)÷비용×100%</strong>다. 기간과 비용·편익 범위를 밝혀야 비교 가능하다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>IRR이 0보다 크면 항상 투자할 만한가?</li>
+<li>사후평가에서 예산을 다 썼는지만 보면 될까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 아니다. 통상 요구수익률과 비교하며 현금흐름 형태와 다른 지표도 확인한다.</p>
+<p><strong>2.</strong> 실제로 발생한 편익·목표 달성·운영 비용과 원인까지 봐야 한다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>초기 투자 10억, 매년 일정한 순현금유입 2억이다. 단순 PP는? 총편익 15억·비용 10억의 단순 ROI는?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>단순 PP는 10÷2=5년, 단순 ROI는 (15−10)÷10×100=50%다. 두 계산의 기간·할인 가정이 다를 수 있으므로 이것만으로 대안 전체의 우열을 단정하지 않는다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>PP는 투자 회수기간, BEP는 매출과 비용이 같아지는 손익분기 조건이다. 같은 뜻으로 외우지 않는다. 최종 숙제의 “프로덱트” 표기는 수업 맥락에 따라 IT 프로젝트 경제성 평가로 정리했다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 22/32:</strong> (프로덱트)경제성평가기법+IT Roi투자성과평가.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 출제·암기 강조. 메모는 프로덕트가 아니라 IT 프로젝트 경제성 평가. BCR·PP·IRR·NPV 및 IT-ROI 개념도.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 57~61 및 수업 필기 경제성 평가 부분쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/technology-valuation/">기술 가치 평가</a> · <a href="/subnotes/notes/bsc-it-bsc/">BSC·IT-BSC</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../it-governance/"><small>이전 숙제</small>IT 거버넌스 · IT의 방향과 책임을 정하기</a><a href="../three-four-c/"><small>다음 숙제</small>3C·4C · 고객·경쟁·자사를 함께 보기</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

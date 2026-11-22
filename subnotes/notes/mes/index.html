@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>MES · 생산 현장의 실행을 관리하기 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 26/32 · 생산·공급망</p><h1>MES · 생산 현장의 실행을 관리하기</h1><p class="lead">계획과 설비 사이에서 작업지시·진척·품질·실적을 연결한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">계획과 제어 사이</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>오늘 1,000개를 만들라는 계획만으로 현장이 돌아가지는 않는다. 어떤 설비에서 어떤 순서로 만들고 불량이 얼마나 났는지 알아야 한다. MES는 생산 실행의 상태와 이력을 관리한다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> MES(Manufacturing Execution System)는 생산 현장의 작업지시·공정 진척·자원·품질·실적 및 이력을 관리하여 생산 활동을 지원하는 시스템이다.</p>
+<p><strong>회상 단서:</strong> 작업지시 · 공정·진척 · 품질 · 실적 · 추적성 · POP</p>
+<h2 id="_3">계획과 제어 사이</h2>
+<pre><code class="language-text">경영·생산 계획
+      ↓ 작업 요구        ↑ 생산 실적
+MES: 지시·진척·품질·이력·자원 관리
+      ↓ 실행 연계        ↑ 현장 상태
+설비·제어: PLC·DCS·SCADA / 데이터 수집: POP
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>초점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MES</td>
+<td>생산 실행의 관리·가시성·추적</td>
+</tr>
+<tr>
+<td>POP(Point of Production)</td>
+<td>현장 실적·상태 데이터 수집</td>
+</tr>
+<tr>
+<td>PLC</td>
+<td>설비 논리·순차 제어</td>
+</tr>
+<tr>
+<td>DCS</td>
+<td>분산된 공정 제어</td>
+</tr>
+<tr>
+<td>SCADA</td>
+<td>감시·제어·데이터 수집</td>
+</tr>
+</tbody>
+</table>
+<p>계층은 이해를 위한 개략도다. 실제 제품 구성과 기능 중첩은 달라질 수 있다. 핵심은 계획-실행-현장 데이터의 연결이다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>MES가 PLC와 다른 이유는?</li>
+<li>불량 원인을 추적하려면 어떤 기록을 연결할까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> MES는 작업·품질·이력 등 실행 관리, PLC는 설비의 제어 논리에 초점을 둔다.</p>
+<p><strong>2.</strong> 원자재·로트·설비·작업자·공정 조건·검사 결과·시간을 연결한다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>특정 시간대에 생산한 제품에서 불량이 나왔다. MES 데이터를 어떻게 활용할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>해당 시간의 로트·설비 조건·작업 이력·원자재·검사 결과를 추적해 영향 범위를 식별한다. 작업 중지·격리·재작업과 원인 개선으로 연결한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>MES를 센서 데이터 저장소만으로 설명하지 않는다. 수집 데이터가 지시·진척·품질·추적에 어떻게 쓰이는지 연결한다. 생산 현장에서는 안전·가용성 제약도 함께 고려한다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 26/32:</strong> MES.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 출제 강조. 잘 나옴. PLC·DCS·SCADA·POP 용어 연계.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 188~189쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/scm/">SCM</a> · <a href="/subnotes/notes/ax-transformation/">AX</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../scm/"><small>이전 숙제</small>SCM · 공급망 전체의 계획과 실행 연결</a><a href="../data-mining/"><small>다음 숙제</small>데이터 마이닝 · 패턴을 찾아 의사결정에 쓰기</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

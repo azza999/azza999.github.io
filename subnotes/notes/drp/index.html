@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>DRP · 재해 때 실행할 복구 계획 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 02/32 · 업무연속성</p><h1>DRP · 재해 때 실행할 복구 계획</h1><p class="lead">복구 대상·담당자·순서·검증·원복을 문서와 훈련으로 준비한다.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">복구 절차의 흐름</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>재해가 나자 담당자마다 “누가 먼저 DB를 켜지?”라고 묻는다. 장비가 있어도 순서와 책임이 없으면 복구가 지연된다. DRP는 그때 실행할 복구 지침이다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> DRP(Disaster Recovery Plan)는 재해 발생 시 IT 서비스와 데이터를 목표에 맞게 복구하기 위한 조직·자원·절차·검증 기준을 정한 계획이다. Planning은 이 계획을 수립하는 활동을 가리킨다.</p>
+<p><strong>회상 단서:</strong> 발동 기준 · R&amp;R · 의존성 · 복구 절차 · 검증 · 원복 · 훈련</p>
+<h2 id="_3">복구 절차의 흐름</h2>
+<pre><code class="language-text">재해 판단·발동 → 비상 연락 → DR 전환
+→ 데이터·시스템 복구 → 업무 검증·서비스 재개
+→ 안정화 → 주센터 복귀 판단·원복 → 사후 개선
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>문서 항목</th>
+<th>적어야 할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상·목표</td>
+<td>핵심 시스템, RTO·RPO, 시스템 간 의존성</td>
+</tr>
+<tr>
+<td>책임·연락</td>
+<td>발동 승인자, 실행 담당자, 협력사 연락망</td>
+</tr>
+<tr>
+<td>실행 지침</td>
+<td>복구 순서, 명령·체크리스트, 대체 접근 방법</td>
+</tr>
+<tr>
+<td>검증·복귀</td>
+<td>정합성·업무 처리 시험, 원복 조건, 결과 보고</td>
+</tr>
+</tbody>
+</table>
+<p>문서를 작성한 뒤 모의훈련으로 검증하고 변경된 구성과 연락처를 갱신한다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>복구 장비가 있는데 DRP가 필요한 이유는?</li>
+<li>DRP 마지막에 복구 완료 선언만 넣으면 충분할까?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> 실행 권한·담당자·순서·성공 기준을 합의해야 동일한 장비로도 목표 내 복구할 수 있다.</p>
+<p><strong>2.</strong> 정합성·업무 정상 처리 검증과 주센터 복귀 조건·원복 절차, 개선까지 필요하다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>DB는 복구됐지만 인증 서비스가 살아나지 않아 고객이 로그인하지 못한다. 계획의 어느 부분을 고쳐야 할까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>업무·시스템 의존성을 반영해 인증·네트워크·DB·응용의 복구 순서를 설계한다. 마지막 검증도 DB 접속 성공이 아니라 고객 로그인과 주문 처리까지 확인해야 한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>DRP는 DRS 장비 목록과 다르다. 문서의 존재보다 실제 실행 가능성이 중요하다. 비상시에 주센터 안에서만 열 수 있는 문서라면 접근 경로도 보완해야 한다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 02/32:</strong> DRP.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 관련 문맥 확인. DRS를 위한 계획 문서로 설명. DRP 자체에 별도 나옴 표현은 없음.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 307~312쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/bcm/">BCM</a> · <a href="/subnotes/notes/drs/">DRS</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../bcm/"><small>이전 숙제</small>BCM · 업무를 계속하기 위한 관리</a><a href="../draas/"><small>다음 숙제</small>DRaaS · 재해복구를 서비스로 이용하기</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="정보관리기술사 서브노트. 이해한 개념과 답안의 핵심을 기록합니다.">
+<meta name="theme-color" content="#f6f8fb"><title>DRS · 실제로 서비스를 되살리는 복구 체계 · 서브노트</title>
+<link rel="stylesheet" href="../../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><div class="page reading-page"><header class="topbar"><a class="brand" href="../../">서브노트<span>ITPE 151기</span></a><nav aria-label="상단 탐색"><a href="../../">노트 목록</a><button type="button" onclick="window.print()">인쇄 / PDF</button></nav></header>
+<main id="main"><header class="note-header"><p class="eyebrow">숙제 14/32 · 업무연속성</p><h1>DRS · 실제로 서비스를 되살리는 복구 체계</h1><p class="lead">업무 요구에서 복구 자원·복제·전환·검증으로 이어지는 기술적 구현.</p><p class="updated">수정 <time datetime="2026-11-22">2026-11-22</time></p></header>
+<div class="reading-layout"><aside class="contents"><details open><summary>이 노트의 목차</summary><nav aria-label="본문 목차"><div class="toc">
+<ul>
+<li><a href="#_1">먼저 이해하기</a></li>
+<li><a href="#_2">답안에 남길 핵심</a></li>
+<li><a href="#_3">준비 수준 비교</a></li>
+<li><a href="#_4">가리고 설명하기</a></li>
+<li><a href="#_5">상황에 적용하기</a></li>
+<li><a href="#_6">헷갈리지 않기</a></li>
+<li><a href="#_7">수업 범위와 출처</a></li>
+</ul>
+</div>
+</nav><a class="method-link" href="../mastery-method/">학습 순서와 복습법</a></details></aside><article class="prose"><h2 id="_1">먼저 이해하기</h2>
+<p>주센터가 멈추면 다른 곳에서 데이터를 꺼내고 프로그램을 실행하며 고객 연결을 바꿔야 한다. DRS는 이를 가능하게 하는 기술 체계다.</p>
+<h2 id="_2">답안에 남길 핵심</h2>
+<p><strong>정의:</strong> DRS(Disaster Recovery System)는 재해로 중단된 IT 서비스와 데이터를 복구하기 위한 대체 인프라·백업·복제·전환 및 운영 체계다.</p>
+<p><strong>회상 단서:</strong> BIA → RTO/RPO → 전략 → 구축 → DR Drill</p>
+<h2 id="_3">준비 수준 비교</h2>
+<pre><code class="language-text">업무 영향·의존성 → 복구 목표·전략
+→ 대체 센터·백업·복제·전환 → 훈련·개선
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>사전 준비</th>
+<th>검토 초점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mirror</td>
+<td>양쪽에서 운영·처리</td>
+<td>정합성·동시 장애</td>
+</tr>
+<tr>
+<td>Hot</td>
+<td>실행 자원을 충분히 준비</td>
+<td>신속 전환·운영비</td>
+</tr>
+<tr>
+<td>Warm</td>
+<td>일부 자원을 준비</td>
+<td>추가 확장·복구 시간</td>
+</tr>
+<tr>
+<td>Cold</td>
+<td>시설 중심 확보</td>
+<td>장비·설치·복원 시간</td>
+</tr>
+<tr>
+<td>Pilot Light</td>
+<td>데이터·핵심 기반 유지, 필요 시 확장</td>
+<td>확장·기동 검증</td>
+</tr>
+</tbody>
+</table>
+<p>유형 이름만으로 고정 RTO·RPO를 보장하지 않는다. 네트워크·인증·DNS·외부 연계와 복구 후 거래 검증까지 설계한다.</p>
+<h2 id="_4">가리고 설명하기</h2>
+<p>본문을 위로 올려 가린 뒤, 말하거나 빈 종이에 적는다. 정답을 읽기 전에 답한다.</p>
+<ol>
+<li>DRP와 DRS의 차이는?</li>
+<li>Mirror면 데이터 손실이 항상 0인가?</li>
+</ol>
+<details class="answer">
+<summary>내 답과 비교할 기준</summary>
+<div>
+<p><strong>1.</strong> DRP는 실행 계획, DRS는 이를 실현하는 기술·인프라 체계다.</p>
+<p><strong>2.</strong> 아니다. 복제 방식·장애 형태·정합성·전환 설계에 따라 달라진다.</p>
+</div>
+</details>
+<h2 id="_5">상황에 적용하기</h2>
+<p>랜섬웨어 암호화가 복제 대상에도 전파됐다. 대체 센터만 있으면 될까?</p>
+<details class="answer">
+<summary>풀이와 판단 근거</summary>
+<div>
+<p>오염된 최신 복제본만으로는 어려울 수 있다. 격리·불변 백업, 과거 복원 시점, 무결성 확인과 깨끗한 실행 환경도 준비해야 한다.</p>
+</div>
+</details>
+<h2 id="_6">헷갈리지 않기</h2>
+<p>HA는 일상 장애의 지속, DR은 재해 수준 중단의 복구에 주로 초점을 둔다. 서로 보완한다. “Hot Site=무조건 2시간”처럼 사례값을 보편 규칙으로 쓰지 않는다.</p>
+<h2 id="_7">수업 범위와 출처</h2>
+<ul>
+<li><strong>최종 숙제 14/32:</strong> DRS.</li>
+<li><strong>수업 메모의 강조 수준:</strong> 출제 강조. DRS 및 DR 나옴이라고 기록.</li>
+<li>출제 관련 표현은 2026.11.21 수업에서 기록한 강사의 의견이다. 실제 출제 확정이나 미출제 이력의 독립 검증을 뜻하지 않는다.</li>
+<li>ITPE 『IT경영전략 V10.13 Part I』, PDF 파일 기준 314~322쪽을 참고하여 개인 학습용으로 재구성했다. 교재 원문·도표를 전재하지 않았다.</li>
+</ul>
+<p>함께 보기: <a href="/subnotes/notes/drp/">DRP</a> · <a href="/subnotes/notes/draas/">DRaaS</a> · <a href="/subnotes/notes/rto/">RTO</a> · <a href="/subnotes/notes/rpo/">RPO</a></p>
+<p>읽은 뒤에는 <a href="/subnotes/notes/mastery-method/">내 것으로 만드는 복습법</a>에 따라 다른 날 다시 설명해본다. 이 노트가 있다는 사실만으로 학습 완료·점수가 기록되지는 않는다.</p><nav class="note-neighbors" aria-label="숙제 순서"><a href="../iso-22301/"><small>이전 숙제</small>ISO 22301 · 업무연속성 관리체계의 요구사항</a><a href="../rto/"><small>다음 숙제</small>RTO · 언제까지 서비스를 되살릴 것인가</a></nav></article></div></main>
+<footer><a href="../../">전체 노트 보기</a><span>배운 내용을 내 언어로 쌓아갑니다.</span></footer></div><script src="../../reading.js" defer></script></body></html>

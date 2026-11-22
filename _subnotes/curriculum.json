@@ -1,0 +1,167 @@
+{
+  "title": "151기 1주차 IT경영전략 최종 숙제",
+  "confirmed_at": "2026-11-22",
+  "count": 32,
+  "topics": [
+    {
+      "number": 1,
+      "slug": "bcm",
+      "topic": "BCM"
+    },
+    {
+      "number": 2,
+      "slug": "drp",
+      "topic": "DRP"
+    },
+    {
+      "number": 3,
+      "slug": "draas",
+      "topic": "DRaaS"
+    },
+    {
+      "number": 4,
+      "slug": "it-compliance",
+      "topic": "IT-Compliance"
+    },
+    {
+      "number": 5,
+      "slug": "technology-valuation",
+      "topic": "기술 가치 평가"
+    },
+    {
+      "number": 6,
+      "slug": "bsc-it-bsc",
+      "topic": "BSC, IT-BSC"
+    },
+    {
+      "number": 7,
+      "slug": "swot",
+      "topic": "SWOT 분석"
+    },
+    {
+      "number": 8,
+      "slug": "sharing-economy",
+      "topic": "공유경제"
+    },
+    {
+      "number": 9,
+      "slug": "subscription-economy",
+      "topic": "구독경제"
+    },
+    {
+      "number": 10,
+      "slug": "ambient-commerce-computing",
+      "topic": "엠비언트 커머스/컴퓨팅"
+    },
+    {
+      "number": 11,
+      "slug": "itsm-slo-error-budget",
+      "topic": "ITSM(+SLO/에러버짓)"
+    },
+    {
+      "number": 12,
+      "slug": "sla",
+      "topic": "SLA"
+    },
+    {
+      "number": 13,
+      "slug": "iso-22301",
+      "topic": "ISO22301"
+    },
+    {
+      "number": 14,
+      "slug": "drs",
+      "topic": "DRS"
+    },
+    {
+      "number": 15,
+      "slug": "rto",
+      "topic": "RTO"
+    },
+    {
+      "number": 16,
+      "slug": "rpo",
+      "topic": "RPO"
+    },
+    {
+      "number": 17,
+      "slug": "bia",
+      "topic": "BIA"
+    },
+    {
+      "number": 18,
+      "slug": "isp",
+      "topic": "ISP"
+    },
+    {
+      "number": 19,
+      "slug": "ismp",
+      "topic": "ISMP"
+    },
+    {
+      "number": 20,
+      "slug": "esg",
+      "topic": "ESG경영"
+    },
+    {
+      "number": 21,
+      "slug": "it-governance",
+      "topic": "IT 거버넌스"
+    },
+    {
+      "number": 22,
+      "slug": "it-investment",
+      "topic": "(프로덱트)경제성평가기법+IT Roi투자성과평가"
+    },
+    {
+      "number": 23,
+      "slug": "three-four-c",
+      "topic": "4C/3C"
+    },
+    {
+      "number": 24,
+      "slug": "mece-liss",
+      "topic": "MECE+LISS"
+    },
+    {
+      "number": 25,
+      "slug": "scm",
+      "topic": "SCM"
+    },
+    {
+      "number": 26,
+      "slug": "mes",
+      "topic": "MES"
+    },
+    {
+      "number": 27,
+      "slug": "data-mining",
+      "topic": "data mining"
+    },
+    {
+      "number": 28,
+      "slug": "neural-network",
+      "topic": "신경망분석"
+    },
+    {
+      "number": 29,
+      "slug": "dark-patterns",
+      "topic": "다크패턴"
+    },
+    {
+      "number": 30,
+      "slug": "digital-cartel",
+      "topic": "디지털카르텔"
+    },
+    {
+      "number": 31,
+      "slug": "intellectual-property",
+      "topic": "지식재산권"
+    },
+    {
+      "number": 32,
+      "slug": "ax-transformation",
+      "topic": "AX/AX2.0"
+    }
+  ]
+}
